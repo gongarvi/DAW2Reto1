@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+*
+{
+    font-family: 'Roboto', sans-serif;
+}
+
+body
+{
+    background-image: url('https://wallpapercave.com/wp/wp2672827.jpg');
+    background-position: fixed;
+    background-size: cover;
+}
+
+.banner
+{
+    background-color: rgba(205, 211, 216, 0.616);
+}
