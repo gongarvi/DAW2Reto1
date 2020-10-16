@@ -1,13 +1,17 @@
+
 form{
-    display: inline-block;
-    margin: 2em;
     vertical-align: middle;
+    width: 33%;
+    margin: auto;
+    background-color: white;
+    margin-top: 2.5em;
+    padding: 3em;
+    border-radius: 2em;
 }
 .btn{
-    margin:auto;
+    display: block;
     text-align: center;
-}
-.formularios{
-    width: 100%;
-    margin: auto;
+    justify-content: center;
+    margin: 1em auto;
+
 }
