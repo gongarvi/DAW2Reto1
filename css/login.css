@@ -1,0 +1,13 @@
+form{
+    display: inline-block;
+    margin: 2em;
+    vertical-align: middle;
+}
+.btn{
+    margin:auto;
+    text-align: center;
+}
+.formularios{
+    width: 100%;
+    margin: auto;
+}

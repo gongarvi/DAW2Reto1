@@ -1,17 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-*
-{
-    font-family: 'Roboto', sans-serif;
-}
+
 
 body
 {
     background-image: url('https://wallpapercave.com/wp/wp2672827.jpg');
-    background-position: fixed;
+    background-attachment: fixed;
     background-size: cover;
+    background-repeat: 	no-repeat;
+    
+    
+  }
+/*--Menu--*/
+#menu{
+    width: 100%;
+    margin: 0;
 }
 
-.banner
-{
-    background-color: rgba(205, 211, 216, 0.616);
+.navbar{
+  background-color: orange;
+  padding: 0;  
+}
+.active{
+    font-weight: bold;
+}
+
+/*--Pie--*/
+
+
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: table;
+}
+
+#pie {
+    margin:0;
+    background-color: white;
+    display: table-row;
+    height: 0;
 }
