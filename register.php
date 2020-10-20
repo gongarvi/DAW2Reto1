@@ -10,17 +10,18 @@
             $password=base64_encode($password);
             var_dump($password);
             include "sql-connect.php";
-            $query="INSERT INTO usuario(`nombre`,`apellido`,`correo`,`password`) VALUES (:nombre,:apellido,:correo,:contrasenia)";
+            $query="INSERT INTO usuario(`nombre`,`apellido`,`correo`,`password`) VALUES (?,?,?,?)";
             $query=$conn->prepare($query);
             $query->execute(
-                array(
-                    ":nombre"=>$nombre,
-                    ":apellido"=>$apellido,
-                    ":correo"=>$email,
-                    ":contrasenia"=>$password
-                )
+                array($nombre,$apellido,$email,$password)
             );  
-            //header("Location: " . $_SERVER["HTTP_REFERER"]);          
+            $error=$query->errorCode();
+            if($error!=0){
+                setcookie("error","Error ($error): al registrar",time()+60);
+            }else{
+                setcookie("success","Se registro correctamente",time()+60);              
+            }
+            header("Location: " . $_SERVER["HTTP_REFERER"]);          
         }
     }else{
         

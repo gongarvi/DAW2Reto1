@@ -15,6 +15,8 @@
     
 </head>
 <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <div id="cabecera">
         <h1>Blog Servidor</h1>
     </div>
@@ -58,40 +60,36 @@
             <input class="btn btn-primary mb-2" type="submit" value="Registrar">
         </form>
     </div>
-    <div id="modal">
-    <?php
-        
-        
-        if( isset($_COOKIE["error"])){
-            $error=$_COOKIE["error"];
-            setcookie("error","",time());
-            echo "<div  class='modal' tabindex='-1' role='dialog'>
-                <div class='modal-body'>
-                    <div class='alert  alert-danger' role='alert'>
-                        $error
-                    </div>
-                </div>
-                   
-            </div>";
-            echo '<script type="text/JavaScript">  
-                   /*
-                   var timeout=setTimeout(function(){
-                        $(".modal").hide();
-                    },1000);
-                    */
-                </script>'; 
-        }else{
-            echo '<script type="text/JavaScript">  
-                    console.log("No he entrado a la cookie");
-                </script>'; 
-        }
-    ?>
-    </div>
     <div id="pie">
       <h1>Lorem Ipsum</h1>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <div id='modal' class='modal' tabindex='-1' role='dialog'>
+        <?php
+
+            if( isset($_COOKIE["error"])){
+                    $error=$_COOKIE["error"];
+                    setcookie("error","",time());
+                    echo "<div class='modal-body'>
+                                <div class='alert  alert-danger' role='alert'>
+                                $error 
+                                </div>
+                            </div>    
+                    </div>";
+
+                    echo "
+                    <script type='text/Javascript'>
+                        $('.modal').show();
+                        setTimeout(()=>{document.getElementById('modal').style.display='none';},3000);
+                    </script>
+                    ";
+                }else{
+                    echo '<script type="text/JavaScript">  
+                            console.log("No he entrado a la cookie");
+                        </script>'; 
+                }
+        ?>
+    </div>
     <script src="javascript/login-register.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </body>
 </html>
