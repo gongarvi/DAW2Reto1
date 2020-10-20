@@ -33,4 +33,3 @@ function testSomethingWritten(evento){
         evento.target.style.backgroundColor = "white";
     }
 }
-window.addEventListener('load', inicio);
