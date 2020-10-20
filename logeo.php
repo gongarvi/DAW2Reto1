@@ -9,32 +9,34 @@
             if(preg_match($password_regex,$password)==1){
                 login($email,$password);
             }else{
-                setcookie("error","Contraseña no valida",time()+(60*60*1000));
-            header("Location: " . $_SERVER["HTTP_REFERER"]);
+                error();
             }
         }else{
-            setcookie("error","Email no valido",time()+(60*60*1000));
-            header("Location: " . $_SERVER["HTTP_REFERER"]);
+            error();
         }
     }else{
-        setcookie("error","Debes rellenar el email y la contraseña",time()+(60*60*1000));
-        header("Location: " . $_SERVER["HTTP_REFERER"]);
+        error();
     }
-
     function login($email,$password){
         include "sql-connect.php";
-        $query="SELECT nombre, apellido FROM usuario WHERE password=:password AND correo=:correo";
+        $query="SELECT nombre, apellido FROM usuario WHERE correo=:correo";
         $query=$conn->prepare($query);
-        $query->execute([":correo"=>$email,":password"=>$password]);
+        $query->execute([":correo"=>$email]);
         $usuario=$query->fetch();
         if($usuario!=null){
-            $_SESSION["name"]=$usuario["nombre"];
-            $_SESSION["surname"]=$usuario["apellido"];
-            $_SESSION["email"]=$email;
-            
+            if(base64_decode($usuario["password"])==$password){
+                $_SESSION["name"]=$usuario["nombre"];
+                $_SESSION["surname"]=$usuario["apellido"];
+                $_SESSION["email"]=$email;    
+            }else{
+                error();
+            }
         }else{
-            setcookie("error","Login no valido",time()+60);
-            header("Location: " . $_SERVER["HTTP_REFERER"]);
+            error();
         }
+    }
+    function error(){
+        setcookie("error","Login no valido",time()+60);
+        header("Location: " . $_SERVER["HTTP_REFERER"]);
     }
 ?>
