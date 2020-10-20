@@ -43,8 +43,4 @@ function testSomethingWritten(evento) {
         }
         
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 37db0a8155e1ffca74adef28426902ae6afb74d9
