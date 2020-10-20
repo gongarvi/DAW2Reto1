@@ -1,5 +1,3 @@
-
-
 document.getElementById("register_email").addEventListener("change", ()=>{
     var email=document.getElementById("register_email").value;
     if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/).test(email)){

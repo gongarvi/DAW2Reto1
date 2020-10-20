@@ -12,21 +12,9 @@
     <div id="cabecera">
         <h1>Blog Servidor</h1>
     </div>
-    <div id="menu">
-        <nav class="navbar navbar-expand-lg navbar-expand-sm navbar-light">
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Servidor</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
-                </li>
-              </ul>
-            </div>
-            <a class="nav-link navnar-light nav-item" href="login.php">Login</a>
-          </nav>
-    </div>
+    <?php
+        include "menu.php";
+    ?>
     <div id="submenu">
        
     </div>
