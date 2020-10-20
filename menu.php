@@ -8,6 +8,18 @@
                 <li class="nav-item">
                   <a class="nav-link" href="#">Link</a>
                 </li>
+                <?php
+                        include "sql-connect.php";
+                        $query="SELECT id, nombre, color_asociado,color_texto	 FROM tema";
+                        $query=$conn->prepare($query);
+                        $query->execute();
+                        $temas=$query->fetchAll();
+                        foreach($temas as $tema){
+                        echo '<li class="nav-item">
+                        <a class="nav-link" href="#">'.$tema['nombre'].'</a>
+                      </li>';}
+                ?>
+                
               </ul>
             </div>
             <?php
