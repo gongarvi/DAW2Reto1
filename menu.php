@@ -2,22 +2,17 @@
         <nav class="navbar navbar-expand-lg navbar-expand-sm navbar-light">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Servidor</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
-                </li>
                 <?php
-                        include "sql-connect.php";
-                        $query="SELECT id, nombre, color_asociado,color_texto	 FROM tema";
-                        $query=$conn->prepare($query);
-                        $query->execute();
-                        $temas=$query->fetchAll();
-                        foreach($temas as $tema){
-                        echo '<li class="nav-item">
-                        <a class="nav-link" href="#">'.$tema['nombre'].'</a>
-                      </li>';}
+                  include "sql-connect.php";
+                  $query="SELECT id, nombre, color_asociado,color_texto	 FROM tema";
+                  $query=$conn->prepare($query);
+                  $query->execute();
+                  $temas=$query->fetchAll();
+                  foreach($temas as $tema){
+                    echo '<li class="nav-item">
+                      <a class="nav-link" href="#">'.$tema['nombre'].'</a>
+                    </li>';
+                  }
                 ?>
                 
               </ul>

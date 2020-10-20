@@ -18,7 +18,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <div id="cabecera">
-        <h1>Blog Servidor</h1>
+        <h1><a href="index.php">Blog Servidor</a></h1>
     </div>
     <?php
         include "menu.php";
@@ -70,19 +70,24 @@
             if( isset($_COOKIE["error"])){
                     $error=$_COOKIE["error"];
                     setcookie("error","",time());
-                    echo "<div class='modal-body'>
-                                <div class='alert  alert-danger' role='alert'>
-                                $error 
-                                </div>
+                    echo "
+                    <div class='modal-dialog modal-dialog-centered' role='document'>
+                        <div class='modal-content'>
+                            <div class='modal-body'>
+                                    <div class='alert  alert-danger' role='alert'>
+                                        $error 
+                                    </div>
                             </div>    
+                        </div>
+                    </div>
                     </div>";
 
-                    echo "
-                    <script type='text/Javascript'>
-                        $('.modal').show();
-                        setTimeout(()=>{document.getElementById('modal').style.display='none';},3000);
+                    echo '
+                    <script type="text/Javascript">
+                        $(" .modal").modal();
+                        setTimeout(()=>{$(".modal").modal("hide");console.log("Ha entrado");},4000);
                     </script>
-                    ";
+                    ';
                 }else{
                     echo '<script type="text/JavaScript">  
                             console.log("No he entrado a la cookie");

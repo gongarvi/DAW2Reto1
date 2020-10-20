@@ -6,6 +6,8 @@ form{
     background-color: white;
     margin-top: 2.5em;
     padding: 2.5em;
+    padding-top: 1.75em;
+    padding-bottom: 1.75em;
     border-radius: 2em;
 }
 .btn{

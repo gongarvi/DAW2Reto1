@@ -32,7 +32,7 @@
                 $_SESSION["name"]=$usuario["nombre"];
                 $_SESSION["surname"]=$usuario["apellido"];
                 $_SESSION["email"]=$email;    
-               // header("Location: " . $_SERVER["HTTP_REFERER"]);
+                header("Location: " . $_SERVER["HTTP_REFERER"]);
             }else{
                 error();
             }
