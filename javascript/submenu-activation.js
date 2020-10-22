@@ -11,8 +11,9 @@ function abrirSubmenu(event){
     tema=tema.trim();
     phpCallback(tema)
     .then((resolve)=>{
-        console.log(tema);
-        appendToSubmenu(resolve);
+        localStorage.setItem("apartados",resolve.apartados);
+        localStorage.setItem("tema_seleccionado",resolve.tema)
+        appendToSubmenu(resolve.apartados);
     })
     .catch((error)=>{
         console.log(error);
@@ -26,7 +27,8 @@ async function phpCallback(tema){
         $.ajax({
         url: "submenu-back.php?tema="+tema+"",
         type: "get",
-            success : (function (data) {           
+            success : (function (data) {        
+                data=JSON.parse(data);
                 resolve(data);
             }),
             error : (function(error){
@@ -36,5 +38,25 @@ async function phpCallback(tema){
     });
 }
 function appendToSubmenu(array){
-    document.getElementById("submenu").setAttribute("class","submenu-active");
+    console.log(array);
+    var submenu = document.getElementById("submenu");
+    submenu.removeChild(submenu.firstChild);
+    submenu.className="submenu submenu-active";
+    submenu.addEventListener("click",deappendSubmenu);
+    var ul=document.createElement("ul");
+    submenu.appendChild(ul);
+    array.forEach(element => {
+        let li = document.createElement("li");
+        let a = document.createElement("a");
+        li.appendChild(a);
+        a.text=element.nombre;
+        a.href="contenido.php?tema="+element.tema+"&apartado="+element.apartado;
+        ul.appendChild(li);
+    });
+       
+}
+
+function deappendSubmenu(){
+    var submenu = document.getElementById("submenu");
+    submenu.className="submenu";
 }

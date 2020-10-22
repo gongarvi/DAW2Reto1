@@ -36,7 +36,6 @@
   </nav>
 </div>
 
-<div id ="submenu">
-
+<div id ="submenu" class="submenu">
 </div>
 <script src="javascript/submenu-activation.js"></script>

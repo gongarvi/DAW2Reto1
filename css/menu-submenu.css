@@ -19,16 +19,36 @@
     outline: none;
 }
 
-#submenu{
+.submenu{
     position: absolute;
     width: 100%;
     height: 100%;   
     top: 0;
-    z-index: -1;
+    display: none;
     background-color: rgba(0, 0, 0, 0);
+    color: #FFF;
+    z-index: -1;
+    padding: 5em;;
 }
 
 .submenu-active{
+    display: block;
     z-index: 100;
     background-color: rgba(0, 0, 0, 0.5);
+}
+.submenu a{
+    text-decoration: none;
+    color: white;
+}
+.submenu ul{
+    height: fit-content;
+    list-style: none;
+    position: relative;
+    width: fit-content;
+    padding: 1em;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 0.5em;
+    margin: auto;
+    vertical-align: middle;
+    text-align: center;
 }

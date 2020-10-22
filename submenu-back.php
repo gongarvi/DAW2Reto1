@@ -10,9 +10,9 @@
         if(count($apartados)==0){
             header('HTTP/1.1 404 Not Found');
         }else{
-            $resultado=array();
+            $resultado=array("tema"=>$apartados[0]["tema_id"],"apartados"=>array());
             foreach($apartados as $apartado){
-                $resultado[]=array(
+                $resultado["apartados"][]=array(
                     "tema"=>$apartado["tema_id"],
                     "apartado"=>$apartado["apartado_id"],
                     "nombre"=>$apartado["nombre"]
