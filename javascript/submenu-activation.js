@@ -52,9 +52,10 @@ function appendToSubmenu(array){
         a.text=element.nombre;
         a.href="contenido.php?tema="+element.tema+"&apartado="+element.apartado;
         ul.appendChild(li);
-    });
-       
+    }); 
+    ul.style.marginTop = (-1)*(ul.clientHeight/2)+"px";
 }
+   
 
 function deappendSubmenu(){
     var submenu = document.getElementById("submenu");
