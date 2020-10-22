@@ -1,5 +1,3 @@
-
-
 body
 {
     background-image: url('https://wallpapercave.com/wp/wp2672827.jpg');
@@ -9,31 +7,14 @@ body
     
     
   }
-/*--Menu--*/
-#menu{
-    width: 100%;
-    margin: 0;
-}
-
-.navbar{
-  background-color: orange;
-  padding: 0;  
-}
-.active{
-    font-weight: bold;
-}
 
 /*--Pie--*/
-
-
-
 html, body {
     height: 100%;
     width: 100%;
     margin: 0;
     display: table;
 }
-
 #pie {
     margin:0;
     background-color: white;

@@ -17,14 +17,14 @@
     <?php
         include "menu.php";
     ?>
-    <div id="submenu">
-       
-    </div>
     <div id="contenido">
       
     </div>
     <div id="pie">
       <h1>Lorem Ipsum</h1>
     </div>
+    <?php
+        include "alert.php";
+    ?>
 </body>
 </html>

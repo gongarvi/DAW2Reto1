@@ -23,9 +23,6 @@
     <?php
         include "menu.php";
     ?>
-    <div id="submenu">
-       
-    </div>
     <div id="contenido">
         <form name="login" class="from-group" method="post" action="logeo.php">
         <h2>Login</h2>
@@ -63,38 +60,9 @@
     <div id="pie">
       <h1>Lorem Ipsum</h1>
     </div>
-
-    <div id='modal' class='modal' tabindex='-1' role='dialog'>
-        <?php
-
-            if( isset($_COOKIE["error"])){
-                    $error=$_COOKIE["error"];
-                    setcookie("error","",time());
-                    echo "
-                    <div class='modal-dialog modal-dialog-centered' role='document'>
-                        <div class='modal-content'>
-                            <div class='modal-body'>
-                                    <div class='alert  alert-danger' role='alert'>
-                                        $error 
-                                    </div>
-                            </div>    
-                        </div>
-                    </div>
-                    </div>";
-
-                    echo '
-                    <script type="text/Javascript">
-                        $(" .modal").modal();
-                        setTimeout(()=>{$(".modal").modal("hide");console.log("Ha entrado");},4000);
-                    </script>
-                    ';
-                }else{
-                    echo '<script type="text/JavaScript">  
-                            console.log("No he entrado a la cookie");
-                        </script>'; 
-                }
-        ?>
-    </div>
+    <?php
+        include "alert.php";
+    ?>
     <script src="javascript/login-register.js"></script>
 </body>
 </html>
