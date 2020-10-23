@@ -20,6 +20,9 @@
                 setcookie("success","Se registro correctamente",time()+60);              
             }
             header("Location: " . $_SERVER["HTTP_REFERER"]);          
+        }else{
+            setcookie("error","Registro no valido",time()+60);
+            header("Location: " . $_SERVER["HTTP_REFERER"]);          
         }
     }else{
         

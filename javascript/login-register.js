@@ -3,7 +3,7 @@ document.getElementById("register_email").addEventListener("change", () => {
     if (email == null || email.length == 0 || /^\s+$/.test(email)) {
         document.getElementById("register_email").style.backgroundColor = "white";
     } else {
-        if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/).test(email)) {
+        if (comprobarPassword(password)) {
             document.getElementById("register_email").style.backgroundColor = "red";
         } else {
             document.getElementById("register_email").style.backgroundColor = "white";
@@ -27,6 +27,17 @@ document.getElementById("register_password").addEventListener("change", () => {
 document.getElementById("register_name").addEventListener("change", testSomethingWritten);
 document.getElementById("register_surname").addEventListener("change", testSomethingWritten);
 
+document.getElementsByTagName("form")[1].addEventListener("submit",(event)=>{
+    let password=document.getElementById("register_password").textContent;
+    if(!comprobarPassword(password)){
+        event.preventDefault();
+    }
+});
+
+
+function comprobarPassword(password){
+    return  (/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/).test(password);
+}
 
 function testSomethingWritten(evento) {
     var value = evento.target.value;
