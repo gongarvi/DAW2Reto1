@@ -20,13 +20,14 @@ CREATE TABLE apartado(
     id int primary key auto_increment,
     id_tema int,
     nombre varchar(64),
+    titulo varchar(32),
     fecha timestamp DEFAULT NOW(),
     FOREIGN KEY (id_tema) REFERENCES tema(id) ON UPDATE CASCADE
 );
 CREATE TABLE contenido(
     id int primary key auto_increment,
     id_apartado int,
-    titulo varchar(256),
+    titulo varchar(32),
     texto varchar(512),
     ruta_imagen varchar(256),
     FOREIGN KEY (id_apartado) REFERENCES apartado(id) ON UPDATE CASCADE
