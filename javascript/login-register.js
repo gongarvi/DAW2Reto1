@@ -17,7 +17,7 @@ document.getElementById("register_password").addEventListener("change", () => {
         document.getElementById("register_password").style.backgroundColor = 'white';
     } else {
         //La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.NO puede tener otros símbolos.
-        if (!(/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/).test(password)) {
+        if (comprobarPassword(password)) {
             document.getElementById("register_password").style.backgroundColor = 'red';
         } else {
             document.getElementById("register_password").style.backgroundColor = "white";
@@ -28,7 +28,8 @@ document.getElementById("register_name").addEventListener("change", testSomethin
 document.getElementById("register_surname").addEventListener("change", testSomethingWritten);
 
 document.getElementsByTagName("form")[1].addEventListener("submit",(event)=>{
-    let password=document.getElementById("register_password").textContent;
+    let password=document.getElementById("register_password").value;
+    console.log(comprobarPassword(password));
     if(!comprobarPassword(password)){
         event.preventDefault();
     }
