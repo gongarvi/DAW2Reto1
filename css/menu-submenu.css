@@ -5,6 +5,7 @@
 }
 
 .navbar{
+    z-index: 0;
   background-color: orange;
   padding: 0;  
 }
@@ -18,28 +19,84 @@
 .navbar-submenu-opener:focus{
     outline: none;
 }
-
-.submenu{
+#submenu{
     position: absolute;
     width: 100%;
     height: 100%;   
     top: 0;
-    display: none;
-    background-color: rgba(0, 0, 0, 0);
     color: #FFF;
+}
+.submenu{
     z-index: -1;
 }
-
-.submenu-active{
-    display: block;
+.submenu.deactive{    
+    animation-name: cerrar;
+    animation-duration: 1s;
+}
+/*
+.submenu.deactive{
+    
+    background-color: rgba(0, 0, 0, 0);
+}
+*/
+.submenu.active{
     z-index: 100;
+    display: block;
+    animation-name: abrir;
+    animation-duration: 1s;
     background-color: rgba(0, 0, 0, 0.5);
 }
-.submenu a{
+
+@keyframes abrir{
+    from{
+        z-index: -1;
+        background-color: rgba(0, 0, 0, 0);
+    }
+    to{
+        z-index: 100;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+}
+@-webkit-keyframes abrir{
+    from{
+        z-index: -1;
+        background-color: rgba(0, 0, 0, 0);
+        
+    }
+    to{
+        z-index: 100;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+}
+
+@keyframes cerrar{
+    to{
+        z-index: -1;
+        background-color: rgba(0, 0, 0, 0);
+    }
+    from{
+        z-index: 100;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+}
+@-webkit-keyframes cerrar{
+    to{
+        z-index: -1;
+        background-color: rgba(0, 0, 0, 0);
+        
+    }
+    from{
+        z-index: 100;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+}
+#submenu a{
     text-decoration: none;
     color: white;
 }
-.submenu ul{
+#submenu ul{
     height: fit-content;
     list-style: none;
     position: relative;
@@ -49,7 +106,9 @@
     border-radius: 0.5em;
     margin: auto;
     top:50%;
+    animation: inherit;
+    
 }
-.submenu li{
+#submenu li{
     vertical-align: middle;
 }
