@@ -50,7 +50,7 @@ function testSomethingWritten(evento) {
         }
         else{
             evento.target.style.backgroundColor="white";
-        } 
+        }
         
     }
 }
