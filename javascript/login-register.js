@@ -28,7 +28,8 @@ document.getElementById("register_name").addEventListener("change", testSomethin
 document.getElementById("register_surname").addEventListener("change", testSomethingWritten);
 
 document.getElementsByTagName("form")[1].addEventListener("submit",(event)=>{
-    let password=document.getElementById("register_password").textContent;
+    let password=document.getElementById("register_password").value;
+    console.log(comprobarPassword(password));
     if(!comprobarPassword(password)){
         event.preventDefault();
     }
