@@ -1,14 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-*
-{
-    font-family: 'Roboto', sans-serif;
-}
-
 body
 {
     background-image: url('https://wallpapercave.com/wp/wp2672827.jpg');
-    background-position: fixed;
+    background-attachment: fixed;
     background-size: cover;
+    background-repeat: 	no-repeat;
+    
+    
+  }
+
+/*--Pie--*/
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: table;
+}
+#pie {
+    margin:0;
+    background-color: white;
+    display: table-row;
+    height: 0;
 }
 
 .banner
@@ -87,3 +98,11 @@ body
 }
 
 /* Fin Contenido */
+
+.modal-body{
+    padding: 0;
+    margin:0;
+}
+.alert{
+    margin:0;
+}
