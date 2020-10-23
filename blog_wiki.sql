@@ -20,7 +20,7 @@ CREATE TABLE apartado(
     id int primary key auto_increment,
     id_tema int,
     nombre varchar(64),
-    fecha timestamp DEFAUTL NOW(),
+    fecha timestamp DEFAULT NOW(),
     FOREIGN KEY (id_tema) REFERENCES tema(id) ON UPDATE CASCADE
 );
 CREATE TABLE contenido(
