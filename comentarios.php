@@ -8,7 +8,7 @@
         $query->execute();
         $comentarios=$query->fetchAll();
         foreach($comentarios as $comentario){
-            echo '<p>'.$comentario['usuario.nombre'+ 'usuario.apellido' + 'comentario.texto' ].'</p><p id="fecha" style= font-family:"italic";
+            echo '<p>'.$comentario['usuario.nombre'] ." ". $comentario['usuario.apellido']." ". $comentario['comentario.texto'].'</p><p id="fecha" style= font-family:"italic";
             font-size:"6px";>'.$comentario['fecha'].'</p>';
         }
     ?>
