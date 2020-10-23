@@ -26,7 +26,8 @@ CREATE TABLE apartado(
 CREATE TABLE contenido(
     id int primary key auto_increment,
     id_apartado int,
-    texto varchar(256),
+    titulo varchar(256),
+    texto varchar(512),
     ruta_imagen varchar(256),
     FOREIGN KEY (id_apartado) REFERENCES apartado(id) ON UPDATE CASCADE
 );
