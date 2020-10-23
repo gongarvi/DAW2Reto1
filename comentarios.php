@@ -3,7 +3,7 @@
         include "sql-connect.php";
         $query="SELECT usuario.nombre, usuario.apellido ,comentario.texto, comentario.fecha,comentario.padre, apartado.nombre FROM usuario INNER JOIN  
             comentario ON comentario.id_usuario=usuario.id  INNER JOIN apartado ON apartado.id=comentario.id_apartado WHERE apartado.id=? 
-        AND apartado.id_tema=?";
+            AND apartado.id_tema=?";
         $query=$conn->prepare($query);
         $query->execute();
         $comentarios=$query->fetchAll();
