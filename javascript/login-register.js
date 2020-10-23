@@ -17,7 +17,7 @@ document.getElementById("register_password").addEventListener("change", () => {
         document.getElementById("register_password").style.backgroundColor = 'white';
     } else {
         //La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.NO puede tener otros símbolos.
-        if (!(/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/).test(password)) {
+        if (comprobarPassword(password)) {
             document.getElementById("register_password").style.backgroundColor = 'red';
         } else {
             document.getElementById("register_password").style.backgroundColor = "white";
