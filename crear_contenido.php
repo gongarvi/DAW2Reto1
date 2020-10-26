@@ -24,26 +24,6 @@
         
         <?php
             include "sql-connect.php";
-            if (isset($_GET["apartado"])) {
-                $numApartado = $_GET["apartado"];
-            }
-            $query2="SELECT nombre FROM apartado WHERE id=?";
-            $query2=$conn->prepare($query2);
-            $query2->execute([$numApartado]);
-            $tituloApartado=$query2->fetch();
-            echo '<h1 class="tituloTutorial">'.$tituloApartado['nombre'].'</h1>';
-
-            $query="SELECT ruta_imagen, texto, titulo FROM contenido WHERE contenido.id_apartado=?";
-            $query=$conn->prepare($query);
-            $query->execute([$numApartado]);
-            $datos=$query->fetchall();
-            foreach($datos as $dato){
-                echo '<div class="divContenido">';
-                echo '<h1 class="pasoTutorial">'.$dato['titulo'].'</h1>';
-                echo '<img class="imgTutorial" src="'.$dato['ruta_imagen'].'" alt="">';
-                echo '<p class="textoTutorial">'.$dato['texto'].'</p>';    
-                echo '</div>';
-            }
         ?>
         
     </div>
