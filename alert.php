@@ -25,7 +25,7 @@
                             </script>'; 
                     }else{
                         echo $_COOKIE[$caso];
-                        setcookie("error","",time());
+                        setcookie($caso,"",time());
                         echo '<script type="text/JavaScript">
                                 $(".modal").modal();
                                 setTimeout(()=>{$(".modal").modal("hide");},4000);
@@ -39,9 +39,4 @@
 </div>
    
 <script type="text/JavaScript"> 
-    var alert = document.getElementsByClassName("alert");
-    alert.item(0).addEventListener("change",()=>{
-        $(".modal").modal();
-        setTimeout(()=>{$(".modal").modal("hide");},4000);
-    });
 </script>

@@ -18,7 +18,7 @@
         </div>
     </div>
     <?php
-        include "menu.php";
+        include "./menu/menu.php";
     ?>
     <div id="contenido">
         
