@@ -21,7 +21,7 @@
     function login($email,$contrasenia){
         
         include "sql-connect.php";
-        $query="SELECT nombre, apellido, password FROM usuario WHERE correo=:correo";
+        $query="SELECT nombre, apellido, password,administrador FROM usuario WHERE correo=:correo";
         $query=$conn->prepare($query);
         $query->execute([":correo"=>$email]);
         $usuario=$query->fetch();
@@ -31,7 +31,8 @@
             if(base64_decode($usuario["password"])==$contrasenia){
                 $_SESSION["name"]=$usuario["nombre"];
                 $_SESSION["surname"]=$usuario["apellido"];
-                $_SESSION["email"]=$email;    
+                $_SESSION["email"]=$email;
+                $_SESSION["administrador"]=($usuario["administrador"]==1)?true:false;
                 setcookie("success","Login correcto",time()+60);
                 header("Location: " . $_SERVER["HTTP_REFERER"]);
             }else{

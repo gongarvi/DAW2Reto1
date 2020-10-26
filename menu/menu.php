@@ -22,8 +22,8 @@
       </ul>
     </div>
     <?php
-      $login='<a class="nav-link navnar-light nav-item" href="login.php">Login</a>';
-      $logout='<a class="nav-link navnar-light nav-item" href="logout.php">Logout</a>';
+      $login='<a class="nav-link navnar-light nav-item" href="http://'.$_SERVER["SERVER_NAME"].'/login.php">Login</a>';
+      $logout='<a class="nav-link navnar-light nav-item" href="http://'.$_SERVER["SERVER_NAME"].'/logout.php">Logout</a>';
       if(isset($_SESSION["name"]) && isset($_SESSION["surname"]) && isset($_SESSION["email"])){
           if($_SESSION["name"]!="" && $_SESSION["surname"]!="" && $_SESSION["email"]!=""){
               echo $logout;

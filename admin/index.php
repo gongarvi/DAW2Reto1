@@ -39,7 +39,7 @@
       <h1>Lorem Ipsum</h1>
     </div>
     <?php
-        include "../alert.php";
+        include "./../alert.php";
     ?>
 </body>
 </html>
