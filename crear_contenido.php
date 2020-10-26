@@ -12,6 +12,7 @@
 <body>  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="javascript/crear_contenido.js"></script>
     <div id="cabecera">
         <div class=" cuadrado">
             <h1>Blog DAW2</h1>
@@ -23,16 +24,71 @@
     <div id="contenido">
         <div id="crearNuevo">
             <h1>Crear contenido</h1>
-            <form id="formularioNuevo" name="login" class="from-group" method="post" action="logeo.php">
+            <form id="formularioNuevo" name="login" class="from-group" method="post" action="insertContenido.php">
+            <!-- Empieza el SELECT (apartados) -->
             <div>
-                <label for="email">Email</label>
-                <input class="form-control" type="text" name="email" id="login_email" required>
+                <label class="labelForm" for="apartado">Apartado:</label>
+                <select id="inputState" class="form-control">
+                    <?php
+                        include "sql-connect.php";
+                        if (isset($_GET["apartado"])) {
+                            $numApartado = $_GET["apartado"];
+                        }
+                        $query="SELECT nombre FROM apartado";
+                        $query=$conn->prepare($query);
+                        $query->execute();
+                        $datos=$query->fetchall();
+                        foreach($datos as $dato){
+                            echo '<option>'.$dato['nombre'].'</option>';
+                        }
+                    ?>
+                </select>
             </div>
+            <!-- Acaba el SELECT (apartados) -->
+
+            <!-- Empieza el input (texto) -->
             <div>
-                <label for="email">Contraseña</label>
-                <input class="form-control" type="password" name="password" id="login_password" required>
+                <label class="labelForm" for="titulo">Titulo:</label>
+                <input class="form-control" id="titulo">
             </div>
-            <input class="btn btn-primary mb-2" type="submit" value="Login">
+            <!-- Acaba el input (titulo) -->
+
+            <!-- Empieza el textarea (texto) -->
+            <div>
+                <label class="labelForm" for="textArea">Texto:</label>
+                <textarea class="form-control" id="textArea" rows="3"></textarea>
+            </div>
+            <!-- Acaba el textArea (texto) -->
+            <br>
+            <!-- Radio buttons para elegir si iamgen o ruta -->
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                <label class="form-check-label" for="inlineRadio1">Archivo</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input checked class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                <label class="form-check-label" for="inlineRadio2">Ruta</label>
+            </div>
+            <!-- Fin radio buttons -->
+
+            <!-- Empieza el input file/input (imagen) -->
+            
+            <div class="custom-file radio1">
+                <!-- <label class="labelForm ">Imagen:</label> -->
+                <input type="file" class="custom-file-input" id="inputGroupFile01">
+                <label class="custom-file-label" for="inputGroupFile01">Seleccione el archivo</label>
+            </div>
+            
+            <!-- Empieza el input para la ruta de la imagen -->
+            <div class="radio2">
+                <!-- <label class="labelForm" for="rutaImg">Ruta del archivo:</label> -->
+                <input class="form-control" id="rutaImg" placeholder="Escriba aqui la url de la imagen">
+            </div>
+
+            <div>
+                <input class="labelForm btn btn-danger mb-2" type="submit" value="Crear">
+            </div>
+            
         </form>
         </div>
     </div>

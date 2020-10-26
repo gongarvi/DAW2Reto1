@@ -23,4 +23,22 @@
 
 #formularioNuevo{
     text-align: center;
+    color: white;
+}
+
+.subirImg{
+    background-color: transparent!important;
+    border: none!important;
+}
+
+.labelForm{
+    margin-top: 2em;
+}
+
+.radio1{
+    display: none;
+}
+
+.radio2{
+    display: inline;
 }
