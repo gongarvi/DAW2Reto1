@@ -27,15 +27,18 @@
             if (isset($_GET["apartado"])) {
                 $numApartado = $_GET["apartado"];
             }
-            $query2="SELECT nombre FROM apartado WHERE id=?";
+            if (isset($_GET["tema"])) {
+                $numTema = $_GET["tema"];
+            }
+            $query2="SELECT nombre FROM apartado WHERE id=? AND id_tema=?";
             $query2=$conn->prepare($query2);
-            $query2->execute([$numApartado]);
+            $query2->execute([$numApartado, $numTema]);
             $tituloApartado=$query2->fetch();
             echo '<h1 class="tituloTutorial">'.$tituloApartado['nombre'].'</h1>';
 
-            $query="SELECT ruta_imagen, texto, titulo FROM contenido WHERE contenido.id_apartado=?";
+            $query="SELECT ruta_imagen, texto, titulo FROM contenido WHERE id_apartado=? AND id_tema=?";
             $query=$conn->prepare($query);
-            $query->execute([$numApartado]);
+            $query->execute([$numApartado, $numTema]);
             $datos=$query->fetchall();
             foreach($datos as $dato){
                 echo '<div class="divContenido">';
