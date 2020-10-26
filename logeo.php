@@ -32,6 +32,7 @@
                 $_SESSION["name"]=$usuario["nombre"];
                 $_SESSION["surname"]=$usuario["apellido"];
                 $_SESSION["email"]=$email;    
+                setcookie("success","Login correcto",time()+60);
                 header("Location: " . $_SERVER["HTTP_REFERER"]);
             }else{
                 error();
