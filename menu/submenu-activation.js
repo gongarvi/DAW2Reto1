@@ -42,7 +42,7 @@ function abrirSubmenu(event){
 async function phpCallback(tema){
     return new Promise((resolve,reject)=>{
         $.ajax({
-        url: "submenu-back.php?tema="+tema+"",
+        url: "../submenu-back.php?tema="+tema+"",
         type: "get",
             success : (function (data) {        
                 data=JSON.parse(data);
