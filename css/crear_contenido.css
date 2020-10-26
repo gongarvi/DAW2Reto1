@@ -1,0 +1,44 @@
+#contenido{
+    /* background-color: aqua; */
+    height: fit-content;
+    width: 100%;
+    margin-top: 2%;
+}
+
+#crearNuevo{
+    width: 70%;
+    height: fit-content;
+    margin: auto;
+    margin-bottom: 1em;
+    padding: 2em;
+    background-color: rgba(54, 48, 48, 0.568);
+    border: 1px solid rgba(0, 0, 0, 0.349);
+    border-radius: 10px;
+    
+}
+
+#crearNuevo h1{
+    text-align: center;
+}
+
+#formularioNuevo{
+    text-align: center;
+    color: white;
+}
+
+.subirImg{
+    background-color: transparent!important;
+    border: none!important;
+}
+
+.labelForm{
+    margin-top: 2em;
+}
+
+.radio1{
+    display: none;
+}
+
+.radio2{
+    display: inline;
+}
