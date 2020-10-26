@@ -17,19 +17,22 @@ CREATE TABLE tema(
     color_texto varchar(9)
 );
 CREATE TABLE apartado(
-    id int primary key auto_increment,
+    id int auto_increment,
     id_tema int,
     nombre varchar(64),
     fecha timestamp DEFAULT NOW(),
+    primary key(id,id_tema),
     FOREIGN KEY (id_tema) REFERENCES tema(id) ON UPDATE CASCADE
 );
 CREATE TABLE contenido(
-    id int primary key auto_increment,
+    id int,
     id_apartado int,
+    id_tema int,
     texto varchar(512),
     ruta_imagen varchar(256),
     titulo varchar(256),
-    FOREIGN KEY (id_apartado) REFERENCES apartado(id) ON UPDATE CASCADE
+    primary key(id,id_apartado,id_tema),
+    FOREIGN KEY (id_apartado,id_tema) REFERENCES apartado(id,id_tema) ON UPDATE CASCADE
 );
 
 CREATE TABLE comentario(
@@ -55,8 +58,8 @@ INSERT INTO `apartado` (`id`, `id_tema`, `nombre`, `fecha`) VALUES
 (3, 2, 'Variables', '2020-10-23 11:24:27'),
 (4, 2, 'Funciones', '2020-10-23 11:24:27');
 
-INSERT INTO `contenido` (`id`, `id_apartado`, `texto`, `ruta_imagen`, `titulo`) VALUES
-(1, 1, 'Esto es una prueba de ARRAYS\r\n\r\nLorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa omnis assumenda quae nemo veritatis laborum veniam cumque a voluptatem, nihil eos! Obcaecati alias voluptatem sit. Vel nisi tempora quos temporibus?', 'https://cdn.programiz.com/sites/tutorial2program/files/c-arrays.jpg', 'Crear un array'),
-(2, 2, 'Texto de  prueba de BUCLES\r\n\r\nLorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa omnis assumenda quae nemo veritatis laborum veniam cumque a voluptatem, nihil eos! Obcaecati alias voluptatem sit. Vel nisi tempora quos temporibus?', 'https://www.explicacion.net/wp-content/uploads/2019/01/ciclos-de-programacion.jpg', ''),
-(3, 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in', 'https://www.nintenderos.com/wp-content/uploads/2019/11/slack-imgs.com_-7-e1573560248585.jpg', 'Modificar un array');
+INSERT INTO `contenido` (`id`, `id_apartado`, `id_tema`, `texto`, `ruta_imagen`, `titulo`) VALUES
+(1, 1, 1, 'Esto es una prueba de ARRAYS\r\n\r\nLorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa omnis assumenda quae nemo veritatis laborum veniam cumque a voluptatem, nihil eos! Obcaecati alias voluptatem sit. Vel nisi tempora quos temporibus?', 'https://cdn.programiz.com/sites/tutorial2program/files/c-arrays.jpg', 'Crear un array'),
+(2, 2, 1, 'Texto de  prueba de BUCLES\r\n\r\nLorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa omnis assumenda quae nemo veritatis laborum veniam cumque a voluptatem, nihil eos! Obcaecati alias voluptatem sit. Vel nisi tempora quos temporibus?', 'https://www.explicacion.net/wp-content/uploads/2019/01/ciclos-de-programacion.jpg', ''),
+(3, 1, 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in', 'https://www.nintenderos.com/wp-content/uploads/2019/11/slack-imgs.com_-7-e1573560248585.jpg', 'Modificar un array');
 
