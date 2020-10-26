@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +21,6 @@
         include "./menu/menu.php";
     ?>
     <div id="contenido">
-      
     </div>
     <div id="pie">
       <h1>Lorem Ipsum</h1>
