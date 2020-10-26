@@ -39,9 +39,4 @@
 </div>
    
 <script type="text/JavaScript"> 
-    var alert = document.getElementsByClassName("alert");
-    alert.item(0).addEventListener("change",()=>{
-        $(".modal").modal();
-        setTimeout(()=>{$(".modal").modal("hide");},4000);
-    });
 </script>

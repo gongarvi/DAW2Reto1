@@ -21,12 +21,13 @@
         include "./menu/menu.php";
     ?>
     <div id="contenido">
+        <a href="admin/index.php">admin</a>
     </div>
     <div id="pie">
       <h1>Lorem Ipsum</h1>
     </div>
     <?php
-        include "alert.php";
+        include "./generic-alert/alert.php";
     ?>
 </body>
 </html>

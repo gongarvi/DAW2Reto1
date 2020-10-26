@@ -7,11 +7,13 @@
         back();
     }
     function back(){
-        setcookie("error","No tienes permiso para entrar a esa página.",time()+60);
+        setcookie("error","No tienes permiso para entrar a esa página.",time()+600,"/");
+       
         if(isset($_SERVER["HTTP_REFERER"])){
             header("Location: " . $_SERVER["HTTP_REFERER"]);
         }else{
             header("Location: ../index.php");
         }
+        
     }
 ?>
