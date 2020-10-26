@@ -25,7 +25,7 @@
                             </script>'; 
                     }else{
                         echo $_COOKIE[$caso];
-                        setcookie("error","",time());
+                        setcookie($caso,"",time());
                         echo '<script type="text/JavaScript">
                                 $(".modal").modal();
                                 setTimeout(()=>{$(".modal").modal("hide");},4000);
