@@ -50,12 +50,22 @@
                 echo '<p class="textoTutorial">'.$dato['texto'].'</p>';    
                 echo '</div>';
             }
-            if(isset($_SESSION["name"]) && isset($_SESSION["surname"]) && isset($_SESSION["email"])
-             && $_SESSION["name"]!="" && $_SESSION["surname"]!="" && $_SESSION["email"]!=""){
-                include "comentarios.php";
-            }
+
+
+            
+
+            
         ?>
-        
+        <div id="comentarios">
+            <?php
+                include "comentarios.php";
+                
+                if(isset($_SESSION["name"]) && isset($_SESSION["surname"]) && isset($_SESSION["email"])
+                && $_SESSION["name"]!="" && $_SESSION["surname"]!="" && $_SESSION["email"]!=""){
+                    include "crear_comentarios.php";
+                }
+            ?>
+        </div>
     </div>
     </div>
     
