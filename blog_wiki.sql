@@ -17,7 +17,7 @@ CREATE TABLE tema(
     color_texto varchar(9)
 );
 CREATE TABLE apartado(
-    id int auto_increment,
+    id int,
     id_tema int,
     nombre varchar(64),
     fecha timestamp DEFAULT NOW(),
