@@ -47,9 +47,15 @@
                 echo '<p class="textoTutorial">'.$dato['texto'].'</p>';    
                 echo '</div>';
             }
+<<<<<<< HEAD
             include "comentarios.php"
         ?>
         
+=======
+        ?>
+        
+    </div>
+>>>>>>> 3befd80a5148ac87ab4d6090c5bba0e502133f97
     </div>
     
     <div id="pie">

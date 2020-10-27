@@ -15,8 +15,13 @@
         $query->execute(array($numApartado,$numTema));
         $comentarios=$query->fetchAll();
         foreach($comentarios as $comentario){
+<<<<<<< HEAD
             echo '<div class="divContenido""><p style="color: red;">'.$comentario['nombre']." ". $comentario['apellido']."</p><p> ". $comentario['texto'].'</p><p id="fecha" style= font-family:"italic";
             font-size:"6px";>'.$comentario['fecha'].'</p></div>';
+=======
+            echo '<p>'.$comentario['usuario.nombre'] ." ". $comentario['usuario.apellido']." ". $comentario['comentario.texto'].'</p><p id="fecha" style= font-family:"italic";
+            font-size:"6px";>'.$comentario['fecha'].'</p>';
+>>>>>>> 3befd80a5148ac87ab4d6090c5bba0e502133f97
         }
     ?>
 
