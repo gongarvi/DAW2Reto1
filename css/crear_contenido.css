@@ -42,3 +42,12 @@
 .radio2{
     display: inline;
 }
+
+#inputTema{
+    display: none;
+    margin-top: 0.5em;
+}
+#inputApartado{
+    display: none;
+    margin-top: 0.5em;
+}
