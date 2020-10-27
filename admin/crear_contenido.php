@@ -6,45 +6,67 @@
     
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/comun.css">
-    <link rel="stylesheet" href="css/crear_contenido.css">
+    <link rel="stylesheet" href="./../css/comun.css">
+    <link rel="stylesheet" href="./../css/crear_contenido.css">
 </head>
 <body>  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <script src="javascript/crear_contenido.js"></script>
+    <script src="./../javascript/crear_contenido.js"></script>
     <div id="cabecera">
         <div class=" cuadrado">
             <h1>Blog DAW2</h1>
         </div>
     </div>
     <?php
-        include "menu.php";
+        include "./../menu/menu.php";
     ?>
     <div id="contenido">
         <div id="crearNuevo">
             <h1>Crear contenido</h1>
-            <form id="formularioNuevo" name="login" class="from-group" method="post" action="insertContenido.php">
-            <!-- Empieza el SELECT (apartados) -->
+            <form id="formularioNuevo" name="login" class="from-group" method="post" action="insert_contenido.php">
+
+            <!-- Empieza el SELECT (temas) -->
             <div>
-                <label class="labelForm" for="apartado">Apartado:</label>
-                <select id="inputState" class="form-control">
+                <label class="labelForm" for="apartado">Tema:</label>
+                <select id="inputState" class="form-control selectTema">
+                    <!-- <option value="0">Crear un nuevo tema</option> -->
                     <?php
                         include "sql-connect.php";
-                        if (isset($_GET["apartado"])) {
-                            $numApartado = $_GET["apartado"];
+                        if (isset($_GET["tema"])) {
+                            $numApartado = $_GET["tema"];
                         }
-                        $query="SELECT nombre FROM apartado";
+                        $query="SELECT id, nombre FROM tema";
                         $query=$conn->prepare($query);
                         $query->execute();
                         $datos=$query->fetchall();
                         foreach($datos as $dato){
-                            echo '<option>'.$dato['nombre'].'</option>';
+                            echo '<option id="opcionTema" value="'.$dato['id'].'">'.$dato['nombre'].'</option>';
                         }
+                        echo '<option id="0" value="0">Crear nuevo tema...</option>';
                     ?>
                 </select>
             </div>
+
+            <div id="inputTema">
+                <input type="text" class="form-control" placeholder="Nombre del nuevo tema" aria-label="" aria-describedby="basic-addon1">
+            </div>
+            <!-- Acaba el SELECT (tema) -->
+
+            <!-- Empieza el SELECT (apartados) -->
+            <div >
+                <label class="labelForm" for="apartado">Apartado:</label>
+                <select id="selectApartados" class="form-control selectApartado">
+                        <option value="">Seleccione un tema por favor</option>
+                </select>
+            </div>
+
+            <div >
+                <input id="inputApartado" type="text" class="form-control" placeholder="Nombre del nuevo apartado" aria-label="" aria-describedby="basic-addon1">
+            </div>
+            
             <!-- Acaba el SELECT (apartados) -->
+
 
             <!-- Empieza el input (texto) -->
             <div>
@@ -97,7 +119,8 @@
       <h1>Lorem Ipsum</h1>
     </div>
     <?php
-        include "alert.php";
+        define(__DIR__,"./");
+        include __DIR__."/../generic-alert/alert.php";
     ?>
 </body>
 </html>
