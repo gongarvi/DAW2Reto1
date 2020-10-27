@@ -18,7 +18,7 @@
         error();
     }
     function error(){
-        setcookie("Error","Comentario no valido");
+        setcookie("error","Comentario no valido");
     }
 
 ?>

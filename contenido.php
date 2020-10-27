@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +50,10 @@
                 echo '<p class="textoTutorial">'.$dato['texto'].'</p>';    
                 echo '</div>';
             }
-            include "comentarios.php";
+            if(isset($_SESSION["name"]) && isset($_SESSION["surname"]) && isset($_SESSION["email"])
+             && $_SESSION["name"]!="" && $_SESSION["surname"]!="" && $_SESSION["email"]!=""){
+                include "comentarios.php";
+            }
         ?>
         
     </div>
@@ -57,7 +63,7 @@
       <h1>Lorem Ipsum</h1>
     </div>
     <?php
-        include "alert.php";
+        include "./generic-alert/alert.php";
     ?>
 </body>
 </html>
