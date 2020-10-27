@@ -1,22 +1,24 @@
 <?php
     session_start();
-    $comentario=$_POST['comenta'];
-    $idusuario="SELECT id_usuario FROM usuario INNER JOIN  
-    comentario ON comentario.id_usuario=usuario.id WHERE usuario.nombre=$_SESSION['nombre']";
-    $fecha=date("d/m/y h:i:s");
-    if(isset($comentario) && isset($fecha) &&  isset($idusuario) && $comentario!="" && $idusuario!="" && $fecha!="" ){
+    $comentario=['comenta'];
+    $tema=$_SESSION['apartado.id_tema'];
+    $apartado=$_SERVER['apartado.id'];
+    $nombre=$_SESSION['name'];
+    $idusuario="SELECT usuario.id FROM usuario INNER JOIN comentario ON comentario.id_usuario=usuario.id WHERE usuario.nombre=$nombre";
+   
+    if(isset($comentario) && isset($idusuario) && isset($apartado)&& $comentario!="" && $idusuario!="" && $apartado!=""){
         include "sql-connect.php";
-        $query="INSERT INTO comentario(`id_usuario','texto','fecha`) VALUES (?,?,?)";
+        $query="INSERT INTO comentario(`id_usuario','id_apartado,'texto'`) VALUES (?,?,?)";
         $query=$conn->prepare($query);
         $query->execute(
-            array($idusuario,$comentario,$fecha);
+            array($idusuario,$comentario,$apartado)
         );  
     }
     else{
-        error()
+        error();
     }
     function error(){
-        setcookie("Error","Comentario no valido")
+        setcookie("Error","Comentario no valido");
     }
 
 ?>

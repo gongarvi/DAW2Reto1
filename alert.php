@@ -2,20 +2,34 @@
     <div class='modal-dialog modal-dialog-centered' role='document'>
         <div class='modal-content'>
             <div class='modal-body'>
-                <div class='alert  alert-danger' role='alert'>
+                <div class='alert 
+                    <?php
+                        $caso="";
+                        if(isset($_COOKIE["error"])){
+                            echo "alert-danger";
+                            $caso="error";
+                        }elseif(isset($_COOKIE["warning"])){
+                            echo "alert-warning";
+                            $caso="warining";
+                        }elseif(isset($_COOKIE["success"])){
+                            echo "alert-success";
+                            $caso="success";
+                        }
+                    
+                    ?>
+                    ' role='alert'>
                 <?php
-                    if(isset($_COOKIE["error"])){
-                        $error=$_COOKIE["error"];
-                        setcookie("error","",time());
-                        echo $error;
+                    if($caso===""){
+                        echo '<script type="text/JavaScript">  
+                                console.log("No he entrado a la cookie");
+                            </script>'; 
+                    }else{
+                        echo $_COOKIE[$caso];
+                        setcookie($caso,"",time());
                         echo '<script type="text/JavaScript">
                                 $(".modal").modal();
                                 setTimeout(()=>{$(".modal").modal("hide");},4000);
                             </script>';
-                    }else{
-                        echo '<script type="text/JavaScript">  
-                                console.log("No he entrado a la cookie");
-                            </script>'; 
                     }
                 ?>
                 </div>
@@ -25,9 +39,4 @@
 </div>
    
 <script type="text/JavaScript"> 
-    var alert = document.getElementsByClassName("alert");
-    alert.item(0).addEventListener("change",()=>{
-        $(".modal").modal();
-        setTimeout(()=>{$(".modal").modal("hide");},4000);
-    });
 </script>

@@ -1,9 +1,9 @@
 <?php
     $servername="localhost";
     $username="root";
-    $password="";
+    $passwordDB="";
     $databasename="blog_wiki";
     
     $hostdb="mysql:host=$servername;dbname=$databasename";
-    $conn = new PDO($hostdb,$username,$password);
+    $conn = new PDO($hostdb,$username,$passwordDB);
 ?>
