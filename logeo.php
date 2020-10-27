@@ -34,7 +34,7 @@
                 $_SESSION["email"]=$email;
                 $_SESSION["administrador"]=($usuario["administrador"]==1)?true:false;
                 setcookie("success","Login correcto",time()+60);
-                header("Location: " . $_SERVER["HTTP_REFERER"]);
+                header("Location: index.php");
             }else{
                 error();
             }
