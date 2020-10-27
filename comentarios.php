@@ -1,4 +1,4 @@
-<div class="divContenido">
+
     <?php
     include "sql-connect.php";
     if (isset($_GET["apartado.id"])) {
@@ -13,9 +13,12 @@
     $query=$conn->prepare($query);
     $query->execute(array($numApartado,$numTema));
     $comentarios=$query->fetchAll();
-    foreach($comentarios as $comentario){
-        echo '<p>'.$comentario['usuario.nombre'] ." ". $comentario['usuario.apellido']." ". $comentario['comentario.texto'].'</p><p id="fecha" style= font-family:"italic";
-        font-size:"6px";>'.$comentario['fecha'].'</p>';
+    if($comentarios!=null || count($comentarios)>0){
+        echo '<div class="divContenido">';
+        foreach($comentarios as $comentario){
+            echo '<p>'.$comentario['usuario.nombre'] ." ". $comentario['usuario.apellido']." ". $comentario['comentario.texto'].'</p><p id="fecha" style= font-family:"italic";
+            font-size:"6px";>'.$comentario['fecha'].'</p>';
+        }
+        echo '</div>';
     }
 ?>        
-</div>
