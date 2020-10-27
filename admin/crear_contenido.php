@@ -33,9 +33,6 @@
                     <!-- <option value="0">Crear un nuevo tema</option> -->
                     <?php
                         include "sql-connect.php";
-                        if (isset($_GET["tema"])) {
-                            $numApartado = $_GET["tema"];
-                        }
                         $query="SELECT id, nombre FROM tema";
                         $query=$conn->prepare($query);
                         $query->execute();
