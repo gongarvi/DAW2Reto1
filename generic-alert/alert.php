@@ -12,7 +12,7 @@
                 console.log("No he entrado a la cookie");
             </script>'; 
     }else{
-        setcookie($caso,"",time());
+        setcookie($caso,"",time(),"/");
         echo '<script type="text/JavaScript">
                 localStorage.setItem("mensaje","'.$_COOKIE[$caso].'");
                 localStorage.setItem("tipo","'.$caso.'");

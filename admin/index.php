@@ -1,6 +1,6 @@
-
-
-
+<?php
+    include "rule.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,13 +21,17 @@
         include "./../menu/menu.php";
     ?>
     <div id="contenido">
-      
+        <!-- Aqui apareceran las distintas opciones para crear  -->
+        <ul>
+            <li><a href="contenido.php">Administrar Contenido</a></li>
+            <li><a href="usuarios.php">Administrar Usuarios</a></li>
+        </ul>
     </div>
     <div id="pie">
       <h1>Lorem Ipsum</h1>
     </div>
+    <?php
+        include "../generic-alert/alert.php";
+    ?>
 </body>
 </html>
-<?php
-    include "rule.php";
-?>
