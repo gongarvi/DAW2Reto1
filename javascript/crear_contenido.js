@@ -1,4 +1,6 @@
 $(document).ready(()=>{
+    document.getElementById("inputTema").style.display="none";
+    document.getElementById("inputApartado").style.display="none";
     radio1 = document.getElementById("inlineRadio1");
     radio2 = document.getElementById("inlineRadio2");
     radio1.addEventListener("change",()=>{
@@ -16,23 +18,26 @@ $(document).ready(()=>{
 
 
     // Cargar los select
-    $(".selectTema").change(obtenerColocarApartados);
-    $(".selectApartado").change(comprobarOpcion);
+    $("#selectTema").change(obtenerColocarApartados);
+    $("#selectApartado").change(comprobarOpcion);
 });
 
+
+
+
 function obtenerColocarApartados() {
-    $('.selectApartado').find('option').remove();
-    var opcionTema = $( ".selectTema option:selected" ).val();
+    $('#selectApartado').find('option').remove();
+    var opcionTema = $( "#selectTema option:selected" ).val();
 
     // Si la opcion seleccionada es la 0:
     if (opcionTema == 0) {
         document.getElementById("inputTema").style.display="block";
         document.getElementById("inputApartado").style.display="block";
-        document.getElementById("selectApartados").style.display="none";
+        document.getElementById("selectApartado").style.display="none";
     }else{
         document.getElementById("inputTema").style.display="none";
         document.getElementById("inputApartado").style.display="none";
-        document.getElementById("selectApartados").style.display="block";
+        document.getElementById("selectApartado").style.display="block";
     }
 
     //AJAX
@@ -43,13 +48,14 @@ function obtenerColocarApartados() {
         url:"./../obtener_apartados.php",
         type:"post",
         success:function(response){
+            
         // Funcion para poner los apartados coneguidos en las opciones
-        var apartado = JSON.parse(response);
-        $('.selectApartado').find('option').remove()
-        for(var i = 0; i<apartado.length;i++){
-            $(".selectApartado").append($("<option>").attr("id", i).text(apartado[i]['nombre']));
-        }
-        $(".selectApartado").append($("<option>").attr("value", '0').text('Crear un nuevo apartado...'));
+            var apartado = JSON.parse(response);
+            $('#selectApartado').find('option').remove()
+            for(var i = 0; i<apartado.length;i++){
+                $("#selectApartado").append($("<option>").attr("value", apartado[i]["id"]).text(apartado[i]['nombre']));
+            }
+            $("#selectApartado").append($("<option>").attr("value", '0').text('Crear un nuevo apartado...'));
 
         },
         error:function(error){
@@ -59,7 +65,7 @@ function obtenerColocarApartados() {
 }
 
 function comprobarOpcion() {
-    var opcionApartado = $( ".selectApartado option:selected" ).val();
+    var opcionApartado = $( "#selectApartado option:selected" ).val();
     if (opcionApartado == 0) {
         document.getElementById("inputApartado").style.display="block";
     }else{

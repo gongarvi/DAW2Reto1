@@ -24,24 +24,21 @@
     <div id="contenido">
         <div id="crearNuevo">
             <h1>Crear contenido</h1>
-            <form id="formularioNuevo" name="login" class="from-group" method="post" action="insert_contenido.php">
+            <form id="formularioNuevo" name="login" class="from-group" method="post" action="./../insert_contenido.php">
 
             <!-- Empieza el SELECT (temas) -->
             <div>
                 <label class="labelForm" for="apartado">Tema:</label>
-                <select id="inputState" class="form-control selectTema">
-                    <!-- <option value="0">Crear un nuevo tema</option> -->
+                <select id="selectTema" name="selectTema" placeholder="Elige un tema" class="form-control">
+                    <option disabled selected>Elige un tema</option>
                     <?php
                         include "sql-connect.php";
-                        if (isset($_GET["tema"])) {
-                            $numApartado = $_GET["tema"];
-                        }
                         $query="SELECT id, nombre FROM tema";
                         $query=$conn->prepare($query);
                         $query->execute();
                         $datos=$query->fetchall();
                         foreach($datos as $dato){
-                            echo '<option id="opcionTema" value="'.$dato['id'].'">'.$dato['nombre'].'</option>';
+                            echo '<option value="'.$dato['id'].'">'.$dato['nombre'].'</option>';
                         }
                         echo '<option id="0" value="0">Crear nuevo tema...</option>';
                     ?>
@@ -49,20 +46,20 @@
             </div>
 
             <div id="inputTema">
-                <input type="text" class="form-control" placeholder="Nombre del nuevo tema" aria-label="" aria-describedby="basic-addon1">
+                <input type="text" class="form-control" placeholder="Nombre del nuevo tema" name="inputTema" aria-describedby="basic-addon1">
             </div>
             <!-- Acaba el SELECT (tema) -->
 
             <!-- Empieza el SELECT (apartados) -->
             <div >
                 <label class="labelForm" for="apartado">Apartado:</label>
-                <select id="selectApartados" class="form-control selectApartado">
+                <select id="selectApartado" name="selectApartado" class="form-control">
                         <option value="">Seleccione un tema por favor</option>
                 </select>
             </div>
 
             <div >
-                <input id="inputApartado" type="text" class="form-control" placeholder="Nombre del nuevo apartado" aria-label="" aria-describedby="basic-addon1">
+                <input id="inputApartado" type="text" class="form-control" placeholder="Nombre del nuevo apartado" name="inputApartado" aria-describedby="basic-addon1">
             </div>
             
             <!-- Acaba el SELECT (apartados) -->
@@ -71,14 +68,14 @@
             <!-- Empieza el input (texto) -->
             <div>
                 <label class="labelForm" for="titulo">Titulo:</label>
-                <input class="form-control" id="titulo">
+                <input class="form-control" name="titulo" id="titulo">
             </div>
             <!-- Acaba el input (titulo) -->
 
             <!-- Empieza el textarea (texto) -->
             <div>
-                <label class="labelForm" for="textArea">Texto:</label>
-                <textarea class="form-control" id="textArea" rows="3"></textarea>
+                <label class="labelForm" for="texto">Texto:</label>
+                <textarea class="form-control" name="texto" id="texto" rows="3"></textarea>
             </div>
             <!-- Acaba el textArea (texto) -->
             <br>
@@ -97,14 +94,14 @@
             
             <div class="custom-file radio1">
                 <!-- <label class="labelForm ">Imagen:</label> -->
-                <input type="file" class="custom-file-input" id="inputGroupFile01">
-                <label class="custom-file-label" for="inputGroupFile01">Seleccione el archivo</label>
+                <input type="file" name="archivo" class="custom-file-input" id="archivo">
+                <label class="custom-file-label" for="archivo">Seleccione el archivo</label>
             </div>
             
             <!-- Empieza el input para la ruta de la imagen -->
             <div class="radio2">
                 <!-- <label class="labelForm" for="rutaImg">Ruta del archivo:</label> -->
-                <input class="form-control" id="rutaImg" placeholder="Escriba aqui la url de la imagen">
+                <input class="form-control" name="rutaImg" id="rutaImg" placeholder="Escriba aqui la url de la imagen">
             </div>
 
             <div>
