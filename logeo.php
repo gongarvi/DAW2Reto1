@@ -43,7 +43,7 @@
         }
     }
     function error(){
-        setcookie("error","Login no valido",time()+60);
+        setcookie("error","Login no valido",time()+60,"/");
         header("Location: " . $_SERVER["HTTP_REFERER"]);
     }
 ?>

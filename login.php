@@ -65,6 +65,5 @@
     <?php
         include "./generic-alert/alert.php";
     ?>
-    <script src="javascript/login-register.js"></script>
 </body>
 </html>
