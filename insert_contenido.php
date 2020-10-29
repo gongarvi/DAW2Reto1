@@ -13,20 +13,36 @@
     
 
     if ($temaSeleccionado == 0) {
-        $temaSeleccionado=insertarTema($tema,$conn);
-    }
-    echo $apartadoSeleccionado;
-    if ($apartadoSeleccionado == 0) {
-        $idApartado = getApartadoId($temaSeleccionado,$conn);
-        $idApartado++;
-        insertarApartado($temaSeleccionado,$apartado,$conn,$idApartado);
-        $apartadoSeleccionado = $idApartado;
+        if($tema!=""){
+            $temaSeleccionado=insertarTema($tema,$conn);
+        }else{
+            crearGalleta("error","Datos insuficientes");
+        }
     }
 
+    if ($apartadoSeleccionado == 0) {
+        if($apartado!=""){
+            $idApartado = getApartadoId($temaSeleccionado,$conn);
+            $idApartado++;
+            insertarApartado($temaSeleccionado,$apartado,$conn,$idApartado);
+            $apartadoSeleccionado = $idApartado;
+        }else{
+            crearGalleta("error","Datos insuficientes");
+
+        }
+    }
+    
+    echo "id apartado: $apartadoSeleccionado";
     
     if ($temaSeleccionado != 0 && $apartadoSeleccionado != 0) {
-        $idContenido = getContenidoId($conn);
-        insertarDatos($idContenido,$apartadoSeleccionado,$temaSeleccionado,$titulo,$texto,$titulo,$conn);
+        $idContenido = getContenidoId($conn)+1;
+        echo " id contenido: $idContenido";
+        if ($texto=="" || $titulo=="" ) {
+            crearGalleta("error","Contenido no insertado");
+        }else{
+            insertarDatos($idContenido,$apartadoSeleccionado,$temaSeleccionado,$titulo,$texto,$ruta,$conn);
+            crearGalleta("success","Datos creados correctamente");
+        }
     }
     
 
@@ -56,9 +72,9 @@
         $sql= $conn->prepare($sql);
         $sql->execute([$id,$temaSeleccionado,$apartado]);
         if($sql){
-            echo "Insertado correctamente";
+        
         }else{
-            echo "Error, no se ha insertado";
+            crearGalleta("error","Error en la insercion de apartado");
         }
     }
 
@@ -77,10 +93,15 @@
         $sql= $conn->prepare($sql);
         $sql->execute([$id,$apartado_id,$tema_id,$texto,$ruta,$titulo]);
         if($sql){
-            echo "Insertado correctamente";
-            
+            header('Location: http://localhost/admin/contenido.php?option=crear');
         }else{
-            echo "Error, no se ha insertado";
+            crearGalleta("error","error en la insercion de datos");
         }
     }
+
+    function crearGalleta($tipo,$texto){
+        setcookie($tipo,$texto,time()+60,"/");
+        header("Location: " . $_SERVER["HTTP_REFERER"]);
+    }
+
 ?>
