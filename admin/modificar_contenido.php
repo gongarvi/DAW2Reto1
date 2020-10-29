@@ -80,7 +80,7 @@
             </div>
 
             <div>
-                <input class="labelForm btn btn-danger mb-2" type="submit" value="Modificar">
+                <input class="labelForm btn btn-warning mb-2" type="submit" value="Modificar">
             </div>
         </div>
     </form>

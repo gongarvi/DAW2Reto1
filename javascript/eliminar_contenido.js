@@ -13,25 +13,9 @@ $(document).ready(()=>{
         }
     });
     document.getElementById("selectApartados").addEventListener("change",obtenerColocarContenido);
-    document.getElementById("selectContenido").addEventListener("change",mostrarContenido);
-    radio1 = document.getElementById("inlineRadio1");
-    radio2 = document.getElementById("inlineRadio2");
-    radio1.addEventListener("change",()=>{
-        if (radio1.checked) {
-            document.getElementsByClassName("radio1")[0].style.display="block";
-            document.getElementsByClassName("radio2")[0].style.display="none";
-        }
-    });
-    radio2.addEventListener("change",()=>{
-        if (radio2.checked) {
-            document.getElementsByClassName("radio2")[0].style.display="block";
-            document.getElementsByClassName("radio1")[0].style.display="none";
-        }
-    });
 });
 
 function obtenerColocarApartados(tema) {
-    ocultarContenido();
     $('#selectApartados').find('option').remove();
     $("#inputTema").val($('#selectTema option:selected').text());
     //AJAX
@@ -57,7 +41,6 @@ function obtenerColocarApartados(tema) {
 }
 
 function obtenerColocarContenido(){
-    ocultarContenido();
     var tema = $("#selectTema option:selected").val();
     var apartado = $("#selectApartados option:selected").val();
     $("#inputApartado").val($("#selectApartados option:selected").text());
@@ -105,19 +88,6 @@ function crearOpcionSeleccionadoBloqueado(texto){
     option.selected=true;
     return option;
 }
-function mostrarContenido(){
-    var contenidoId=$( "#selectContenido option:selected" ).val();
-    var contenidoTotal=localStorage.getItem("contenido");
-    contenidoTotal=JSON.parse(contenidoTotal);
-    var contenido = buscarContenidoPorID(contenidoTotal,contenidoId);
-    document.getElementById("contenidoModificar").style.display="block";
-    $("#titulo").val(contenido.titulo);
-    $("#textArea").val(contenido.texto);
-    $("#rutaImg").val(contenido.ruta);
-}
-function ocultarContenido(){
-    document.getElementById("contenidoModificar").style.display="none";
-}
 function buscarContenidoPorID(contenidoTotal, id){
     var contenido=null;
     contenidoTotal.forEach(element => {
@@ -127,4 +97,3 @@ function buscarContenidoPorID(contenidoTotal, id){
     });
     return contenido;
 }
-
