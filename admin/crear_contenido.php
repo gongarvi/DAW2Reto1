@@ -1,4 +1,5 @@
-  <div id="contenido">
+<link rel="stylesheet" href="../css/crear_contenido.css">
+<div id="contenido">
         <div id="crearNuevo">
             <h1>Crear contenido</h1>
             <form id="formularioNuevo" name="login" class="from-group" method="post" action="./../insert_contenido.php">
@@ -94,14 +95,10 @@
             <label class="custom-file-label" for="inputGroupFile01">Seleccione el archivo</label>
         </div>
         
-        <!-- Empieza el input para la ruta de la imagen -->
-        <div class="radio2">
-            <!-- <label class="labelForm" for="rutaImg">Ruta del archivo:</label> -->
-            <input class="form-control" id="rutaImg" placeholder="Escriba aqui la url de la imagen">
-        </div>
-
+       
         <div>
             <input class="labelForm btn btn-danger mb-2" type="submit" value="Crear">
         </div>
     </form>
+    <script src="../javascript/crear_contenido.js"></script>
 </div>
