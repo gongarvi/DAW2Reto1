@@ -23,11 +23,11 @@
 
     <?php
         include "./menu/menu.php";
+        include "./generic-alert/alert.php";
     ?>
-
     <div id="contenido">
         <form name="login" class="from-group" method="post" action="logeo.php">
-        <h2>Login</h2>
+            <h2>Login</h2>
             <div>
                 <label for="email">Email</label>
                 <input class="form-control" type="text" name="email" id="login_email" required>
@@ -62,8 +62,6 @@
     <div id="pie">
       <h1>Lorem Ipsum</h1>
     </div>
-    <?php
-        include "./generic-alert/alert.php";
-    ?>
+    
 </body>
 </html>

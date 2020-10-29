@@ -19,6 +19,7 @@
     </div>
     <?php
         include "./menu/menu.php";
+        include "./generic-alert/alert.php";
     ?>
     <div id="contenido">
         <a href="admin/index.php">admin</a>
@@ -26,8 +27,5 @@
     <div id="pie">
       <h1>Lorem Ipsum</h1>
     </div>
-    <?php
-        include "./generic-alert/alert.php";
-    ?>
 </body>
 </html>

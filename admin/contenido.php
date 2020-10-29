@@ -18,7 +18,8 @@
 		<h1><a href="./..">Blog Servidor</a></h1>
     </div>
     <?php
-        include "./../menu/menu.php";
+		include "./../menu/menu.php";
+        include "../generic-alert/alert.php";
     ?>
     <div id="contenido">
 		<a href="index.php">Atras</a>
