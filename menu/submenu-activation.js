@@ -66,7 +66,7 @@ function appendToSubmenu(tema,array){
         let a = document.createElement("a");
         li.appendChild(a);
         a.text=element.nombre;
-        a.href="contenido.php?tema="+tema+"&apartado="+element.apartado;
+        a.href="http://localhost/contenido.php?tema="+tema+"&apartado="+element.apartado;
         ul.appendChild(li);
     }); 
     //Esto es para alinear al centro el submenu

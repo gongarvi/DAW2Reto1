@@ -2,7 +2,6 @@
 <div id="crearNuevo">
     <h1>Crear contenido</h1>
     <form id="formularioNuevo" name="login" class="from-group" method="post" action="./../insert_contenido.php">
-
         <!-- Empieza el SELECT (temas) -->
         <div>
             <label class="labelForm" for="apartado">Tema:</label>
@@ -89,5 +88,6 @@
             <input class="labelForm btn btn-danger mb-2" id="crear" type="submit" value="Crear">
         </div>
     </form>
+    <script src="../javascript/crear_contenido.js"></script>
 </div>
 <script type="text/javascript" src="./../javascript/crear_contenido.js"></script>

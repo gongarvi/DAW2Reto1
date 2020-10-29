@@ -62,6 +62,6 @@
     <div id="pie">
       <h1>Lorem Ipsum</h1>
     </div>
-    
+    <script src="./javascript/login_register.js"></script>
 </body>
 </html>

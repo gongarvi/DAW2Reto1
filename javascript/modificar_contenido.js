@@ -4,8 +4,8 @@ $(document).ready(()=>{
         $("#inputTema").value=$("#selectTema").textNode;
     });
     document.getElementById("selectTema").addEventListener("change",(event)=>{
-        var tema = $( "#selectTema option:selected" ).val();
-        if(tema ===""){
+        var tema = $("#selectTema option:selected").val();
+        if(tema === ""){
             event.preventDefault();
             console.log(event);
         }else{
@@ -14,25 +14,28 @@ $(document).ready(()=>{
     });
     document.getElementById("selectApartados").addEventListener("change",obtenerColocarContenido);
     document.getElementById("selectContenido").addEventListener("change",mostrarContenido);
-
 });
 
-
-function obtenerColocarApartados() {
-    var opcionTema = $( "#selectTema option:selected" ).val();
+function obtenerColocarApartados(tema) {
+    ocultarContenido();
     $('#selectApartados').find('option').remove();
+    $("#inputTema").val($('#selectTema option:selected').text());
     //AJAX
-    var parametros = {tema: opcionTema};
+    var parametros = {tema: tema};
     //Obtengo los apartados segun el tema
     peticionAjax("./../obtener_apartados.php","post",parametros)
         .then((response)=>{
             // Funcion para poner los apartados coneguidos en las opciones
-            var apartado = JSON.parse(response);
-            $('#selectApartados').find('option').remove()
-            for(var i = 0; i<apartado.length;i++){
-                $("#selectApartados").append($("<option>").attr("value", apartado[i]['id']).text(apartado[i]['nombre']));
+            var apartados = JSON.parse(response);
+            $('#selectApartados').find('option').remove();
+            $("#selectApartados").append(crearOpcionSeleccionadoBloqueado("Seleciona un apartado por favor."));
+            $("#selectContenido").append(crearOpcionSeleccionadoBloqueado("Seleciona un tema por favor."));
+            for(var i = 0; i<apartados.length;i++){
+                option = document.createElement("option");
+                option.value=apartados[i]["id"];
+                option.textContent=apartados[i]["nombre"];
+                $("#selectApartados").append(option);
             }
-            obtenerColocarContenido();
         })
         .catch((error)=>{
             console.error(error);
@@ -40,24 +43,27 @@ function obtenerColocarApartados() {
 }
 
 function obtenerColocarContenido(){
-    var tema = $( "#selectTema option:selected" ).val();
-    var apartado = $( "#selectApartados option:selected" ).val();
+    ocultarContenido();
+    var tema = $("#selectTema option:selected").val();
+    var apartado = $("#selectApartados option:selected").val();
+    $("#inputApartado").val($("#selectApartados option:selected").text());
     var data = {tema:tema,apartado:apartado};
     peticionAjax("./../obtener_contenido.php","post",data)
-        .then((response)=>{            
+        .then((response)=>{
+            console.log(response);
             localStorage.setItem("contenido",response);
             var contenido = JSON.parse(response);
             $('#selectContenido').find('option').remove();
+            $("#selectContenido").append(crearOpcionSeleccionadoBloqueado("Seleciona un contenido por favor."));
             for(var i = 0; i<contenido.length;i++){
-                var option = document.createElement("option");
+                option = document.createElement("option");
                 option.value=contenido[i]["id"];
                 option.textContent=contenido[i]["titulo"];
                 $("#selectContenido").append(option);
             }
-            mostrarContenido();
         })
         .catch((error)=>{
-
+            console.error(error);
         });
 }
 
@@ -78,17 +84,26 @@ function peticionAjax(url, type, data){
         });
     }
 }
+function crearOpcionSeleccionadoBloqueado(texto){
+    var option = document.createElement("option");
+    option.value="";
+    option.textContent=texto;
+    option.disabled=true;
+    option.selected=true;
+    return option;
+}
 function mostrarContenido(){
-
     var contenidoId=$( "#selectContenido option:selected" ).val();
     var contenidoTotal=localStorage.getItem("contenido");
     contenidoTotal=JSON.parse(contenidoTotal);
     var contenido = buscarContenidoPorID(contenidoTotal,contenidoId);
-    console.log(contenido);
     document.getElementById("contenidoModificar").style.display="block";
     $("#titulo").val(contenido.titulo);
     $("#textArea").val(contenido.texto);
     $("#rutaImg").val(contenido.ruta);
+}
+function ocultarContenido(){
+    document.getElementById("contenidoModificar").style.display="none";
 }
 function buscarContenidoPorID(contenidoTotal, id){
     var contenido=null;
