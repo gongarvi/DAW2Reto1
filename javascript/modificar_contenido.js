@@ -4,25 +4,27 @@ $(document).ready(()=>{
         $("#inputTema").value=$("#selectTema").textNode;
     });
     document.getElementById("selectTema").addEventListener("change",(event)=>{
-        var tema = $( "#selectTema option:selected" ).val();
-        if(tema ===""){
+        var tema = $("#selectTema option:selected").val();
+        if(tema === ""){
             event.preventDefault();
             console.log(event);
         }else{
+            console.log(tema);
             obtenerColocarApartados(tema);
         }
     });
     document.getElementById("selectApartados").addEventListener("change",obtenerColocarContenido);
     document.getElementById("selectContenido").addEventListener("change",mostrarContenido);
-
+    
 });
 
 
-function obtenerColocarApartados() {
-    var opcionTema = $( "#selectTema option:selected" ).val();
+function obtenerColocarApartados(tema) {
     $('#selectApartados').find('option').remove();
+    console.log(("#selectTema option:selected").text());
+    $("#inputTema").val();
     //AJAX
-    var parametros = {tema: opcionTema};
+    var parametros = {tema: tema};
     //Obtengo los apartados segun el tema
     peticionAjax("./../obtener_apartados.php","post",parametros)
         .then((response)=>{
@@ -84,7 +86,6 @@ function mostrarContenido(){
     var contenidoTotal=localStorage.getItem("contenido");
     contenidoTotal=JSON.parse(contenidoTotal);
     var contenido = buscarContenidoPorID(contenidoTotal,contenidoId);
-    console.log(contenido);
     document.getElementById("contenidoModificar").style.display="block";
     $("#titulo").val(contenido.titulo);
     $("#textArea").val(contenido.texto);

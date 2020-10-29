@@ -92,4 +92,4 @@
         </div>
     </form>
 </div>
-<script src="../javascript/modificar_contenido.js"></script>
+<script src="./../javascript/modificar_contenido.js"></script>

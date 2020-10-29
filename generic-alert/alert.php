@@ -32,4 +32,4 @@
         </div>
     </div>
 </div>
-<script src="http://localhost/generic-alert/alert.js"></script>';
+<script src="http://localhost/generic-alert/alert.js"></script>
