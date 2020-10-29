@@ -1,4 +1,6 @@
 $(document).ready(()=>{
+
+    // window.location.reload();
     document.getElementById("inputTema").style.display="none";
     document.getElementById("inputApartado").style.display="none";
     radio1 = document.getElementById("inlineRadio1");
@@ -18,6 +20,7 @@ $(document).ready(()=>{
 
 
     // Cargar los select
+
     $("#selectTema").change(obtenerColocarApartados);
     $("#selectApartado").change(comprobarOpcion);
 });
@@ -52,8 +55,12 @@ function obtenerColocarApartados() {
         // Funcion para poner los apartados coneguidos en las opciones
             var apartado = JSON.parse(response);
             $('#selectApartado').find('option').remove()
-            for(var i = 0; i<apartado.length;i++){
-                $("#selectApartado").append($("<option>").attr("value", apartado[i]["id"]).text(apartado[i]['nombre']));
+            if (apartado.length<1) {
+                document.getElementById("inputApartado").style.display="block";
+            }else{
+                for(var i = 0; i<apartado.length;i++){
+                    $("#selectApartado").append($("<option>").attr("value", apartado[i]["id"]).text(apartado[i]['nombre']));
+                }
             }
             $("#selectApartado").append($("<option>").attr("value", '0').text('Crear un nuevo apartado...'));
 
@@ -71,4 +78,6 @@ function comprobarOpcion() {
     }else{
         document.getElementById("inputApartado").style.display="none";
     }
+
+
 }
