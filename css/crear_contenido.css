@@ -17,13 +17,15 @@
     text-align: center;
     color: white;
 }
-
+#crearNuevo div{
+    margin-top: 0.5em;
+}
 
 #crearNuevo h1{
     text-align: center;
 }
 
-#
+
 .subirImg{
     background-color: transparent!important;
     border: none!important;
@@ -41,3 +43,7 @@
     display: inline;
 }
 
+.depende{
+    margin-top: 0.5em;
+    display: none;
+}
