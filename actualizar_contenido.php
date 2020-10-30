@@ -22,8 +22,6 @@
             }else{
                 sendCookie("error", "Tipo de archivo no permitido.");
             }
-            var_dump($imagen);
-            die();
         }elseif(isset($_POST["inlineRadioOptions"]) && $_POST["inlineRadioOptions"]==="ruta"){
             $ruta_imagen=$_POST["ruta_imagen"];
         }
