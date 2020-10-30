@@ -8,10 +8,13 @@
     $apartadoSeleccionado   = $_POST['selectApartado'];
     $titulo                 = $_POST['titulo'];
     $texto                  = $_POST['texto'];
-    $archivo                = $_POST['archivo'];
+    $archivo                = $_FILES['archivo'];
     $ruta                   = $_POST['rutaImg'];
-    
+    $radioBtn               = $_POST['inlineRadioOptions'];
 
+    // echo "- $radioBtn - ";
+
+//  ----------------------------------------
     if ($temaSeleccionado == 0) {
         if($tema!=""){
             $temaSeleccionado=insertarTema($tema,$conn);
@@ -32,17 +35,36 @@
         }
     }
     
-    echo "id apartado: $apartadoSeleccionado";
+    // echo "id apartado: $apartadoSeleccionado";
+
+    
+  
     
     if ($temaSeleccionado != 0 && $apartadoSeleccionado != 0) {
         $idContenido = getContenidoId($conn)+1;
-        echo " id contenido: $idContenido";
+        // echo " id contenido: $idContenido";
+        if ($radioBtn === "archivo") {
+            var_dump($archivo);
+            if (!is_dir("./media")) {
+                mkdir("./media");
+            }
+    
+            if($archivo["type"]==="image/png" || $archivo["type"]==="image/JPG" || $archivo["type"]==="image/jpeg"){
+                $tipo=substr($archivo["type"],6);
+                move_uploaded_file($archivo['tmp_name'],"./media/".$temaSeleccionado."_".$apartadoSeleccionado."_".$idContenido.".".$tipo);
+                $ruta="http://".$_SERVER["SERVER_NAME"]."/media/".$temaSeleccionado."_".$apartadoSeleccionado."_".$idContenido.".".$tipo;
+            }else{
+                crearGalleta("error", "Tipo de archivo no permitido.");
+            }
+        }
         if ($texto=="" || $titulo=="" ) {
             crearGalleta("error","Contenido no insertado");
         }else{
             insertarDatos($idContenido,$apartadoSeleccionado,$temaSeleccionado,$titulo,$texto,$ruta,$conn);
             crearGalleta("success","Datos creados correctamente");
         }
+    echo "ruta: $ruta";
+
     }
     
 
