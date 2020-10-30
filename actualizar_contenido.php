@@ -25,7 +25,6 @@
         }elseif(isset($_POST["inlineRadioOptions"]) && $_POST["inlineRadioOptions"]==="ruta"){
             $ruta_imagen=$_POST["ruta_imagen"];
         }
-        echo $ruta_imagen;
         $query="UPDATE contenido
             SET titulo=?, texto=?, ruta_imagen=?
             WHERE id=? AND id_apartado=? AND id_tema=?";
