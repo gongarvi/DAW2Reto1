@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="./../css/crear_contenido.css">
 <div id="crearNuevo">
     <h1>Crear contenido</h1>
-    <form id="formularioNuevo" name="login" class="from-group" method="post" action="../actualizar_contenido.php">
+    <form id="formularioNuevo" enctype="multipart/form-data" name="login" class="from-group" method="post" action="../actualizar_contenido.php">
 
         <!-- Empieza el SELECT (temas) -->
         <div>
@@ -56,11 +56,11 @@
             <br>
             <!-- Radio buttons para elegir si iamgen o ruta -->
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="archivo">
                 <label class="form-check-label" for="inlineRadio1">Archivo</label>
             </div>
             <div class="form-check form-check-inline">
-                <input checked class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                <input checked class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="ruta">
                 <label class="form-check-label" for="inlineRadio2">Ruta</label>
             </div>
             <!-- Fin radio buttons -->
@@ -69,7 +69,7 @@
             
             <div class="custom-file radio1">
                 <!-- <label class="labelForm ">Imagen:</label> -->
-                <input type="file" class="custom-file-input" id="inputGroupFile01" name="imagen">
+                <input type="file" class="custom-file-input" id="inputGroupFile01" name="archivo">
                 <label class="custom-file-label" for="inputGroupFile01">Seleccione el archivo</label>
             </div>
             
