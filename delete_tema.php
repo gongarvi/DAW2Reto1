@@ -1,7 +1,7 @@
 <?php
     if(isset($_POST["tema"]) && $_POST["tema"]){
         $tema=$_POST["tema"];
-        include "sql-connect.php";
+        include_once "sql-connect.php";
         $query="DELETE FROM tema WHERE id=?";
         $query=$conn->prepare($query);
         $query->execute([$tema]);

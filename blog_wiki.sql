@@ -22,7 +22,7 @@ CREATE TABLE apartado(
     nombre varchar(64),
     fecha timestamp DEFAULT NOW(),
     primary key(id,id_tema),
-    FOREIGN KEY (id_tema) REFERENCES tema(id) ON UPDATE CASCADE
+    FOREIGN KEY (id_tema) REFERENCES tema(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 CREATE TABLE contenido(
     id int,
@@ -32,7 +32,7 @@ CREATE TABLE contenido(
     ruta_imagen varchar(256),
     titulo varchar(256),
     primary key(id,id_apartado,id_tema),
-    FOREIGN KEY (id_apartado,id_tema) REFERENCES apartado(id,id_tema) ON UPDATE CASCADE
+    FOREIGN KEY (id_apartado,id_tema) REFERENCES apartado(id,id_tema) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE comentario(
@@ -42,8 +42,8 @@ CREATE TABLE comentario(
     texto varchar(256),
     fecha timestamp  DEFAULT NOW(),
     padre int,
-    FOREIGN KEY (id_usuario) REFERENCES usuario(id) ON UPDATE CASCADE,
-    FOREIGN KEY (id_apartado) REFERENCES apartado(id) ON UPDATE CASCADE,
+    FOREIGN KEY (id_usuario) REFERENCES usuario(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (id_apartado) REFERENCES apartado(id) ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (padre) REFERENCES comentario(id) ON UPDATE CASCADE
 );
 

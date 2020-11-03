@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="./../css/crear_contenido.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css"/> <!-- 'classic' theme -->
 <form id="crearNuevo" class="form-group" action="./../actualizar_tema.php" method="post">
     <h1>Modificar Tema</h1>
     <div>
@@ -6,7 +7,7 @@
         <select name="selectTema" class="form-control" id="selectTema">
             <option value="" disabled selected>Seleccione un tema por favor</option>
             <?php
-                include "sql-connect.php";
+                include_once "../sql-connect.php";
                 $query="SELECT id, nombre FROM tema";
                 $query=$conn->prepare($query);
                 $query->execute();
@@ -22,16 +23,28 @@
     </div>
     <div class="form-row">
         <div class="col-6">
-            <label  for="colorPrincipal">Color Principal</label>
-            <input class="form-control" type="text" name="colorPrincipal" id="colorPrincipal">
+            <label class="labelForm" for="colorPrincipal">Color principal:</label>
+            <div class="input-group">
+                <input class="form-control" readonly name="colorPrincipal" id="colorPrincipal">
+                    <div class="input-group-append">
+                        <span class="input-group-text">⠀</span>
+                    </div>
+            </div>        
         </div>
+
         <div class="col-6">
-            <label for="colorTexto">Color Texto</label>
-            <input class="form-control" type="text" name="colorTexto" id="colorTexto">
+            <label class="labelForm" for="colorTexto">Color secundario:</label>               
+            <div class="input-group">
+                <input class="form-control" readonly name="colorTexto" id="colorTexto">
+                <div class="input-group-append">
+                    <span class="input-group-text">⠀</span>
+                </div>
+            </div>                      
         </div>
     </div>
     <div>
         <input class="labelForm btn btn-warning mb-2" type="submit" value="Modificar">
     </div>
 </form>
+<script src="../moduls/pickr-master/dist/pickr.min.js"></script>
 <script src="./../javascript/modificar_tema.js"></script>

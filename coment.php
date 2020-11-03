@@ -1,7 +1,7 @@
 <?php
     session_start();
     
-    include "sql-connect.php";
+    include_once "sql-connect.php";
     
         $comentario=$_POST['comenta'];
         $tema=$_POST['tema'];

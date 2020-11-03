@@ -1,7 +1,7 @@
 <?php
     if(isset($_POST["selectTema"]) && $_POST["selectTema"]!="" && isset($_POST["selectApartados"]) 
     && $_POST["selectApartados"]!="" && isset($_POST["selectContenido"]) && $_POST["selectContenido"]!=""){
-        include "sql-connect.php";
+        include_once "sql-connect.php";
         $id_tema=$_POST["selectTema"];
         $id_apartado=$_POST["selectApartados"];
         $id_contenido=$_POST["selectContenido"];
