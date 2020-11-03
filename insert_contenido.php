@@ -1,6 +1,6 @@
 <?php 
     // <!-- lastinsertId() -->
-    include "sql-connect.php";
+    include_once "sql-connect.php";
 
     $tema                   = $_POST['inputTema'];
     $temaSeleccionado       = $_POST['selectTema'];

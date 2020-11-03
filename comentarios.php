@@ -1,7 +1,7 @@
 
 <?php
 
-    include "sql-connect.php";
+    include_once "sql-connect.php";
     if (isset($_GET["apartado.id"])) {
         $numApartado = $_GET["apartado.id"];
     }
@@ -24,34 +24,75 @@
                         #guardar'.$i.'{
                         display:none;
                         }
+                        
                 </style>';
-            echo '<div id="divcoment'.$i.'"><p>'.$comentario['nombre_usuario'] ." ". $comentario['apellido_usuario']." ". '<span id="comentario'.$i.'"  contentEditable = "false">'.$comentario["comentario"].'</span>'.'</p>
+            echo '<div id="divcoment'.$i.'"><p id="parrafo'.$i.'">'.$comentario['nombre_usuario'] ." ". $comentario['apellido_usuario']." ". '<span id="comentario'.$i.'"  contentEditable = "false">'.$comentario["comentario"].'</span>'.'</p>
             <p id="fecha" style= font-family:"italic"; font-size:"6px";>'.$comentario['fecha'].'</p>'.
-                '<form action="editar.php" method="post">
-                    <input type="button" class="btn btn-info" name="editar'.$i.'" value="editar" onclick="comentario(this)"/>
+                '<form action="editar.php" method="post" onsubmit="return prueba(this)" >
+                    <input type="button" class="btn btn-info" name="editar'.$i.'" value="Editar" onclick="comentario(this)"/>
                     <input type="hidden" name="apartado" value="'.$numApartado.'"> 
                     <input type="hidden" name="tema" value="'.$numTema.'">
                     <input type="hidden" name="id" value="'.$comentario['idcomentario'].'">
+                    <input type="hidden" name="comenta" id="comenta'.$i.'" value="'.$comentario['idcomentario'].'">
                     <input type="submit" class="btn btn-info" id="guardar'.$i++.'"name="guardar" value="Guardar"/>
                 </form></div>';
                
-                echo '<script>
-                function comentario(e){
-                    alert("Funciona");
-                    document.getElementById("guardar'.$i.'").style.display="inline-block";
-                var c=document.getElementById("divcoment'.$i.'").childNodes;
-                   var i;
-                   for(i=0;i<c.length;i++){
-                       if(c[i].nodeName.tpLowerCase()=="span"){
-                           alert(encontrado);
-                           c[i].contentEditable=true;
-                           c[i].focus();
-                           document.getElementById("guardar").style.display="inline-block";}
-                       }
-                }
-                </script>';
             
         }
+        echo '<script>
+                function comentario(id){
+                    var padre=id.parentNode.parentNode;
+                    //alert(padre.childNodes);
+                    //alert(padre.getAttribute("id"));
+                    var c= padre.childNodes;
+                    console.log(c);
+                    console.log(c[0]);
+                    var d=c[0];
+                    var g=c[3];
+                    console.log(g);
+                    var g2=g.childNodes;
+                    console.log(g2);
+                    var guardar=g2[11];
+                    var v=d.childNodes;
+                    console.log(v);
+                    var i;
+                    for(i=0;1<v.length;i++){
+                        if(v[i].nodeName.toLowerCase()=="span"){
+                            v[i].contentEditable=true;
+                            v[i].focus();
+                            console.log(v[i].value);
+                            document.getElementById(guardar.getAttribute("id")).style.display="inline-block";
+                            
+                        }
+                    }
+                    
+                }
+                function prueba(id){
+                    alert("Aqui funciona");
+                    var padre=id.parentNode.parentNode;
+                    //alert(padre.childNodes);
+                    //alert(padre.getAttribute("id"));
+                    var c= padre.childNodes;
+                    console.log(c);
+                    console.log(c[0]);
+                    var d=c[0];
+                    var g=c[3];
+                    console.log(g);
+                    var g2=g.childNodes;
+                    console.log(g2);
+                    var guardar=g2[11];
+                    var v=d.childNodes;
+                    console.log(v);
+                    var i;
+                    for(i=0;1<v.length;i++){
+                        if(v[i].nodeName.toLowerCase()=="span"){
+                            var s = document.getElementById(g2[9].getAttribute("id"));
+                            document.getElementById(s).value = document.getElementById(v[i],getAttribute("id")).innerHTML;
+                        } 
+                    }
+                }
+                
+                </script>';
         echo '</div>';
     }
 ?> 

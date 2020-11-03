@@ -18,7 +18,6 @@
             $query="UPDATE comentario SET texto=? WHERE id_usuario=? AND id=?";
             $query=$conn->prepare($query);
             $query->execute([$comentario,$idusuario['id'],$id]);  
-           
        }
         else{
            error();
