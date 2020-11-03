@@ -37,6 +37,7 @@ function crearPicker(element,color="#FFF") {
         el:element,
         useAsButton:true,
         default:color,
+        container:"#contenido",
         theme: 'classic', // or 'monolith', or 'nano'
         components: {
 
