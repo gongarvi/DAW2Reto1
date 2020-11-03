@@ -7,12 +7,12 @@ colorTexto      = document.getElementById("colorTexto");
 // colorTexto.addEventListener("focus",crearPickr("colorTexto"));
 
 
-crearPicker("colorPrincipal");
-crearPicker("colorTexto");
+crearPicker("#colorPrincipal");
+crearPicker("#colorTexto");
 
 function crearPicker(nombreInput) {
     const pickr = Pickr.create({
-    el: '#'+nombreInput,
+    el: nombreInput,
     useAsButton:true,
     theme: 'classic', // or 'monolith', or 'nano'
     components: {
@@ -35,8 +35,8 @@ function crearPicker(nombreInput) {
   });
 
   pickr.on('change', (color, instance) => {
-    document.getElementById(nombreInput).value=color.toHEXA().toString();
-    $("#"+nombreInput).parent().find(".input-group-text").css("background-color",color.toHEXA().toString());
+    $(nombreInput).val(color.toHEXA().toString());
+    $(nombreInput).parent().find(".input-group-text").css("background-color",color.toHEXA().toString());
   });
 }   
     
