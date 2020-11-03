@@ -29,5 +29,5 @@
         </div>
     
 </form>
-<script src="../moduls/pickr-master/dist/pickr.min.js"></script>
-<script type="text/javascript" src="../javascript/crear_tema.js"></script>
+<!-- <script src="../moduls/pickr-master/dist/pickr.min.js"></script> -->
+<!-- <script type="text/javascript" src="../javascript/crear_tema.js"></script> -->
