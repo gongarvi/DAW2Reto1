@@ -1,5 +1,5 @@
 <?php
-    include "sql-connect.php";
+    include_once "sql-connect.php";
 /*
     $nombreTema         = $_POST['nombreTema'];
     $colorPrincipal     = $_POST['colorPrincipal'];

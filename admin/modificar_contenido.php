@@ -9,7 +9,7 @@
             <select id="selectTema" name="selectTema" class="form-control">
                 <option value="" disabled selected>Seleccione un tema por favor</option>
                 <?php
-                    include "sql-connect.php";
+                    include_once ".../sql-connect.php";
                     $query="SELECT id, nombre FROM tema";
                     $query=$conn->prepare($query);
                     $query->execute();

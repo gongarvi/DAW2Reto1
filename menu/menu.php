@@ -5,7 +5,7 @@
       <ul class="navbar-nav mr-auto">
       <?php
           define(__DIR__,"./");
-          include __DIR__."./../sql-connect.php";
+          include_once __DIR__."./../sql-connect.php";
           $query="SELECT  id,nombre, color_asociado, color_texto	 FROM tema";
           $query=$conn->prepare($query);
           $query->execute();

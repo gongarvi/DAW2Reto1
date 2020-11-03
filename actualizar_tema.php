@@ -6,7 +6,7 @@
         foreach($_POST as $key=>$i){
             $$key=$i;
         }
-        include "sql-connect.php";
+        include_once "sql-connect.php";
         $query="UPDATE tema
             SET nombre=?, color_asociado=?, color_texto=?
             WHERE id=?";

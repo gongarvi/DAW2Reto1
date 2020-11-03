@@ -27,7 +27,7 @@
     <div id="contenido">
         
         <?php
-            include "sql-connect.php";
+            include_once "sql-connect.php";
             if (isset($_GET["apartado"])) {
                 $numApartado = $_GET["apartado"];
             }

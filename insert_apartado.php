@@ -1,5 +1,5 @@
 <?php
-include "sql-connect.php";
+include_once "sql-connect.php";
 
 $temaSeleccionado       = $_POST['selectTema'];
 $nombreApartado         = $_POST['nombreApartado']

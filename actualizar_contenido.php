@@ -2,7 +2,7 @@
     if(isset($_POST["titulo"]) && $_POST["titulo"]!="" && isset($_POST["texto"]) && $_POST["texto"]!=""  && isset($_POST["selectTema"]) 
     && $_POST["selectTema"]!="" && isset($_POST["selectApartados"]) && $_POST["selectApartados"]!="" 
     && isset($_POST["selectContenido"]) && $_POST["selectContenido"]!=""){
-        include "sql-connect.php";
+        include_once "sql-connect.php";
         $ruta_imagen="";
         $id_contenido=$_POST["selectContenido"];
         $id_apartado=$_POST["selectApartados"];

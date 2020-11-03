@@ -7,7 +7,7 @@
             <select id="selectTema" name="selectTema" placeholder="Elige un tema" class="form-control">
                 <option disabled selected>Elige un tema</option>
                 <?php
-                    include "sql-connect.php";
+                    include_once "../sql-connect.php";
                     $query="SELECT id, nombre FROM tema";
                     $query=$conn->prepare($query);
                     $query->execute();
