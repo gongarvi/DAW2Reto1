@@ -5,11 +5,8 @@ $temaSeleccionado       = $_POST['selectTema'];
 $nombreApartado         = $_POST['nombreApartado'];
 $fecha                  = getdate();
 
-if ($temaSeleccionado!=0 || $nombreApartado !="" || !isset($nombreApartado)) {
+if ($temaSeleccionado!=0 && $nombreApartado !="" && isset($nombreApartado)) {
     $id = (getApartadoId($temaSeleccionado,$conn))+1;
-    echo $id;
-    echo $temaSeleccionado;
-    echo $nombreApartado;
     insertarApartado($id,$temaSeleccionado,$nombreApartado,$conn);
 }else {
     crearGalleta("error","Rellena todos los campos");
@@ -36,7 +33,7 @@ function insertarApartado($id,$id_tema,$nombreApartado,$conn){
         }elseif($affected_rows==0){
             crearGalleta("warning","No se han insertado los datos");
         }else{
-            crearGalleta("error","Error en la insercion de datos".$sql->errorCode());
+            crearGalleta("error","Error en la inserción de datos".$sql->errorCode());
         }
     return $conn->lastInsertID();
 }
