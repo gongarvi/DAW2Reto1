@@ -42,7 +42,7 @@
         <!-- Empieza el input (titulo) -->
         <div>
             <label class="labelForm" for="titulo">Titulo:</label>
-            <input class="form-control" name="titulo" id="titulo">
+            <input class="form-control" type="text" name="titulo" id="titulo">
         </div>
         <!-- Acaba el input (titulo) -->
 

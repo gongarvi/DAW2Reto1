@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="./../css/crear_contenido.css">
-<link rel="stylesheet" href="./../css/crear_tema.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css"/> <!-- 'classic' theme -->
 <form action="./../insert_tema.php" method="post" id="crearNuevo" class="from-group">
     <h1>Crear Tema</h1>
