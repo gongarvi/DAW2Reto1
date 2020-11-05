@@ -9,8 +9,10 @@ $(()=>{
         $(".btn_verMas").click(verMasComentarios);
     }
     $(".btn_editar").click(editarComentario);
-    $("form").submit(cambiarComentario);
+
+    $("#comentarios_contenido").find("form.editar").submit(cambiarComentario);
     function verMasComentarios(){
+        $(".btn_Guardar").attr("hidden",true);
         let params = new URLSearchParams(location.search);
         let tema = params.get("tema");
         let apartado = params.get("apartado");
@@ -36,14 +38,14 @@ $(()=>{
 
 });
 function cambiarComentario(event){
-    //El bloque donde se encuentran los datos del comentario
     var bloque=event.target.parentNode;
     console.log(bloque);
-    var comentario_bloque=$((bloque.parentNode)).find("p.comentario span");
+    var comentario_bloque=$((bloque)).find("p.comentario span");
     $(bloque).find("input[name=comentario]").val(comentario_bloque.text());
 }
 
 function cargarDatos(data){
+    
     let divComentario=$("#comentarios_contenido div")[0];
     let nuevoDivComentario=divComentario.cloneNode(true);
     $(nuevoDivComentario).find("p.fecha").text(data.fecha);
@@ -52,10 +54,9 @@ function cargarDatos(data){
     span.textContent=data.comentario;
     $(nuevoDivComentario).find("p.comentario").append(span);
     $(nuevoDivComentario).find("form input[name=id]").val(data.id_comentario);
-    $(nuevoDivComentario).find("form input[name=guardar]").click(cambiarComentario)
+    $(nuevoDivComentario).find("form").submit(cambiarComentario);
     $(nuevoDivComentario).find("form input[name=editar]").click(editarComentario);
     $(nuevoDivComentario).find("form input[name=comentario]").val(data.comentario);
-    console.log(nuevoDivComentario);
     $("#comentarios_contenido").append(nuevoDivComentario);
 }
 function editarComentario(event){
@@ -63,7 +64,7 @@ function editarComentario(event){
     var padre=event.target.parentNode;
     //Mostrar el boton editar
     var btnGuardar=$(padre).find("input[type='submit']");
-    btnGuardar.removeAttr("hidden");
+    btnGuardar.attr("hidden",false);
     //Habilitar el p para poder escribir y ponerlo como foco
     var comentario=($(padre.parentNode).find("p span"));
     comentario.attr("contentEditable",true);
