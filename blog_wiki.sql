@@ -7,7 +7,7 @@ CREATE TABLE usuario(
     nombre varchar(32),
     apellido varchar(32),
     correo varchar(64) unique,
-    password varchar(64),
+    password varchar(255),
     administrador tinyint(1) DEFAULT 0
 );
 CREATE TABLE tema(

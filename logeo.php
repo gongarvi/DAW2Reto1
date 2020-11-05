@@ -28,7 +28,7 @@
         
         if($usuario!=null){
             
-            if(base64_decode($usuario["password"])==$contrasenia){
+            if(password_verify($contrasenia,$usuario["password"])){
                 $_SESSION["name"]=$usuario["nombre"];
                 $_SESSION["surname"]=$usuario["apellido"];
                 $_SESSION["email"]=$email;
