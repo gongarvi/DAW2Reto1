@@ -39,7 +39,7 @@
     </div>
     
     <div>
-        <input class="labelForm btn btn-danger mb-2" id="crear" name="boton" type="submit" value="Modificar">
+        <input class="labelForm btn btn-danger" id="crear" name="boton" type="submit" value="Modificar">
     </div>
     
 </form>
