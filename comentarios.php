@@ -24,18 +24,26 @@
                 <p class="comentario">'.$comentario['nombre_usuario'] ." ". $comentario['apellido_usuario']." ". 
                     '<span contentEditable = "false">'.$comentario["comentario"].'</span>'.
                 '</p>
-                <p class="fecha">'.$comentario['fecha'].'</p>'.
-                '<form action="editar.php" method="post" >';
+                <p class="fecha">'.$comentario['fecha'].'</p>';
                 if($_SESSION["email"]===$comentario["email"]){
-                    echo '<input type="button" class="btn btn-info btn_editar" name="editar" value="Editar"/>';
-                }
-                echo '<input type="hidden" name="apartado" value="'.$numApartado.'"> 
+                    echo ' <form action="editar.php" method="post" >
+                    <input type="button" class="btn btn-info btn_editar" name="editar" value="Editar">
+                    <input type="hidden" name="apartado" value="'.$numApartado.'"> 
                     <input type="hidden" name="tema" value="'.$numTema.'">
                     <input type="hidden" name="id" value="'.$comentario['idcomentario'].'">
-                    <input type="submit" class="btn btn-info" id="guardar" name="guardar" value="Guardar" hidden/>
+                    <input type="submit" class="btn btn-info" id="guardar" name="guardar" value="Guardar" hidden>
                     <input type="hidden" name="comentario" value="'.$comentario["comentario"].'">
-                    </form>
-            </div>';
+                    </form>';
+                }
+                if($_SESSION["email"]===$comentario["email"]){
+                    echo '<form action="eliminar.php" method="post" >
+                    <input type="submit" class="btn btn-danger btn_eliminae"name="eliminar"  value="Borrar">
+                    <input type="hidden" name="apartado" value="'.$numApartado.'">
+                    <input type="hidden" name="tema" value="'.$numTema.'">
+                    <input type="hidden" name="id" value="'.$comentario['idcomentario'].'">
+                    </form>';
+                }
+           echo  '</div>';
                
             
         }
