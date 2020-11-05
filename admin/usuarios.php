@@ -25,7 +25,6 @@
 		<a href="index.php">Atras</a>
 		<div id="opciones">
 			<a href="usuarios.php?option=modificar">Modificar</a>
-			<a href="usuarios.php?option=eliminar">Eliminar</a>
 		</div>
       <?php
 	  	if(isset($_GET["option"])){
@@ -33,9 +32,6 @@
 				case "modificar":
 						include "modificar_usuarios.php";
 						break;
-				case "eliminar":
-					include "eliminar_usuarios.php";
-					break;
 			}
 		}
       ?>
