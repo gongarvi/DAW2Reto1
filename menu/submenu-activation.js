@@ -1,7 +1,7 @@
 //Se limpia el localsotarge cada vez que se cambia de pagina, de esta manera si lelva un tiempo sin entrar a la página, recibirá la última actualziación de los apartados
 localStorage.clear();
 
-var buttons=document.getElementById("menu").getElementsByTagName("button");
+var buttons=document.getElementById("menu").getElementsByClassName("navbar-submenu-opener");
 
 //Añadiendo eventos en el menu, para poder abrir el submenu adecuado
 for(let i = 0; i < buttons.length; i++){
