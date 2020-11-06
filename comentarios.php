@@ -25,27 +25,28 @@
                     '<span contentEditable = "false">'.$comentario["comentario"].'</span>'.
                 '</p>
                 <p class="fecha">'.$comentario['fecha'].'</p>';
-                if($_SESSION["email"]===$comentario["email"]){
-                    echo ' <form class="editar" action="editar.php" method="post" >
-                    <input type="button" class="btn btn-info btn_editar" name="editar" value="Editar">
-                    <input type="hidden" name="apartado" value="'.$numApartado.'"> 
-                    <input type="hidden" name="tema" value="'.$numTema.'">
-                    <input type="hidden" name="id" value="'.$comentario['idcomentario'].'">
-                    <input type="submit" class="btn btn-info btn_Guardar" id="guardar" name="guardar" value="Guardar" hidden>
-                    <input type="hidden" name="comentario" value="'.$comentario["comentario"].'">
-                    </form>';
+                if(isset($_SESSION["email"])){
+
+                    if($_SESSION["email"]===$comentario["email"]){
+                        //Editar
+                        echo ' <form class="editar" action="editar.php" method="post" >
+                        <input type="button" class="btn btn-info btn_editar" name="editar" value="Editar">
+                        <input type="hidden" name="apartado" value="'.$numApartado.'"> 
+                        <input type="hidden" name="tema" value="'.$numTema.'">
+                        <input type="hidden" name="id" value="'.$comentario['idcomentario'].'">
+                        <input type="submit" class="btn btn-info btn_Guardar" id="guardar" name="guardar" value="Guardar" hidden>
+                        <input type="hidden" name="comentario" value="'.$comentario["comentario"].'">
+                        </form>';
+                        //Eliminar
+                        echo '<form class="borrar" action="eliminar.php" method="post" >
+                        <input type="submit" class="btn btn-danger btn_eliminae"name="eliminar"  value="Borrar">
+                        <input type="hidden" name="apartado" value="'.$numApartado.'">
+                        <input type="hidden" name="tema" value="'.$numTema.'">
+                        <input type="hidden" name="id" value="'.$comentario['idcomentario'].'">
+                        </form>';
+                    }
                 }
-                if($_SESSION["email"]===$comentario["email"]){
-                    echo '<form class="borrar" action="eliminar.php" method="post" >
-                    <input type="submit" class="btn btn-danger btn_eliminae"name="eliminar"  value="Borrar">
-                    <input type="hidden" name="apartado" value="'.$numApartado.'">
-                    <input type="hidden" name="tema" value="'.$numTema.'">
-                    <input type="hidden" name="id" value="'.$comentario['idcomentario'].'">
-                    </form>';
-                }
-           echo  '</div>';
-               
-            
+            echo  '</div>'; 
         }
         echo '</div>
         <button class="btn btn_primary btn_verMas">Ver mas</button>
