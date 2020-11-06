@@ -49,3 +49,15 @@ td
     height: auto;
 }
 
+#crearNuevo
+{
+    backdrop-filter: blur(10px)!important;
+}
+
+.titulo
+{
+    text-align: center;
+    font-weight: 400;
+    margin-bottom: 1em;
+    letter-spacing: 0.7px;
+}

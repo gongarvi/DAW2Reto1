@@ -23,17 +23,11 @@
     ?>
     <div id="contenido">
 		<a href="index.php">Atras</a>
-		<div id="opciones">
+		<!-- <div id="opciones">
 			<a href="usuarios.php?option=modificar">Modificar</a>
-		</div>
+		</div> -->
       <?php
-	  	if(isset($_GET["option"])){
-			switch($_GET["option"]){
-				case "modificar":
-						include "modificar_usuarios.php";
-						break;
-			}
-		}
+        include "modificar_usuarios.php";
       ?>
     </div>
     <div id="pie">

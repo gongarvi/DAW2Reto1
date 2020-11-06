@@ -9,10 +9,27 @@
     
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <?php
+        include_once "sql-connect.php";
+        $idtema = $_GET["tema"];
+        $sql="SELECT color_asociado, color_texto FROM tema WHERE id=?";
+        $sql=$conn->prepare($sql);
+        $sql->execute([$idtema]);
+        $colores=$sql->fetch();
+    ?>
+    <style>
+        :root{
+            --colorPrincipal:<?php echo $colores["color_asociado"]; ?>!important;
+            --colorTexto:<?php echo $colores["color_texto"]; ?>!important;
+        }
+
+    </style>
     <link rel="stylesheet" href="css/comun.css">
     <link rel="stylesheet" href="css/contenido.css">
+
 </head>
 <body>  
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <div id="cabecera">
@@ -70,6 +87,9 @@
     
     <div id="pie">
       <h1>Lorem Ipsum</h1>
+        <?php
+            include "./../pie.php";
+        ?>
     </div>
 </body>
 </html>

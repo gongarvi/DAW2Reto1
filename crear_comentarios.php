@@ -6,6 +6,6 @@
         <input class="form-control" type="text" name="comenta" id="comenta" required>
         <input type="hidden" name="apartado" value=<?php echo '"'.$_GET['apartado'].'"';?>>
         <input type="hidden" name="tema" value=<?php echo '"'.$_GET['tema'].'"';?>>
-        <input class="btn btn-primary mb-2" type="submit" value="Añadir">
+        <input style="margin-top:1em;" class="btn btn-primary mb-2" type="submit" value="Añadir">
     </form>
 </div>

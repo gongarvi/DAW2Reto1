@@ -1,7 +1,8 @@
 <link rel="stylesheet" href="./../css/crear_contenido.css">
 <link rel="stylesheet" href="./../css/modificar_usuarios.css">
+<h1 class="titulo">Administrar Usuarios</h1>
 <form action="./../actualizar_usuarios.php" method="post" id="crearNuevo" class="from-group">
-    <h1>Administrar Usuarios</h1>
+    
     <div>
         <table class="table table-hover">
         <tr>
