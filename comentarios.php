@@ -39,7 +39,7 @@
                         </form>';
                         //Eliminar
                         echo '<form class="borrar" action="eliminar.php" method="post" >
-                        <input type="submit" class="btn btn-danger btn_eliminae"name="eliminar"  value="Borrar">
+                        <input type="submit" class="btn btn-danger btn_eliminar" name="eliminar"  value="Borrar">
                         <input type="hidden" name="apartado" value="'.$numApartado.'">
                         <input type="hidden" name="tema" value="'.$numTema.'">
                         <input type="hidden" name="id" value="'.$comentario['idcomentario'].'">
@@ -49,8 +49,9 @@
             echo  '</div>'; 
         }
         echo '</div>
-        <button class="btn btn_primary btn_verMas">Ver mas</button>
+            <button class="btn btn_primary btn_verMas">Ver mas</button>
         </div>';
     }
 ?> 
+<script> const email = "<?php echo $_SESSION["email"];?>";</script>
 <script src="javascript/comentarios.js"></script>

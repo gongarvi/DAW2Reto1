@@ -1,22 +1,21 @@
-
+let params = new URLSearchParams(location.search);
+const tema_id = params.get("tema") ;
+const apartado_id = params.get("apartado");
 $(()=>{
     var rowCount=$("#comentarios_contenido")[0].childNodes.length;
-    console.log(rowCount);
-    rowCount++;
     if(rowCount<10){
         $(".btn_verMas").hide();
     }else{
         $(".btn_verMas").click(verMasComentarios);
     }
+    
     $(".btn_editar").click(editarComentario);
 
     $("#comentarios_contenido").find("form.editar").submit(cambiarComentario);
     function verMasComentarios(){
+        var params={tema:tema_id,apartado:apartado_id,rowCount:rowCount};
         $(".btn_Guardar").attr("hidden",true);
-        let params = new URLSearchParams(location.search);
-        let tema = params.get("tema");
-        let apartado = params.get("apartado");
-        peticionAjax("./obtener_todos_comentarios.php","get",{tema:tema,apartado:apartado,rowCount:rowCount})
+        peticionAjax("./obtener_todos_comentarios.php","get",params)
         .then((response)=>{
             if(response!=""){
                 var data = JSON.parse(response);
@@ -35,8 +34,9 @@ $(()=>{
             console.error(error);
         });
     }
-
+    
 });
+
 function cambiarComentario(event){
     var bloque=event.target.parentNode;
     console.log(bloque);
@@ -45,19 +45,41 @@ function cambiarComentario(event){
 }
 
 function cargarDatos(data){
+    let divComentario=document.createElement("div");
+    let fecha=document.createElement("p");
+    fecha.textContent=data.fecha;
+    let comentario=document.createElement("p");
+    comentario.textContent=data.nombre+" "+data.apellido+" ";
+    let spanComentario=document.createElement("span");
+    spanComentario.textContent=data.comentario;
+    comentario.append(spanComentario);
+    divComentario.append(comentario);
+    divComentario.append(fecha);
     
-    let divComentario=$("#comentarios_contenido div")[0];
-    let nuevoDivComentario=divComentario.cloneNode(true);
-    $(nuevoDivComentario).find("p.fecha").text(data.fecha);
-    $(nuevoDivComentario).find("p.comentario").text(data.nombre+" "+data.apellido+" ");
-    let span=document.createElement("span");
-    span.textContent=data.comentario;
-    $(nuevoDivComentario).find("p.comentario").append(span);
-    $(nuevoDivComentario).find("form input[name=id]").val(data.id_comentario);
-    $(nuevoDivComentario).find("form").submit(cambiarComentario);
-    $(nuevoDivComentario).find("form input[name=editar]").click(editarComentario);
-    $(nuevoDivComentario).find("form input[name=comentario]").val(data.comentario);
-    $("#comentarios_contenido").append(nuevoDivComentario);
+    if(email==data.email){
+        let editar=document.createElement("form");
+        editar.action="editar.php";
+        editar.method="post";
+        $(`<input type="button" class="btn btn-info btn_editar" name="editar" value="Editar">`).appendTo(editar);
+        $(`<input type="submit" class="btn btn-info btn_Guardar" id="guardar" name="guardar" value="Guardar" hidden>`).appendTo(editar);
+        $(`<input type="hidden" name="apartado" value="${apartado_id}">`).appendTo(editar);
+        $(`<input type="hidden" name="tema" value="${tema_id}">`).appendTo(editar);
+        $(`<input type="hidden" name="id" value="${data.id_comentario}">`).appendTo(editar);
+        $(`<input type="hidden" name="comentario" value="${data.comentario}">`).appendTo(editar);
+        
+        let borrar=document.createElement("form");
+        borrar.action="eliminar.php";
+        borrar.method="post";
+        $(`<input type="submit" class="btn btn-danger btn_eliminar" name="eliminar"  value="Borrar">`).appendTo(borrar)
+        $(`<input type="hidden" name="apartado" value="${apartado_id}">`).appendTo(borrar);
+        $(`<input type="hidden" name="tema" value="${tema_id}">`).appendTo(borrar);
+        $(`<input type="hidden" name="id" value="${data.id_comentario}">`).appendTo(borrar);
+        divComentario.append(editar);
+        divComentario.append(borrar);
+    }
+    $("#comentarios_contenido").append(divComentario);
+    $("#comentarios_contenido").on("click",".btn_editar",editarComentario)
+
 }
 function editarComentario(event){
     //Obtener el padre del elemento seleccionado
