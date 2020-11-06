@@ -16,9 +16,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <div id="cabecera">
-        <div class=" cuadrado">
-            <h1>Blog DAW2</h1>
-        </div>
+		<h1><a href="./..">Blog Servidor</a></h1>
     </div>
     <?php
         include "./menu/menu.php";
