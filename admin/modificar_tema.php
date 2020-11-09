@@ -1,7 +1,8 @@
 <link rel="stylesheet" href="./../css/crear_contenido.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css"/> <!-- 'classic' theme -->
+<h1 class="titulo">Modificar Tema</h1>
 <form id="crearNuevo" class="form-group" action="./../actualizar_tema.php" method="post">
-    <h1>Modificar Tema</h1>
+
     <div>
         <label class="labelForm" for="apartado">Tema:</label>
         <select name="selectTema" class="form-control" id="selectTema">

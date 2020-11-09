@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="./../css/crear_contenido.css">
+<h1 class="titulo">Crear contenido</h1>
 <div id="crearNuevo">
-    <h1>Crear contenido</h1>
+    
     <form id="formularioNuevo" enctype="multipart/form-data" name="login" class="from-group" method="post" action="./../insert_contenido.php">
         <!-- Empieza el SELECT (temas) -->
         <div>
@@ -79,7 +80,7 @@
         </div>
 
         <div>
-            <input class="labelForm btn btn-danger mb-2" id="crear" type="submit" value="Crear">
+            <input class="labelForm btn btn-outline-success mb-2" id="crear" type="submit" value="Crear">
         </div>
     </form>
     <script src="../javascript/crear_contenido.js"></script>

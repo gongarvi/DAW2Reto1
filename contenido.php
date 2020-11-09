@@ -9,8 +9,41 @@
     
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <?php
+        include_once "sql-connect.php";
+        include_once "cambio_color.php";
+        $idtema = $_GET["tema"];
+        $sql="SELECT color_asociado, color_texto FROM tema WHERE id=?";
+        $sql=$conn->prepare($sql);
+        $sql->execute([$idtema]);
+        $colores=$sql->fetch();
+
+        //Cambio color para header
+        $color=$colores["color_asociado"];
+        $colorArray=str_split(substr($color,1));
+        $luminosidad=0.5;        
+        $cantidad=0;
+        for($i=0;$i<6;$i++){
+            if(hexdec($colorArray[$i])<8&&hexdec($colorArray[$i])!=0){
+                $cantidad++;
+            }
+        }
+        if($cantidad/6>0.4999){
+            $luminosidad=1.5;
+        }
+
+    ?>
+    <style>
+        :root{
+            --colorPrincipal:<?php echo $colores["color_asociado"]; ?>!important;
+            --colorTexto:<?php echo $colores["color_texto"]; ?>!important;
+            --colorCabecera:<?php echo oscurecer($color,$luminosidad);?>!important;
+        }
+
+    </style>
     <link rel="stylesheet" href="css/comun.css">
     <link rel="stylesheet" href="css/contenido.css">
+
     <style>
         img.imgTutoria{
     width: 350px;
@@ -34,12 +67,11 @@
     </style>
 </head>
 <body>  
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <div id="cabecera">
-        <div class=" cuadrado">
-            <h1>Blog DAW2</h1>
-        </div>
+		<h1><a href="./..">BloG sERviDoR</a></h1>
     </div>
     <?php
         include "./menu/menu.php";
@@ -73,8 +105,6 @@
                 echo '</div>';
             }
             
-
-            
         ?>
         <div id="comentarios">
             <?php
@@ -90,7 +120,11 @@
     </div>
     
     <div id="pie">
-      <h1>Lorem Ipsum</h1>
+        <!--Pringaos todos-->
+      <h1>Menuda basura de footer</h1>
+        <?php
+            include "./pie.php";
+        ?>
     </div>
     <script>
     $(document).ready(function(){

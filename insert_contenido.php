@@ -114,10 +114,13 @@
         $sql="INSERT INTO contenido (`id`,`id_apartado`,`id_tema`,`texto`,`ruta_imagen`,`titulo`) VALUES (?,?,?,?,?,?)";
         $sql= $conn->prepare($sql);
         $sql->execute([$id,$apartado_id,$tema_id,$texto,$ruta,$titulo]);
-        if($sql){
-            header('Location: http://localhost/admin/contenido.php?option=crear');
+        $affected_rows=$sql->rowCount();
+        if($affected_rows==1){
+            crearGalleta("success","Datos insertados correctamente");
+        }elseif($affected_rows==0){
+            crearGalleta("warning","No se han insertado los datos");
         }else{
-            crearGalleta("error","error en la insercion de datos");
+            crearGalleta("error","Error en la insercion de datos".$sql->errorCode());
         }
     }
 

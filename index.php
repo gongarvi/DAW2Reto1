@@ -15,7 +15,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <div id="cabecera">
-        <h1><a href="#">Blog Servidor</a></h1>
+        <h1><a href="#">BLoG sERviDoR</a></h1>
     </div>
     <?php
         include "./menu/menu.php";
@@ -25,7 +25,7 @@
         <a href="admin/index.php">admin</a>
     </div>
     <div id="pie">
-      <h1>Lorem Ipsum</h1>
+      <h1>Footer</h1>
     </div>
 </body>
 </html>

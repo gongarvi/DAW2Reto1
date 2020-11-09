@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="./../css/crear_contenido.css">
+<h1 class="titulo">Eliminar contenido</h1>
 <div id="crearNuevo">
-    <h1>Crear contenido</h1>
     <form id="formularioNuevo" name="login" class="from-group" method="post" action="../delete_contenido.php">
 
         <!-- Empieza el SELECT (temas) -->
@@ -39,7 +39,7 @@
         </div>
         <!-- Acaba el select (contenido) -->
         <div>
-            <input class="labelForm btn btn-danger mb-2" type="submit" value="Eliminar">
+            <input class="labelForm btn btn-outline-danger mb-2" type="submit" value="Eliminar">
         </div>
     </form>
 </div>
