@@ -11,16 +11,33 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <?php
         include_once "sql-connect.php";
+        include_once "cambio_color.php";
         $idtema = $_GET["tema"];
         $sql="SELECT color_asociado, color_texto FROM tema WHERE id=?";
         $sql=$conn->prepare($sql);
         $sql->execute([$idtema]);
         $colores=$sql->fetch();
+
+        //Cambio color para header
+        $color=$colores["color_asociado"];
+        $colorArray=str_split(substr($color,1));
+        $luminosidad=0.5;        
+        $cantidad=0;
+        for($i=0;$i<6;$i++){
+            if(hexdec($colorArray[$i])<8&&hexdec($colorArray[$i])!=0){
+                $cantidad++;
+            }
+        }
+        if($cantidad/6>0.4999){
+            $luminosidad=1.5;
+        }
+
     ?>
     <style>
         :root{
             --colorPrincipal:<?php echo $colores["color_asociado"]; ?>!important;
             --colorTexto:<?php echo $colores["color_texto"]; ?>!important;
+            --colorCabecera:<?php echo oscurecer($color,$luminosidad);?>!important;
         }
 
     </style>

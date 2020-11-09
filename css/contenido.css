@@ -3,8 +3,13 @@
 {
     --colorPrincipal:orange;
     --colorTexto:black;
+    --colorCabecera:black;
 }
 
+#cabecera
+{
+    background-color: var(--colorCabecera);
+}
 
 #contenido{
     /* background-color: aqua; */
