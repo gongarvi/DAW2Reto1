@@ -29,7 +29,7 @@
         <input id="inputApartado" type="text" class="form-control" placeholder="Nombre del apartado" name="inputApartado" aria-describedby="basic-addon1">
     </div>
     <div>
-        <input class="labelForm btn btn-danger mb-2" id="crear" type="submit" value="Modificar">
+        <input class="labelForm btn btn-outline-warning mb-2" id="crear" type="submit" value="Modificar">
     </div>
     
 </form>

@@ -25,7 +25,7 @@
         </div>
   
         <div>
-            <input class="labelForm btn btn-danger mb-2" id="crear" type="submit" value="Crear">
+            <input class="labelForm btn btn-outline-success mb-2" id="crear" type="submit" value="Crear">
         </div>
     
 </form>

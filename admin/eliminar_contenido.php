@@ -39,7 +39,7 @@
         </div>
         <!-- Acaba el select (contenido) -->
         <div>
-            <input class="labelForm btn btn-danger mb-2" type="submit" value="Eliminar">
+            <input class="labelForm btn btn-outline-danger mb-2" type="submit" value="Eliminar">
         </div>
     </form>
 </div>

@@ -3,7 +3,7 @@
         $$key=$i;
     }
     if(isset($inputApartado) && $inputApartado!="" && isset($selectApartados) && $selectApartados!="" && isset($selectTema) && $selectTema!=""){
-        include_once "../sql-connect.php";
+        include_once "./sql-connect.php";
         $query="UPDATE apartado
             SET nombre=?
             WHERE id=? AND id_tema=?";

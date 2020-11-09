@@ -40,7 +40,7 @@
     </div>
     
     <div>
-        <input class="labelForm btn btn-danger" id="crear" name="boton" type="submit" value="Modificar">
+        <input class="labelForm btn btn-outline-success" id="crear" name="boton" type="submit" value="Modificar">
     </div>
     
 </form>
