@@ -26,7 +26,7 @@ th
 
 table
 {
-    margin-top: 3em;
+    margin-top: 1em;
     border: none!important;
 }
 
@@ -54,10 +54,3 @@ td
     backdrop-filter: blur(10px)!important;
 }
 
-.titulo
-{
-    text-align: center;
-    font-weight: 400;
-    margin-bottom: 1em;
-    letter-spacing: 0.7px;
-}

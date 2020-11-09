@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="./../css/crear_contenido.css">
+<h1 class="titulo">Modificar contenido</h1>
 <div id="crearNuevo">
-    <h1>Crear contenido</h1>
     <form id="formularioNuevo" enctype="multipart/form-data" name="login" class="from-group" method="post" action="../actualizar_contenido.php">
 
         <!-- Empieza el SELECT (temas) -->

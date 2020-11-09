@@ -1,7 +1,8 @@
 <link rel="stylesheet" href="./../css/crear_contenido.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css"/> <!-- 'classic' theme -->
+<h1 class="titulo">Crear Tema</h1>
 <form action="./../insert_tema.php" method="post" id="crearNuevo" class="from-group">
-    <h1>Crear Tema</h1>
+    
         <div>
             <label class="labelForm" for="nombreTema">Nombre del tema:</label>
             <input class="form-control" name="nombreTema" id="nombreTema">

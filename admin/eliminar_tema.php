@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="./../css/crear_contenido.css">
+<h1 class="titulo">Eliminar Tema</h1>
 <form id="crearNuevo" class="form-group" action="./../delete_tema.php" method="post">
-    <h1>Eliminar Tema</h1>
+
     <div>
         <label class="labelForm" for="apartado">Tema:</label>
         <select name="tema" class="form-control" id="selectTema">

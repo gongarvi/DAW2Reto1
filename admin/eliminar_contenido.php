@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="./../css/crear_contenido.css">
+<h1 class="titulo">Eliminar contenido</h1>
 <div id="crearNuevo">
-    <h1>Crear contenido</h1>
     <form id="formularioNuevo" name="login" class="from-group" method="post" action="../delete_contenido.php">
 
         <!-- Empieza el SELECT (temas) -->
