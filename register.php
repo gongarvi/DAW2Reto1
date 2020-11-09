@@ -7,7 +7,7 @@
     if(isset($nombre) && isset($apellido) &&  isset($email) &&  isset($password) && $nombre!="" && $apellido!="" && $email!="" && $password!=""){
         $password_regex="/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]{8,16}$/";
         if(preg_match($password_regex,$password)==1){
-            $password=base64_encode($password);
+            $password=password_hash($password,PASSWORD_DEFAULT);
             include "sql-connect.php";
             $query="INSERT INTO usuario(`nombre`,`apellido`,`correo`,`password`) VALUES (?,?,?,?)";
             $query=$conn->prepare($query);

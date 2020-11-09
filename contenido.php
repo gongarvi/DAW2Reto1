@@ -44,6 +44,27 @@
     <link rel="stylesheet" href="css/comun.css">
     <link rel="stylesheet" href="css/contenido.css">
 
+    <style>
+        img.imgTutoria{
+    width: 350px;
+    height: 200px;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    position:relative;
+}
+ 
+.transition {
+    -webkit-transform: scale(1.8); 
+    -moz-transform: scale(1.8);
+    -o-transform: scale(1.8);
+    transform: scale(1.8);
+    position:fixed;
+    left: 20em;
+    top:20em;
+}
+    </style>
 </head>
 <body>  
 
@@ -83,8 +104,6 @@
                 echo '<p class="textoTutorial">'.$dato['texto'].'</p>';    
                 echo '</div>';
             }
-
-
             
         ?>
         <div id="comentarios">
@@ -107,5 +126,16 @@
             include "./pie.php";
         ?>
     </div>
+    <script>
+    $(document).ready(function(){
+        $("body").on('click','.imgTutorial',(event)=>{
+            if($(event.target).attr('class').includes('transition')==true){
+                $(".imgTutorial").removeClass('transition');
+            }else{
+                $(event.target).addClass('transition');
+            }
+        });
+    });
+    </script>
 </body>
 </html>
