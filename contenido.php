@@ -11,6 +11,27 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="css/comun.css">
     <link rel="stylesheet" href="css/contenido.css">
+    <style>
+        img.imgTutoria{
+    width: 350px;
+    height: 200px;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    position:relative;
+}
+ 
+.transition {
+    -webkit-transform: scale(1.8); 
+    -moz-transform: scale(1.8);
+    -o-transform: scale(1.8);
+    transform: scale(1.8);
+    position:fixed;
+    left: 20em;
+    top:20em;
+}
+    </style>
 </head>
 <body>  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -51,8 +72,6 @@
                 echo '<p class="textoTutorial">'.$dato['texto'].'</p>';    
                 echo '</div>';
             }
-
-
             
 
             
@@ -73,5 +92,16 @@
     <div id="pie">
       <h1>Lorem Ipsum</h1>
     </div>
+    <script>
+    $(document).ready(function(){
+        $("body").on('click','.imgTutorial',(event)=>{
+            if($(event.target).attr('class').includes('transition')==true){
+                $(".imgTutorial").removeClass('transition');
+            }else{
+                $(event.target).addClass('transition');
+            }
+        });
+    });
+    </script>
 </body>
 </html>
