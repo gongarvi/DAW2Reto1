@@ -1,5 +1,5 @@
 /*--Menu--*/
-@import url('https://fonts.googleapis.com/css2?family=Original+Surfer&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap'); */
 
 :root
 {
@@ -14,14 +14,12 @@
 
 .navbar{
     z-index: 0;
-  /* background-color: orange; */
-  background-color: var(--colorPrincipal);
-  padding: 0;  
+    background-color: var(--colorPrincipal);
+    padding: 0;  
 }
 #menu button{
     color: var(--colorTexto);
     text-transform: uppercase;
-    /* font-family: 'Original Surfer', cursive; */
 }
 
 .active{
