@@ -126,16 +126,11 @@
             include "./pie.php";
         ?>
     </div>
-    <script>
-    $(document).ready(function(){
-        $("body").on('click','.imgTutorial',(event)=>{
-            if($(event.target).attr('class').includes('transition')==true){
-                $(".imgTutorial").removeClass('transition');
-            }else{
-                $(event.target).addClass('transition');
-            }
-        });
-    });
+    <div id="visor" class="no-ver">
+        <img alt="visor_imagen">
+    </div>
+    <script src="javascript/visor_imagen.js">
+        
     </script>
 </body>
 </html>
