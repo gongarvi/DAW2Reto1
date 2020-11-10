@@ -1,0 +1,38 @@
+.icon-bar {
+    position: fixed;
+    top: 50%;
+    border-top-right-radius:  15px;
+    border-bottom-right-radius:  15px;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    background-color: rgb(210, 210, 210);
+  }
+  
+  /* Style the icon bar links */
+  .icon-bar a {
+    display: block;
+    text-align: center;
+    padding: 15px;
+    transition: all 0.3s ease;
+    color: black;
+    font-size: 22px;
+  }
+  
+  
+  .red:hover{
+      color:#dc3545;
+  }
+  .green:hover{
+      color:#28a745;
+  }
+  .blue:hover{
+      color:#007bff;
+  }
+  .yellow:hover{
+      color:#ffc107;
+  }
+  .icon {
+   
+    color: white;
+  }

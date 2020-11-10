@@ -10,6 +10,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="./../css/comun.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	  <link rel="stylesheet" href="./../css/barra.css">
 </head>
 <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -22,10 +24,13 @@
         include "../generic-alert/alert.php";
     ?>
     <div id="contenido">
-		<a href="index.php">Atras</a>
+		<!-- <a href="index.php">Atras</a> -->
 		<!-- <div id="opciones">
 			<a href="usuarios.php?option=modificar">Modificar</a>
-		</div> -->
+    </div> -->
+    <div class="icon-bar">
+			<a href="index.php" class="icon blue"><i class="material-icons">undo</i></a>
+		</div>
       <?php
         include "modificar_usuarios.php";
       ?>
