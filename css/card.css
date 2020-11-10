@@ -1,0 +1,159 @@
+.seleccionable{
+  background-color:rgb(243, 239, 239);
+}
+.noSeleccionable{
+  background-color:rgb(82, 80, 80);
+  color: white;
+}
+
+.card {
+  background-color: transparent;
+  margin:auto;
+  width: 50em;
+  height: 25em;
+  padding: 0%;
+  border: none;
+  
+  
+}
+
+/* This container is needed to position the front and back side */
+.card-body {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  padding: 0;
+  border-radius: 1.5rem;
+  /* box-shadow: 2px 3px rgb(20, 20, 20); */
+  border: 1px solid black;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.card:hover .card-body {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.card-front, .card-back {
+  border-radius: 1.5rem;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.card-front {
+  background-color: rgba(187, 187, 187, 0.95);
+  /* backdrop-filter: blur(3px); */
+  color: black;
+  position: absolute;
+}
+
+/* Style the back side */
+.card-back {
+  padding: 5%;
+  color: rgb(0, 0, 0);
+  transform: rotateY(180deg);
+  text-emphasis: none;
+  text-decoration: none;
+  background-color: rgba(167, 167, 167, 0.95);
+  /* backdrop-filter: blur(10px); */
+}
+img{
+  border-radius: 1.5rem;
+  width: auto;
+  height: 100%;
+  z-index: 0;
+  padding:4em;
+  position: relative;
+}
+.title-container{
+  position: absolute;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  bottom: 0;
+  left: 0;
+  background: #FFF;
+  height: 27.5%;
+  border-bottom-left-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+}
+.card-title{
+  text-align: center;
+  text-decoration: none;
+  text-align: center;
+  z-index: 1000;
+  height: 20%;
+  color: #077
+}
+
+  /* PRUEBAS DE ERIC  */
+  /* WARNING */
+  .tarjeta
+  {
+    background-color: rgba(65, 65, 65, 0.616);
+    backdrop-filter: blur(3px);
+    border-radius: 10px;
+    border: 1px solid black;
+    height: 100%;
+    transition-duration: 0.5s;
+    width: fit-content;
+    margin: auto;
+  }
+  .tarjeta p
+  {
+    color: rgb(216, 216, 216);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: small;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    margin-left: 1em;
+    margin-right: 1em;
+ 
+  }
+
+  .tituloTarjeta
+  {
+    color: rgba(218, 218, 218, 0.87);
+    text-transform: capitalize;
+    text-align: center;
+    margin-top: 0.5em;
+    letter-spacing: 0.07em;
+    font-size: 30px;
+    margin-bottom: 0.5em;
+  }
+
+  .imgTarjeta
+  {
+    padding: inherit;
+
+    margin: inherit;
+    /* border-radius: 15%;
+    border:1px solid rgb(92, 92, 92); */
+    height: 150px;
+    width: 150px;
+    margin-left: 42%;
+    /* background-color: rgba(3, 3, 3, 0.301);  */
+    margin-bottom: 1em;
+  }
+  .tarjeta:hover
+  {
+    transition-duration: 0.5s;
+    background-color: rgba(65, 65, 65, 0.897);
+    border: 1px solid #aaaaaa96;
+  }
+
+  table{
+    border:none!important;
+    margin-top: 3em;
+  }
+  table td
+  {
+    border:none!important;
+  }

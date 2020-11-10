@@ -24,10 +24,6 @@
         include "../generic-alert/alert.php";
     ?>
     <div id="contenido">
-		<!-- <a href="index.php">Atras</a> -->
-		<!-- <div id="opciones">
-			<a href="usuarios.php?option=modificar">Modificar</a>
-    </div> -->
     <div class="icon-bar">
 			<a href="index.php" class="icon blue"><i class="material-icons">undo</i></a>
 		</div>
