@@ -80,7 +80,9 @@
         include "./generic-alert/alert.php";
     ?>
     <div id="contenido">
-        
+        <div class="icon-bar">
+			<a href="admin/index.php" class="icon blue"><i class="material-icons">undo</i></a>
+		</div>
         <?php
             include_once "sql-connect.php";
             if (isset($_GET["apartado"])) {
