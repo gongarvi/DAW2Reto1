@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
 body
 {
     /* background-image: url('https://wallpaperboat.com/wp-content/uploads/2019/06/minimalist-desktop-10.jpg'); */
@@ -8,7 +9,10 @@ body
     background-repeat: 	no-repeat;
   }
   
-
+body
+{
+    font-family: 'Space Mono', monospace;
+}
 /*--Pie--*/
 html, body {
     height: 100%;
@@ -51,6 +55,7 @@ html, body {
     font-size: 44px;
     padding-top: 0.5em;
 }
+
 #cabecera a:hover
 {
     color: rgb(255, 255, 255);

@@ -46,15 +46,17 @@
 
     <style>
         img.imgTutoria{
-    width: 350px;
-    height: 200px;
-    -webkit-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
-    -ms-transition: all 1s ease-in-out;
-    position:relative;
-}
- 
+            width: 350px;
+            height: 200px;
+            -webkit-transition: all 1s ease-in-out;
+            -moz-transition: all 1s ease-in-out;
+            -o-transition: all 1s ease-in-out;
+            -ms-transition: all 1s ease-in-out;
+            position:relative;
+            z-index:3;
+
+        }
+        
 .transition {
     -webkit-transform: scale(1.8); 
     -moz-transform: scale(1.8);
@@ -71,7 +73,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <div id="cabecera">
-		<h1><a href="./..">BloG sERviDoR</a></h1>
+		<h1><a href="./..">BloG DAW 2</a></h1>
     </div>
     <?php
         include "./menu/menu.php";

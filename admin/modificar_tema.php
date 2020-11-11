@@ -44,7 +44,7 @@
         </div>
     </div>
     <div>
-        <input class="labelForm btn btn-warning mb-2" type="submit" value="Modificar">
+        <input class="labelForm btn btn-outline-warning mb-2" type="submit" value="Modificar">
     </div>
 </form>
 <script src="../moduls/pickr-master/dist/pickr.min.js"></script>
