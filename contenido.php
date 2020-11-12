@@ -43,30 +43,6 @@
     </style>
     <link rel="stylesheet" href="css/comun.css">
     <link rel="stylesheet" href="css/contenido.css">
-
-    <style>
-        img.imgTutoria{
-            width: 350px;
-            height: 200px;
-            -webkit-transition: all 1s ease-in-out;
-            -moz-transition: all 1s ease-in-out;
-            -o-transition: all 1s ease-in-out;
-            -ms-transition: all 1s ease-in-out;
-            position:relative;
-            z-index:3;
-
-        }
-        
-.transition {
-    -webkit-transform: scale(1.8); 
-    -moz-transform: scale(1.8);
-    -o-transform: scale(1.8);
-    transform: scale(1.8);
-    position:fixed;
-    left: 20em;
-    top:20em;
-}
-    </style>
 </head>
 <body>  
 
@@ -100,10 +76,15 @@
             $query->execute([$numApartado, $numTema]);
             $datos=$query->fetchall();
             foreach($datos as $dato){
+                
                 echo '<div class="divContenido">';
                 echo '<h1 class="pasoTutorial">'.$dato['titulo'].'</h1>';
                 echo '<img class="imgTutorial" src="'.$dato['ruta_imagen'].'" alt="">';
-                echo '<p class="textoTutorial">'.$dato['texto'].'</p>';    
+                if($dato["ruta_imagen"]==null || $dato["ruta_imagen"]==""){
+                    echo '<p class="textoTutorial">'.$dato['texto'].'</p>';    
+                }else{
+                echo '<p class="textoTutorial w-65" >'.$dato['texto'].'</p>';    
+                }
                 echo '</div>';
             }
             
@@ -122,8 +103,6 @@
     </div>
     
     <div id="pie">
-        <!--Pringaos todos-->
-      <h1>Menuda basura de footer</h1>
         <?php
             include "./pie.php";
         ?>
@@ -132,7 +111,6 @@
         <img alt="visor_imagen">
     </div>
     <script src="javascript/visor_imagen.js">
-        
     </script>
 </body>
 </html>

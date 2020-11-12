@@ -59,7 +59,7 @@ function cargarDatos(data){
     if(email==data.email||administrador){
         console.log("entra");
         let editar=document.createElement("form");
-        editar.action="editar.php";
+        editar.action="actualizar_comentario.php";
         editar.method="post";
         $(`<input type="button" class="btn btn_editar material-icons" name="editar" value="create">`).appendTo(editar);
         $(`<input type="submit" class="btn btn-info btn_Guardar" id="guardar" name="guardar" value="Guardar" hidden>`).appendTo(editar);
@@ -69,7 +69,7 @@ function cargarDatos(data){
         $(`<input type="hidden" name="comentario" value="${data.comentario}">`).appendTo(editar);
         
         let borrar=document.createElement("form");
-        borrar.action="eliminar.php";
+        borrar.action="delete_comentario.php";
         borrar.method="post";
         $(`<input type="submit" class="btn btn_eliminar material-icons" name="eliminar"  value="delete">`).appendTo(borrar);
         $(`<input type="hidden" name="apartado" value="${apartado_id}">`).appendTo(borrar);

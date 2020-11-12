@@ -62,15 +62,16 @@
     border-radius: 5%;
 }
 .textoTutorial{
-    width: 65%;
     display: inline-block;
     text-align: justify;
-    margin-left: 1em;
     vertical-align: middle;
-    /* color: orange; */
+    width: 100%;
 }
-
-@media screen and (max-width: 425px){
+.w-65{
+    width: 65%;
+    margin-left: 2em;
+}
+@media screen and (max-width: 768px){
     .imgTutorial{
         width: 100%;
         height: auto;

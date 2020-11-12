@@ -38,7 +38,7 @@
                         <input type="hidden" name="comentario" value="'.$comentario["comentario"].'">
                         </form>';
                         //Eliminar
-                        echo '<form class="borrar" action="eliminar.php" method="post" >
+                        echo '<form class="borrar" action="delete_comentario.php" method="post" >
                         <input type="submit" class="btn btn_eliminar material-icons" name="eliminar"  value="delete">
                         <input type="hidden" name="apartado" value="'.$numApartado.'">
                         <input type="hidden" name="tema" value="'.$numTema.'">
