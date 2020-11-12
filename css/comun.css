@@ -115,9 +115,15 @@ html, body {
     list-style-type:none;
     display:flex;
     justify-content: center;
-  
-  }
+    margin:0;
+    padding: 0.5rem;
+}
 #pie>ul li{
-    display: list-item;
-    margin:2px;
+    vertical-align: middle;
+    margin-right:1em;
+}
+
+#pie>ul li>h1{
+    font-size: 30px;
+    margin: 0;
 }
