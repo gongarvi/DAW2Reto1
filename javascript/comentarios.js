@@ -56,11 +56,12 @@ function cargarDatos(data){
     divComentario.append(comentario);
     divComentario.append(fecha);
     
-    if(email==data.email){
+    if(email==data.email||administrador){
+        console.log("entra");
         let editar=document.createElement("form");
         editar.action="editar.php";
         editar.method="post";
-        $(`<input type="button" class="btn btn-info btn_editar" name="editar" value="Editar">`).appendTo(editar);
+        $(`<input type="button" class="btn btn_editar material-icons" name="editar" value="create">`).appendTo(editar);
         $(`<input type="submit" class="btn btn-info btn_Guardar" id="guardar" name="guardar" value="Guardar" hidden>`).appendTo(editar);
         $(`<input type="hidden" name="apartado" value="${apartado_id}">`).appendTo(editar);
         $(`<input type="hidden" name="tema" value="${tema_id}">`).appendTo(editar);
@@ -70,12 +71,13 @@ function cargarDatos(data){
         let borrar=document.createElement("form");
         borrar.action="eliminar.php";
         borrar.method="post";
-        $(`<input type="submit" class="btn btn-danger btn_eliminar" name="eliminar"  value="Borrar">`).appendTo(borrar)
+        $(`<input type="submit" class="btn btn_eliminar material-icons" name="eliminar"  value="delete">`).appendTo(borrar);
         $(`<input type="hidden" name="apartado" value="${apartado_id}">`).appendTo(borrar);
         $(`<input type="hidden" name="tema" value="${tema_id}">`).appendTo(borrar);
         $(`<input type="hidden" name="id" value="${data.id_comentario}">`).appendTo(borrar);
         divComentario.append(editar);
         divComentario.append(borrar);
+        console.log(borrar);
     }
     $("#comentarios_contenido").append(divComentario);
     $("#comentarios_contenido").on("click",".btn_editar",editarComentario)
