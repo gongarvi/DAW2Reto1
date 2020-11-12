@@ -80,7 +80,9 @@
         include "./generic-alert/alert.php";
     ?>
     <div id="contenido">
-        
+        <div class="icon-bar">
+			<a href="admin/index.php" class="icon blue"><i class="material-icons">undo</i></a>
+		</div>
         <?php
             include_once "sql-connect.php";
             if (isset($_GET["apartado"])) {
@@ -128,16 +130,11 @@
             include "./pie.php";
         ?>
     </div>
-    <script>
-    $(document).ready(function(){
-        $("body").on('click','.imgTutorial',(event)=>{
-            if($(event.target).attr('class').includes('transition')==true){
-                $(".imgTutorial").removeClass('transition');
-            }else{
-                $(event.target).addClass('transition');
-            }
-        });
-    });
+    <div id="visor" class="no-ver">
+        <img alt="visor_imagen">
+    </div>
+    <script src="javascript/visor_imagen.js">
+        
     </script>
 </body>
 </html>

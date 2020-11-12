@@ -138,3 +138,6 @@ a
     text-decoration: none;
     color: var(--colorTexto);
 }
+a:hover{
+    color:var(--colorTexto);
+}

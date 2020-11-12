@@ -13,19 +13,7 @@ body
 {
     font-family: 'Space Mono', monospace;
 }
-/*--Pie--*/
-html, body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    display: table;
-}
-#pie {
-    margin:0;
-    background-color: rgba(8, 8, 8, 0.788);
-    display: table-row;
-    height: 0;
-}
+
 
 /* Aqui empieza la cabecera */
 #cabecera
@@ -72,7 +60,6 @@ html, body {
     margin:0;
 }
 
-
 @font-face {
     font-family: 'Material Icons';
     font-style: normal;
@@ -110,3 +97,27 @@ html, body {
     font-feature-settings: 'liga';
   }
   
+/*--Pie--*/
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: table;
+}
+#pie {
+    margin:0;
+    background-color: rgba(8, 8, 8, 0.788);
+    display: table-row;
+    height: 0;
+    width: 100%;
+}
+#pie>ul{
+    list-style-type:none;
+    display:flex;
+    justify-content: center;
+  
+  }
+#pie>ul li{
+    display: list-item;
+    margin:2px;
+}
