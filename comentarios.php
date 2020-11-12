@@ -29,12 +29,12 @@
 
                     if($_SESSION["email"]===$comentario["email"] || $_SESSION["administrador"]){
                         //Editar
-                        echo ' <form class="editar" action="editar.php" method="post">
-                        <input type="submit" class="btn btn_editar material-icons" name="editar" value="create">
+                        echo ' <form class="editar" action="actualizar_comentario.php" method="post">
+                        <input type="button" class="btn btn_editar material-icons" name="editar" value="create">
                         <input type="hidden" name="apartado" value="'.$numApartado.'"> 
                         <input type="hidden" name="tema" value="'.$numTema.'">
                         <input type="hidden" name="id" value="'.$comentario['idcomentario'].'">
-                        <input type="submit" class="btn btn-info btn_Guardar" id="guardar" name="guardar" value="Guardar" hidden>
+                        <input type="submit" class="btn btn_Guardar material-icons" id="guardar" name="guardar" value="save" hidden>
                         <input type="hidden" name="comentario" value="'.$comentario["comentario"].'">
                         </form>';
                         //Eliminar

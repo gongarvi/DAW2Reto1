@@ -17,12 +17,15 @@ form.borrar{
 }
 .btn_editar{
     background-color: transparent;
-    color:yellow;
+    color:var(--colorTexto);
 }
 .btn_eliminar{
     background-color: transparent;
-    color:red;
-    
+    color:var(--colorTexto);
+}
+.btn_Guardar{
+    background-color: transparent;
+    color:var(--colorTexto);
 }
 #comentarios_contenido>div{
     border-bottom: 3px solid var(--colorCabecera);

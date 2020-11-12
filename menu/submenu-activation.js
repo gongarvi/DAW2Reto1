@@ -70,7 +70,7 @@ function appendToSubmenu(tema,array){
         ul.appendChild(li);
     }); 
     //Esto es para alinear al centro el submenu
-    ul.style.marginTop = (-1)*(ul.clientHeight/2)+"px";
+    //ul.style.marginTop = (-1)*(ul.clientHeight/2)+"px";
 }
 
 //Se elmina la clase sobrate y se elimina del DOM los apartados.
