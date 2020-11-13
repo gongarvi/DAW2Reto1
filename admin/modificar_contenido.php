@@ -85,4 +85,4 @@
         </div>
     </form>
 </div>
-<script type="module" src="./../javascript/modificar_contenido.js"></script>
+<script type="module" src="../javascript/modificar_contenido.js"></script>

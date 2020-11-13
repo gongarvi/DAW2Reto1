@@ -76,33 +76,48 @@ function comprobarOpcion() {
 //Crear Contenido
 
 //Validación del Input Titulo
-document.getElementById("titulo").addEventListener("blur", () => {
+document.getElementById("titulo").addEventListener("keydown", () => {
     var titulo = document.getElementById("titulo").value;
     if (titulo == null || titulo.length == 0 || /^\s+$/.test(titulo)) {
         document.getElementById("titulo").style.backgroundColor = '#FF5F5F';
     }
     else{
-        document.getElementById("titulo").style.backgroundColor = 'white';
+        if(text.length>64){
+            document.getElementById("titulo").style.backgroundColor = '#FF5F5F';
+        }
+        else{
+            document.getElementById("titulo").style.backgroundColor = 'white';
+        }
     }
 })
 //Validación del Input texto
-document.getElementById("texto").addEventListener("blur", () => {
+document.getElementById("texto").addEventListener("keyup", () => {
     var text = document.getElementById("texto").value;
     if (text == null || text.length == 0 || /^\s+$/.test(text)) {
         document.getElementById("texto").style.backgroundColor = '#FF5F5F';
     }
     else{
-        document.getElementById("texto").style.backgroundColor = 'white';
+        if(text.length>512){
+            document.getElementById("texto").style.backgroundColor = '#FF5F5F';
+        }
+        else{
+            document.getElementById("texto").style.backgroundColor = 'white';
+        }
     }
 })
-//Validación del Input texto
-document.getElementById("texto").addEventListener("blur", () => {
-    var text = document.getElementById("texto").value;
+//Validacion input url
+document.getElementById("rutaImg").addEventListener("keyup", () => {
+    var text = document.getElementById("rutaImg").value;
     if (text == null || text.length == 0 || /^\s+$/.test(text)) {
-        document.getElementById("texto").style.backgroundColor = '#FF5F5F';
+        document.getElementById("rutaImg").style.backgroundColor = '#FF5F5F';
     }
     else{
-        document.getElementById("texto").style.backgroundColor = 'white';
+        if(text.length>256){
+            document.getElementById("rutaImg").style.backgroundColor = '#FF5F5F';
+        }
+        else{
+            document.getElementById("rutaImg").style.backgroundColor = 'white';
+        }
     }
 })
 //Fin de crear contenido

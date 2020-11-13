@@ -113,18 +113,53 @@ function buscarContenidoPorID(contenidoTotal, id){
 
 
 
-//Validación 
+//Validación
 document.getElementById("modifica").addEventListener("click",(event)=>{
-    var titulo =document.getElementById("titulo").value;
-    var
-    if(titulo==null || text.length == 0 || /^\s+$/.test(text)){
+    var titulo1 =document.getElementById("titulo").value;
+    var text1= document.getElementById("textArea").value;
+    var urlImagen1=document.getElementById("rutaImg").value; 
+    if(titulo1==null || titulo1.length == 0 || /^\s+$/.test(titulo1)){
+        alert("Error");
+        event.preventDefault();
+        document.getElementById("titulo").style.backgroundColor = '#FF5F5F';
+    }
+    if(text1==null || text1.length == 0 || /^\s+$/.test(text)){
+        document.getElementById("textArea").style.backgroundColor = '#FF5F5F';
         event.preventDefault();
     }
-    if(titulo==null || text.length == 0 || /^\s+$/.test(text)){
+    if(urlImagen1==null || urlImagen1.length == 0 || /^\s+$/.test(urlImagen1)){
+        document.getElementById("rutaImg").style.backgroundColor = '#FF5F5F';
         event.preventDefault();
     }
-    if(titulo==null || text.length == 0 || /^\s+$/.test(text)){
-        event.preventDefault();
+});
+
+document.getElementById("titulo").addEventListener('keyup',(event)=>{
+    var titulo=event.target.value;
+    if(titulo==null || titulo.length == 0 || /^\s+$/.test(titulo)){
+        document.getElementById("titulo").style.backgroundColor = '#FF5F5F';
+    }
+    else{
+        document.getElementById("titulo").style.backgroundColor = 'white';
+    }
+})
+
+document.getElementById("textArea").addEventListener('keydown',(event)=>{
+    var text=event.target.value;
+    if(text==null || text.length == 0 || /^\s+$/.test(text)){
+        document.getElementById("textArea").style.backgroundColor = '#FF5F5F';
+    }
+    else{
+        document.getElementById("textArea").style.backgroundColor = 'white';
+    }
+})
+
+document.getElementById("rutaImg").addEventListener('keydown',(event)=>{
+    var urlImagen=event.target.value;
+    if(urlImagen==null || urlImagen.length == 0 || /^\s+$/.test(urlImagen)){
+        document.getElementById("rutaImg").style.backgroundColor = '#FF5F5F';
+    }
+    else{
+        document.getElementById("rutaImg").style.backgroundColor = 'white';
     }
 })
 

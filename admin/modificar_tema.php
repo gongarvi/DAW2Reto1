@@ -20,7 +20,7 @@
         </select>
     </div>
     <div class="depende">
-        <input type="text" class="form-control" placeholder="Nombre del nuevo tema" name="inputTema" aria-describedby="basic-addon1">
+        <input type="text" class="form-control" placeholder="Nombre del nuevo tema" name="inputTema" aria-describedby="basic-addon1" id="inputTema">
     </div>
     <div class="form-row">
         <div class="col-6">
@@ -44,7 +44,7 @@
         </div>
     </div>
     <div>
-        <input class="labelForm btn btn-outline-warning mb-2" type="submit" value="Modificar">
+        <input id="modi" class="labelForm btn btn-outline-warning mb-2" type="submit" value="Modificar">
     </div>
 </form>
 <script src="../moduls/pickr-master/dist/pickr.min.js"></script>
