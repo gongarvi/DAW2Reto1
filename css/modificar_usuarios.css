@@ -36,19 +36,12 @@ td
     vertical-align: middle !important;
     
 }
-
-.papelera
-{
-    height: 30px;
-    width: 30px;
+.papelera{
+    color:rgb(202, 42, 42);
 }
-
-.prueba
-{
-    width: fit-content;
-    height: auto;
+.papelera:hover{
+    color:rgb(200, 0, 0);
 }
-
 #crearNuevo
 {
     backdrop-filter: blur(10px)!important;

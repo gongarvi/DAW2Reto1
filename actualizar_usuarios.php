@@ -5,10 +5,11 @@
     $nombreUsu     = $_POST['nombreUsu'];
     $apellidoUsu        = $_POST['apellidoUsu'];
     $adminUsu           = $_POST['adminUsu'];
-
     
+
     if($_POST['boton'] != 'Modificar')
     {
+        
         $elId=$_POST['elId'];
         eliminarUsuario($elId,$conn);
     }elseif($_POST['boton'] == 'Modificar')

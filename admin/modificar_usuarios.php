@@ -29,13 +29,17 @@
                             echo '<td style="display:none"><input type="hidden" value="0" name="adminUsu['.$dato["id"].']"></td>';
                             echo '<td><input tabindex="-1" value="1" type="checkbox" name="adminUsu['.$dato["id"].']"/></td>';
                         }
-                        echo '<td><button class="btn prueba papelera" id="borrar" text="X" name="boton" type="submit" value=""><img class="papelera" src="https://icons.iconarchive.com/icons/papirus-team/papirus-status/256/user-trash-full-icon.png" alt=""></button></td>';
-                        echo '<input type="hidden" tabindex="-1" readonly name="elId" value="'.$dato["id"].'">';
+                        echo '<td>
+                            <input class="btn material-icons papelera" id="borrar" text="X" name="boton" type="submit" value="delete">
+                        </td>';
 
-                    echo '</tr>';               
+                        
+
+                    echo '</tr>';        
                 }
-                
+                echo '<input type="hidden" tabindex="-1" readonly name="elId" value="">';
             ?>
+           
         </table>
     </div>
     

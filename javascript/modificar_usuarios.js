@@ -10,3 +10,7 @@ $("input[type=text]").focusout(function(event) {
     
 });
 
+$("form input").click((event)=>{
+    let idSelccionado=$(event.target.parentNode.parentNode).find("input[type=hidden]").val();
+    $("form input[name=elId]").val(idSelccionado);
+});
