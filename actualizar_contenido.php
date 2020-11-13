@@ -10,17 +10,19 @@
         $titulo=$_POST["titulo"];
         $texto=$_POST["texto"];
         if(isset($_POST["inlineRadioOptions"]) && $_POST["inlineRadioOptions"]==="archivo"){
-            //TODO Actualziar imagen en el servidor
-            $imagen = $_FILES["archivo"];
-            if(!is_dir("./media")){
-                mkdir("./media");
-            }
-            if($imagen["type"]==="image/png" || $imagen["type"]==="image/jpg" || $imagen["type"]==="image/jpeg"){
-                $tipo=substr($imagen["type"],6);
-                move_uploaded_file($imagen["tmp_name"],"./media/".$id_tema."_".$id_apartado."_".$id_contenido.".".$tipo);
-                $ruta_imagen="http://".$_SERVER["SERVER_NAME"]."/media/".$id_tema."_".$id_apartado."_".$id_contenido.".".$tipo;                
-            }else{
-                sendCookie("error", "Tipo de archivo no permitido.");
+            if($_FILES["archivo"]["error"]==0){
+                //TODO Actualziar imagen en el servidor
+                $imagen = $_FILES["archivo"];
+                if(!is_dir("./media")){
+                    mkdir("./media");
+                }
+                if($imagen["type"]==="image/png" || $imagen["type"]==="image/jpg" || $imagen["type"]==="image/jpeg"){
+                    $tipo=substr($imagen["type"],6);
+                    move_uploaded_file($imagen["tmp_name"],"./media/".$id_tema."_".$id_apartado."_".$id_contenido.".".$tipo);
+                    $ruta_imagen="http://".$_SERVER["SERVER_NAME"]."/media/".$id_tema."_".$id_apartado."_".$id_contenido.".".$tipo;                
+                }else{
+                    sendCookie("error", "Tipo de archivo no permitido.");
+                }
             }
         }elseif(isset($_POST["inlineRadioOptions"]) && $_POST["inlineRadioOptions"]==="ruta"){
             $ruta_imagen=$_POST["ruta_imagen"];

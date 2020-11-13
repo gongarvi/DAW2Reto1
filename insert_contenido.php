@@ -11,7 +11,7 @@
     $ruta                   = $_POST['rutaImg'];
     $radioBtn               = $_POST['inlineRadioOptions'];
 
-
+    
     if ($temaSeleccionado == 0) {
         if($tema!=""){
             $temaSeleccionado=insertarTema($tema,$conn);
@@ -36,10 +36,12 @@
     if ($temaSeleccionado != 0 && $apartadoSeleccionado != 0) {
         $idContenido = getContenidoId($conn)+1;
         if ($radioBtn === "archivo") {
-            if(isset($_POST["arhivo"])){
+            if($_FILES["archivo"]["error"]==0){
+                
                 if (!is_dir("./media")) {
                     mkdir("./media");
                 }
+                
                 if($archivo["type"]==="image/png" || $archivo["type"]==="image/JPG" || $archivo["type"]==="image/jpeg"){
                     $tipo=substr($archivo["type"],6);
                     move_uploaded_file($archivo['tmp_name'],"./media/".$temaSeleccionado."_".$apartadoSeleccionado."_".$idContenido.".".$tipo);
