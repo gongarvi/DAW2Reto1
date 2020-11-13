@@ -19,11 +19,21 @@
     margin-top: 2%;
 }
 
-.tituloTutorial{
+/* .tituloTutorial{
     text-align: center;
     text-transform: uppercase;
     font-weight: 300;
     margin-bottom: 3%;
+} */
+
+.tituloTutorial
+{
+    text-align: center;
+    font-weight: 400;
+    margin-bottom: 1em;
+    letter-spacing: 0.7px;
+    font-weight: 300;
+    text-shadow: 7px 6px 7px #615a5a;
 }
 
 .divContenido{
@@ -51,7 +61,7 @@
 .pasoTutorial{
     
     text-transform: uppercase;
-    
+    font-size: 27px;    
     /* margin-bottom: 1%; */
         
 }
