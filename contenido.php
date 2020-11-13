@@ -23,6 +23,7 @@
         $colorArray=str_split(substr($color,1));
         $luminosidad=0.5;        
         $cantidad=0;
+
         for($i=0;$i<6;$i++){
             if(hexdec($colorArray[$i])<8&&hexdec($colorArray[$i])!=0){
                 $cantidad++;

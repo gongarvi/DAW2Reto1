@@ -128,3 +128,20 @@ function buscarContenidoPorID(contenidoTotal, id){
     return contenido;
 }
 
+
+
+//Validación 
+document.getElementById("modifica").addEventListener("click",(event)=>{
+    var titulo =document.getElementById("titulo").value;
+    var
+    if(titulo==null || text.length == 0 || /^\s+$/.test(text)){
+        event.preventDefault();
+    }
+    if(titulo==null || text.length == 0 || /^\s+$/.test(text)){
+        event.preventDefault();
+    }
+    if(titulo==null || text.length == 0 || /^\s+$/.test(text)){
+        event.preventDefault();
+    }
+})
+

@@ -80,7 +80,7 @@
             </div>
 
             <div>
-                <input class="labelForm btn btn-outline-warning mb-2" type="submit" value="Modificar">
+                <input class="labelForm btn btn-outline-warning mb-2" type="submit" value="Modificar" id="modifica">
             </div>
         </div>
     </form>

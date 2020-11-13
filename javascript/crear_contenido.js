@@ -78,6 +78,39 @@ function comprobarOpcion() {
     }else{
         document.getElementById("inputApartado").style.display="none";
     }
-
-
 }
+
+//Crear Contenido
+
+//Validación del Input Titulo
+document.getElementById("titulo").addEventListener("blur", () => {
+    var titulo = document.getElementById("titulo").value;
+    if (titulo == null || titulo.length == 0 || /^\s+$/.test(titulo)) {
+        document.getElementById("titulo").style.backgroundColor = '#FF5F5F';
+    }
+    else{
+        document.getElementById("titulo").style.backgroundColor = 'white';
+    }
+})
+//Validación del Input texto
+document.getElementById("texto").addEventListener("blur", () => {
+    var text = document.getElementById("texto").value;
+    if (text == null || text.length == 0 || /^\s+$/.test(text)) {
+        document.getElementById("texto").style.backgroundColor = '#FF5F5F';
+    }
+    else{
+        document.getElementById("texto").style.backgroundColor = 'white';
+    }
+})
+//Validación del Input texto
+document.getElementById("texto").addEventListener("blur", () => {
+    var text = document.getElementById("texto").value;
+    if (text == null || text.length == 0 || /^\s+$/.test(text)) {
+        document.getElementById("texto").style.backgroundColor = '#FF5F5F';
+    }
+    else{
+        document.getElementById("texto").style.backgroundColor = 'white';
+    }
+})
+//Fin de crear contenido
+

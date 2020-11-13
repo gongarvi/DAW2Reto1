@@ -1,8 +1,9 @@
 <link rel="stylesheet" href="./../css/crear_contenido.css">
 <h1 class="titulo">Crear contenido</h1>
 <div id="crearNuevo">
-    
-    <form id="formularioNuevo" enctype="multipart/form-data" name="login" class="from-group" method="post" action="./../insert_contenido.php">
+
+    <form id="formularioNuevo" enctype="multipart/form-data" name="login" class="from-group" method="post"
+        action="./../insert_contenido.php">
         <!-- Empieza el SELECT (temas) -->
         <div>
             <label class="labelForm" for="apartado">Tema:</label>
@@ -23,22 +24,24 @@
         </div>
 
         <div id="inputTema">
-            <input type="text" class="form-control" placeholder="Nombre del nuevo tema" name="inputTema" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" placeholder="Nombre del nuevo tema" name="inputTema"
+                aria-describedby="basic-addon1" id="inputTemaid">
         </div>
         <!-- Acaba el SELECT (tema) -->
 
         <!-- Empieza el SELECT (apartados) -->
-        <div >
+        <div>
             <label class="labelForm" for="apartado">Apartado:</label>
             <select id="selectApartado" name="selectApartado" class="form-control">
-                    <option disabled selected value="">Seleccione un tema por favor</option>
+                <option disabled selected value="">Seleccione un tema por favor</option>
             </select>
         </div>
 
-        <div >
-            <input id="inputApartado" type="text" class="form-control" placeholder="Nombre del nuevo apartado" name="inputApartado" aria-describedby="basic-addon1">
+        <div>
+            <input id="inputApartado" type="text" class="form-control" placeholder="Nombre del nuevo apartado"
+                name="inputApartado" aria-describedby="basic-addon1">
         </div>
-        
+
 
         <!-- Empieza el input (titulo) -->
         <div>
@@ -60,19 +63,20 @@
             <label class="form-check-label" for="inlineRadio1">Archivo</label>
         </div>
         <div class="form-check form-check-inline">
-            <input checked class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="ruta">
+            <input checked class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                value="ruta">
             <label class="form-check-label" for="inlineRadio2">Ruta</label>
         </div>
         <!-- Fin radio buttons -->
 
         <!-- Empieza el input file/input (imagen) -->
-        
+
         <div class="custom-file radio1">
             <!-- <label class="labelForm ">Imagen:</label> -->
             <input type="file" name="archivo" class="custom-file-input" id="archivo">
             <label class="custom-file-label" for="archivo">Seleccione el archivo</label>
         </div>
-        
+
         <!-- Empieza el input para la ruta de la imagen -->
         <div class="radio2">
             <!-- <label class="labelForm" for="rutaImg">Ruta del archivo:</label> -->
@@ -85,4 +89,4 @@
     </form>
     <script src="../javascript/crear_contenido.js"></script>
 </div>
-<script type="text/javascript" src="./../javascript/crear_contenido.js"></script>
+<script src="../javascript/validacion.js"></script>

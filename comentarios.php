@@ -18,7 +18,8 @@
     $comentarios=$query->fetchAll();
     if($comentarios!=null || count($comentarios)>0){
         echo '<div class="divContenido"> 
-        <div id="comentarios_contenido">';        
+        <div id="comentarios_contenido">';  
+         $i=0;      
         foreach($comentarios as $comentario){
             echo '<div>
                 <p class="comentario">'.$comentario['nombre_usuario'] ." ". $comentario['apellido_usuario']." ". 
@@ -26,10 +27,10 @@
                 '</p>
                 <p class="fecha">'.$comentario['fecha'].'</p>';
                 if(isset($_SESSION["email"])){
-
+                   
                     if($_SESSION["email"]===$comentario["email"] ||$_SESSION["administrador"]){
                         //Editar
-                        echo ' <form class="editar" action="editar.php" method="post" >
+                        echo ' <form class="editar" action="editar.php" method="post">
                         <input type="button" class="btn btn-info btn_editar" name="editar" value="Editar">
                         <input type="hidden" name="apartado" value="'.$numApartado.'"> 
                         <input type="hidden" name="tema" value="'.$numTema.'">
@@ -38,8 +39,8 @@
                         <input type="hidden" name="comentario" value="'.$comentario["comentario"].'">
                         </form>';
                         //Eliminar
-                        echo '<form class="borrar" action="eliminar.php" method="post" >
-                        <input type="submit" class="btn btn-danger btn_eliminar" name="eliminar"  value="Borrar">
+                        echo '<form class="borrar" name="borrar" action="eliminar.php" method="post" >
+                        <input type="submit" class="btn btn-danger btn_eliminar" name="eliminar" id="eliminar'.$i++.'" value="Borrar">
                         <input type="hidden" name="apartado" value="'.$numApartado.'">
                         <input type="hidden" name="tema" value="'.$numTema.'">
                         <input type="hidden" name="id" value="'.$comentario['idcomentario'].'">
@@ -52,6 +53,7 @@
             <button class="btn btn_primary btn_verMas">Ver mas</button>
         </div>';
     }
-?> 
+
+ ?>
 <script> const email = "<?php echo (isset($_SERVER["email"]))?$_SESSION["email"]:"";?>";</script>
 <script src="javascript/comentarios.js"></script>

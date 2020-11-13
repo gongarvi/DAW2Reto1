@@ -29,3 +29,4 @@
         </div>
     
 </form>
+<script src="../javascript/crear_apartado.js"></script>
