@@ -1,4 +1,3 @@
-
 colorPrincipal  = document.getElementById("colorPrincipal");
 colorTexto      = document.getElementById("colorTexto");
 

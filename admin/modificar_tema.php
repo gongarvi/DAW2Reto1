@@ -48,4 +48,4 @@
     </div>
 </form>
 <script src="../moduls/pickr-master/dist/pickr.min.js"></script>
-<script src="./../javascript/modificar_tema.js"></script>
+<script type="module" src="./../javascript/modificar_tema.js"></script>

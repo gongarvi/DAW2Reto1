@@ -34,4 +34,4 @@
     
 </form>
 <script src="../moduls/pickr-master/dist/pickr.min.js"></script>
-<script type="text/javascript" src="../javascript/modificar_apartado.js"></script>
+<script type="module" src="../javascript/modificar_apartado.js"></script>

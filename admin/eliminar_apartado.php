@@ -29,4 +29,4 @@
     
 </form>
 
-<script type="text/javascript" src="./../javascript/eliminar_apartado.js"></script>
+<script type="module" src="./../javascript/eliminar_apartado.js"></script>

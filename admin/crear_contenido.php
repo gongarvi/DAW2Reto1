@@ -22,7 +22,7 @@
             </select>
         </div>
 
-        <div id="inputTema">
+        <div id="inputTema" class="depende">
             <input type="text" class="form-control" placeholder="Nombre del nuevo tema" name="inputTema" aria-describedby="basic-addon1">
         </div>
         <!-- Acaba el SELECT (tema) -->
@@ -83,6 +83,5 @@
             <input class="labelForm btn btn-outline-success mb-2" id="crear" type="submit" value="Crear">
         </div>
     </form>
-    <script src="../javascript/crear_contenido.js"></script>
 </div>
-<script type="text/javascript" src="./../javascript/crear_contenido.js"></script>
+<script type="module" src="./../javascript/crear_contenido.js" ></script>

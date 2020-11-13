@@ -1,3 +1,4 @@
+import peticionAjax from './ajaxCall.js';
 $(document).ready(()=>{
     $("#inputTema").value=$("#selectTema").textNode;
     $("#selectTema").change(()=>{
@@ -78,24 +79,6 @@ function obtenerColocarContenido(){
         .catch((error)=>{
             console.error(error);
         });
-}
-
-function peticionAjax(url, type, data){
-    if(url!="" && (type=="post" || type=="get" || type=="delete"|| type=="put") && data!=null){
-        return new Promise((resolve, reject)=>{
-            $.ajax({
-                data: data,
-                url:url,
-                type:type,
-                success:function(response){
-                    resolve(response);
-                },
-                error:function(error){
-                    reject(error);
-                }
-            });
-        });
-    }
 }
 function crearOpcionSeleccionadoBloqueado(texto){
     var option = document.createElement("option");

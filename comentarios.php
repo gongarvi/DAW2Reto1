@@ -57,4 +57,4 @@
     const email = "<?php echo (isset($_SESSION["email"]))?$_SESSION["email"]:"";?>";
     const administrador = <?php echo (isset($_SESSION["administrador"]))?(($_SESSION["administrador"]==1)?true:false):false;?>;
 </script>
-<script src="javascript/comentarios.js"></script>
+<script src="javascript/comentarios.js" type="module"></script>
