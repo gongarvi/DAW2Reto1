@@ -43,30 +43,30 @@ function crearPicker(nombreInput) {
 document.getElementById("nombreTema").addEventListener("blur", () => {
   var tema = document.getElementById("nombreTema").value;
   if (tema == null || tema.length == 0 || /^\s+$/.test(tema)) {
-      document.getElementById("nombreTema").style.backgroundColor = '#FF5F5F';
+    document.getElementById("nombreTema").className="form-control error";
   }
   else{
-      document.getElementById("nombreTema").style.backgroundColor = 'white';
+    document.getElementById("nombreTema").className="form-control";
   }
 });
 //Validación del Input Color principal
 document.getElementById("colorPrincipal").addEventListener("blur", () => {
   var color = document.getElementById("colorPrincipal").value;
   if (color == null || color.length == 0 || /^\s+$/.test(color)) {
-      document.getElementById("colorPrincipal").style.backgroundColor = '#FF5F5F';
+    document.getElementById("colorPrincipal").className="form-control error";
   }
   else{
-      document.getElementById("colorPrincipal").style.backgroundColor = 'white';
+    document.getElementById("colorPrincipal").className="form-control";
   }
 });
 //Validación del Input Color secundario Texto
 document.getElementById("colorTexto").addEventListener("blur", () => {
   var tema = document.getElementById("colorTexto").value;
   if (tema == null || tema.length == 0 || /^\s+$/.test(tema)) {
-      document.getElementById("colorTexto").style.backgroundColor = '#FF5F5F';
+    document.getElementById("colorTexto").className="form-control error";
   }
   else{
-      document.getElementById("colorTexto").style.backgroundColor = 'white';
+      document.getElementById("colorTexto").className="form-control";
   }
 });
  

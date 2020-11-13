@@ -1,5 +1,3 @@
-
-
 <div class="divContenido">
     <form name="coment" class="from-group" method="post" action="coment.php">
         <label for="comentario">Escribe comentario</label>

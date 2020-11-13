@@ -20,15 +20,18 @@ $(()=>{
         });
     });
     $("#selectApartados").change(()=>{
+        
         $(".depende").show();
+
         $("#inputApartado").val($("#selectApartados option:selected").text());
     });
     $("#inputApartado").keyup(()=>{
         var texto=$("#inputApartado").val();
         if(texto===""){
-            $("#inputApartado").css("background-color","#FF5F5F");
+             document.getElementById("inputApartado").className="form-control error";
+
         }else{
-            $("#inputApartado").css("background-color","white");
+            document.getElementById("inputApartado").className="form-control";
         }
     });
 });

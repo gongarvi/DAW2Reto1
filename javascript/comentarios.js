@@ -15,6 +15,17 @@ $(()=>{
     $(".btn_eliminar").click(confirmarBorrado);
 
     $("#comentarios_contenido").find("form.editar").submit(cambiarComentario);
+
+    //Validacion de crear comentario
+    document.getElementById("comenta").addEventListener("blur",()=>{
+        var comentario=document.getElementById("comenta").value;
+        if (comentario == null || comentario.length == 0 || /^\s+$/.test(comentario)) {
+            document.getElementById("comenta").className="form-control error";
+        }
+        else{
+            document.getElementById("comenta").className="form-control";
+        }
+    });
 });
 
 function verMasComentarios(){
@@ -51,7 +62,6 @@ function editarComentario(event){
     comentario.focus();    
 }
 function cambiarComentario(event){
-    console.log("entra");
     var bloque=event.target.parentNode;
     console.log(bloque);
     var comentario_bloque=$((bloque)).find("p.comentario span");

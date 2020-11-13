@@ -64,32 +64,31 @@ function crearPicker(element,color="#FFF") {
 }   
 
 //Validación del Input Color principal
-document.getElementById("colorPrincipal").addEventListener("blur", () => {
+document.getElementById("colorPrincipal").addEventListener("change", () => {
     var color = document.getElementById("colorPrincipal").value;
     if (color == null || color.length == 0 || /^\s+$/.test(color)) {
-        document.getElementById("colorPrincipal").style.backgroundColor = '#FF5F5F';
+        document.getElementById("colorPrincipal").className="form-control error";
     }
     else{
-        document.getElementById("colorPrincipal").style.backgroundColor = 'white';
+        document.getElementById("colorPrincipal").className="form-control";
     }
 });
 //Validación del Input Color secundario Texto
-document.getElementById("colorTexto").addEventListener("blur", () => {
+document.getElementById("colorTexto").addEventListener("change", () => {
     var tema = document.getElementById("colorTexto").value;
     if (tema == null || tema.length == 0 || /^\s+$/.test(tema)) {
-        document.getElementById("colorTexto").style.backgroundColor = '#FF5F5F';
+        document.getElementById("colorTexto").className="form-control error";
     }
     else{
-        document.getElementById("colorTexto").style.backgroundColor = 'white';
+        document.getElementById("colorTexto").className="form-control";
     }
 });
 document.getElementById("inputTema").addEventListener("keyup",(event)=>{
     var inputTema=event.target.value;
     if(inputTema== null || inputTema.length == 0 || /^\s+$/.test(inputTema)){
-        document.getElementById("inputTema").style.backgroundColor = '#FF5F5F';
+        document.getElementById("inputTema").className="form-control error";
     }
     else{
-        document.getElementById("inputTema").style.backgroundColor = 'white';
+        document.getElementById("inputTema").className="form-control";
     }
-    
-})
+});

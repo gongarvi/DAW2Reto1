@@ -32,7 +32,9 @@
             <?php
         }
     ?>
-    
+        <div id="documentacion">
+            <a class="github" href="https://github.com/gongarvi/DAW2Reto1"><img src="media/github.png" alt="Github"></a>
+        </div>
     </div>
     <div id="pie">
         <?php

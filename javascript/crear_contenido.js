@@ -23,6 +23,43 @@ $(document).ready(()=>{
     // Cargar los select
     $("#selectTema").change(obtenerColocarApartados);
     $("#selectApartado").change(comprobarOpcion);
+
+    //Validaciones de inputs
+    
+    //Validación del Input Titulo
+    document.getElementById("titulo").addEventListener("keydown", () => {
+        var titulo = document.getElementById("titulo").value;
+        if (titulo == null || titulo.length == 0 || /^\s+$/.test(titulo)) {
+            document.getElementById("titulo").className="form-control error";
+        }
+        else{
+            if(titulo.length>64){
+                document.getElementById("titulo").className="form-control error";
+            }
+            else{
+                document.getElementById("titulo").className="form-control";
+            }
+        }
+    });
+    //Validación del Input texto
+    document.getElementById("texto").addEventListener("keyup", () => {
+        var text = document.getElementById("texto").value;
+        if (text == null || text.length == 0 || /^\s+$/.test(text)) {
+            document.getElementById("texto").className="form-control error";
+        }
+        else{
+            if(text.length>512){
+                document.getElementById("texto").className="form-control error";
+            }
+            else{
+                document.getElementById("texto").className="form-control";
+            }
+        }
+    });
+    //Fin de crear contenido
+
+
+
 });
 
 
@@ -34,12 +71,10 @@ function obtenerColocarApartados() {
 
     // Si la opcion seleccionada es la 0:
     if (opcionTema == 0) {
-        document.getElementById("inputTema").style.display="block";
-        document.getElementById("inputApartado").style.display="block";
+        $(".depende").show();
         document.getElementById("selectApartado").style.display="none";
     }else{
-        document.getElementById("inputTema").style.display="none";
-        document.getElementById("inputApartado").style.display="none";
+        $(".depende").hide();
         document.getElementById("selectApartado").style.display="block";
     }
 
@@ -50,7 +85,7 @@ function obtenerColocarApartados() {
         var apartado = JSON.parse(response);
         $('#selectApartado').find('option').remove()
         if (apartado.length<1) {
-            document.getElementById("inputApartado").style.display="block";
+            $("#inputApartado").show();
         }else{
             for(var i = 0; i<apartado.length;i++){
                 $("#selectApartado").append($("<option>").attr("value", apartado[i]["id"]).text(apartado[i]['nombre']));
@@ -72,53 +107,3 @@ function comprobarOpcion() {
         document.getElementById("inputApartado").style.display="none";
     }
 }
-
-//Crear Contenido
-
-//Validación del Input Titulo
-document.getElementById("titulo").addEventListener("keydown", () => {
-    var titulo = document.getElementById("titulo").value;
-    if (titulo == null || titulo.length == 0 || /^\s+$/.test(titulo)) {
-        document.getElementById("titulo").style.backgroundColor = '#FF5F5F';
-    }
-    else{
-        if(text.length>64){
-            document.getElementById("titulo").style.backgroundColor = '#FF5F5F';
-        }
-        else{
-            document.getElementById("titulo").style.backgroundColor = 'white';
-        }
-    }
-})
-//Validación del Input texto
-document.getElementById("texto").addEventListener("keyup", () => {
-    var text = document.getElementById("texto").value;
-    if (text == null || text.length == 0 || /^\s+$/.test(text)) {
-        document.getElementById("texto").style.backgroundColor = '#FF5F5F';
-    }
-    else{
-        if(text.length>512){
-            document.getElementById("texto").style.backgroundColor = '#FF5F5F';
-        }
-        else{
-            document.getElementById("texto").style.backgroundColor = 'white';
-        }
-    }
-})
-//Validacion input url
-document.getElementById("rutaImg").addEventListener("keyup", () => {
-    var text = document.getElementById("rutaImg").value;
-    if (text == null || text.length == 0 || /^\s+$/.test(text)) {
-        document.getElementById("rutaImg").style.backgroundColor = '#FF5F5F';
-    }
-    else{
-        if(text.length>256){
-            document.getElementById("rutaImg").style.backgroundColor = '#FF5F5F';
-        }
-        else{
-            document.getElementById("rutaImg").style.backgroundColor = 'white';
-        }
-    }
-})
-//Fin de crear contenido
-

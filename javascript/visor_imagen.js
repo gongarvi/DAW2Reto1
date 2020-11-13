@@ -23,13 +23,3 @@ $(document).ready(function(){
     });
 });
 
-//Validacion de crear comentario
-document.getElementById("comenta").addEventListener("blur",()=>{
-    var comentario=document.getElementById("comenta").value;
-    if (comentario == null || comentario.length == 0 || /^\s+$/.test(comentario)) {
-        document.getElementById("comenta").style.backgroundColor = '#FF5F5F';
-    }
-    else{
-        document.getElementById("comenta").style.backgroundColor = 'white';
-    }
-});
