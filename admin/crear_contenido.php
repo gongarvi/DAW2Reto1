@@ -23,14 +23,8 @@
             </select>
         </div>
 
-<<<<<<< HEAD
-        <div id="inputTema">
-            <input type="text" class="form-control" placeholder="Nombre del nuevo tema" name="inputTema"
-                aria-describedby="basic-addon1" id="inputTemaid">
-=======
         <div id="inputTema" class="depende">
             <input type="text" class="form-control" placeholder="Nombre del nuevo tema" name="inputTema" aria-describedby="basic-addon1">
->>>>>>> 7ce6c546e0c3de87cd42e8465a35606dd35dc33b
         </div>
         <!-- Acaba el SELECT (tema) -->
 
@@ -42,7 +36,7 @@
             </select>
         </div>
 
-        <div>
+        <div class="depende">
             <input id="inputApartado" type="text" class="form-control" placeholder="Nombre del nuevo apartado"
                 name="inputApartado" aria-describedby="basic-addon1">
         </div>

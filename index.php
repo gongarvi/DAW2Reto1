@@ -32,6 +32,7 @@
             <?php
         }
     ?>
+    
     </div>
     <div id="pie">
         <?php
