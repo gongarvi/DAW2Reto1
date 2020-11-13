@@ -10,6 +10,7 @@ $(()=>{
     }
     
     $(".btn_editar").click(editarComentario);
+    $(".btn_eliminar").click(confirmarBorrado);
 
     $("#comentarios_contenido").find("form.editar").submit(cambiarComentario);
     function verMasComentarios(){
@@ -78,9 +79,17 @@ function cargarDatos(data){
         divComentario.append(borrar);
     }
     $("#comentarios_contenido").append(divComentario);
-    $("#comentarios_contenido").on("click",".btn_editar",editarComentario)
+    $("#comentarios_contenido").on("click",".btn_editar",editarComentario);
+    $("#comentarios_contenido").on("click",".btn_eliminar",confirmarBorrado);
 
 }
+
+function confirmarBorrado(event){
+    if(!confirm("¿Seguro que quieres borrar el comentario?")){
+        return false;
+    };
+}
+
 function editarComentario(event){
     //Obtener el padre del elemento seleccionado
     var padre=event.target.parentNode;
