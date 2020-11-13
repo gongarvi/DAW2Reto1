@@ -51,6 +51,7 @@ function editarComentario(event){
     comentario.focus();    
 }
 function cambiarComentario(event){
+    console.log("entra");
     var bloque=event.target.parentNode;
     console.log(bloque);
     var comentario_bloque=$((bloque)).find("p.comentario span");
@@ -60,8 +61,10 @@ function cambiarComentario(event){
 function cargarDatos(data){
     let divComentario=document.createElement("div");
     let fecha=document.createElement("p");
+    fecha.className="fecha";
     fecha.textContent=data.fecha;
     let comentario=document.createElement("p");
+    comentario.className="comentario";
     comentario.textContent=data.nombre+" "+data.apellido+" ";
     let spanComentario=document.createElement("span");
     spanComentario.textContent=data.comentario;
@@ -70,17 +73,18 @@ function cargarDatos(data){
     divComentario.append(fecha);
     
     if(email==data.email||administrador){
-        console.log("entra");
         let editar=document.createElement("form");
+        editar.className="editar";
         editar.action="actualizar_comentario.php";
         editar.method="post";
         $(`<input type="button" class="btn btn_editar material-icons" name="editar" value="create">`).appendTo(editar);
-        $(`<input type="submit" class="btn btn-info btn_Guardar" id="guardar" name="guardar" value="Guardar" hidden>`).appendTo(editar);
+        $(`<input type="submit" class="btn btn_Guardar material-icons" id="guardar" name="guardar" value="save" hidden>`).appendTo(editar);
         $(`<input type="hidden" name="apartado" value="${apartado_id}">`).appendTo(editar);
         $(`<input type="hidden" name="tema" value="${tema_id}">`).appendTo(editar);
         $(`<input type="hidden" name="id" value="${data.id_comentario}">`).appendTo(editar);
         $(`<input type="hidden" name="comentario" value="${data.comentario}">`).appendTo(editar);
-        
+        $("#comentarios_contenido").on("submit","form.editar",cambiarComentario);
+
         let borrar=document.createElement("form");
         borrar.action="delete_comentario.php";
         borrar.method="post";
@@ -90,13 +94,11 @@ function cargarDatos(data){
         $(`<input type="hidden" name="id" value="${data.id_comentario}">`).appendTo(borrar);
         divComentario.append(editar);
         divComentario.append(borrar);
-        console.log(borrar);
     }
     $("#comentarios_contenido").append(divComentario);
     $("#comentarios_contenido").on("click",".btn_editar",editarComentario);
     $("#comentarios_contenido").on("click",".btn_eliminar",confirmarBorrado);
 
-<<<<<<< HEAD
 }
 
 function confirmarBorrado(event){
@@ -105,33 +107,3 @@ function confirmarBorrado(event){
     };
 }
 
-function editarComentario(event){
-    //Obtener el padre del elemento seleccionado
-    var padre=event.target.parentNode;
-    //Mostrar el boton editar
-    var btnGuardar=$(padre).find("input[type='submit']");
-    btnGuardar.attr("hidden",false);
-    //Habilitar el p para poder escribir y ponerlo como foco
-    var comentario=($(padre.parentNode).find("p span"));
-    comentario.attr("contentEditable",true);
-    comentario.focus();    
-}
-function peticionAjax(url, type, data){
-    if(url!="" && (type=="post" || type=="get" || type=="delete"|| type=="put") && data!=null){
-        return new Promise((resolve, reject)=>{
-            $.ajax({
-                data: data,
-                url:url,
-                type:type,
-                success:function(response){
-                    resolve(response);
-                },
-                error:function(error){
-                    reject(error);
-                }
-            });
-        });
-    }
-=======
->>>>>>> 7ce6c546e0c3de87cd42e8465a35606dd35dc33b
-}

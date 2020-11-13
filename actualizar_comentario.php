@@ -8,10 +8,11 @@
     $nombre=$_SESSION['email'];
     $comentario_id=$_POST['id'];
 
-    if(isset($comentario) && isset($nombre) && isset($apartado)&& $comentario!="" && $apartado!=""){
+    if(isset($comentario_id) &&  isset($comentario) && isset($nombre) && isset($apartado)&& $comentario!="" && $apartado!=""
+        && $comentario_id!=""){
         $query="UPDATE `comentario` SET `texto`=?, `fecha`=? WHERE `id`=? AND `id_apartado`=?";
         $query=$conn->prepare($query);
-        $now=date("Y-m- d H:i:s");
+        $now=date("Y-m-d H:i:s");
         $params=[$comentario,$now,$comentario_id,$apartado];
         $query->execute($params);  
         $affected_rows=$query->rowCount();
@@ -25,7 +26,8 @@
        
     }
     else{
-        crearGalleta("error","Faltan campos.");
+        crearGalleta("error","Esta lleno de: ".$comentario);
+
     }
     function crearGalleta($tipo,$mensaje){
         setcookie($tipo,$mensaje,time()+60,"/");
