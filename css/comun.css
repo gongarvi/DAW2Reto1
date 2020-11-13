@@ -13,19 +13,7 @@ body
 {
     font-family: 'Space Mono', monospace;
 }
-/*--Pie--*/
-html, body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    display: table;
-}
-#pie {
-    margin:0;
-    background-color: rgba(8, 8, 8, 0.788);
-    display: table-row;
-    height: 0;
-}
+
 
 /* Aqui empieza la cabecera */
 #cabecera
@@ -70,4 +58,72 @@ html, body {
 }
 .alert{
     margin:0;
+}
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../moduls/material-icons/iconfont/MaterialIcons-Regular.eot); /* For IE6-8 */
+    src: local('Material Icons'),
+         local('MaterialIcons-Regular'),
+         url(../moduls/material-icons/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
+         url(../moduls/material-icons/iconfont/MaterialIcons-Regular.woff) format('woff'),
+         url(../moduls/material-icons/iconfont/MaterialIcons-Regular.ttf) format('truetype');
+  }
+  
+  .material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+  
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+  
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+  
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+  }
+  
+/*--Pie--*/
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: table;
+}
+#pie {
+    margin:0;
+    background-color: rgba(8, 8, 8, 0.788);
+    display: table-row;
+    height: 0;
+    width: 100%;
+}
+#pie>ul{
+    list-style-type:none;
+    display:flex;
+    justify-content: center;
+    margin:0;
+    padding: 0.5rem;
+}
+#pie>ul li{
+    vertical-align: middle;
+    margin-right:1em;
+}
+
+#pie>ul li>h1{
+    font-size: 30px;
+    margin: 0;
 }

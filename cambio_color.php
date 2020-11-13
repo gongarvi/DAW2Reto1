@@ -8,13 +8,12 @@ function oscurecer($hexcolor,$luminosidad){
     }
     for($i=0;$i<6;$i++){        
         $numero=hexdec($hexColorArray[$i]);
-        $numero=round($numero*$luminosidad, 0,PHP_ROUND_HALF_UP);
+        $numero=round($numero*$luminosidad, 0,PHP_ROUND_HALF_UP); //Redondea hacia arriba
        if($numero>16) {
            $numero=15;
        }
         $newColor=$newColor.dechex($numero);
     }
-
     return $newColor;
 }
 ?>

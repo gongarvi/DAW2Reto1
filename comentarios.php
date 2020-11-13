@@ -27,20 +27,20 @@
                 '</p>
                 <p class="fecha">'.$comentario['fecha'].'</p>';
                 if(isset($_SESSION["email"])){
-                   
-                    if($_SESSION["email"]===$comentario["email"] ||$_SESSION["administrador"]){
+
+                    if($_SESSION["email"]===$comentario["email"] || $_SESSION["administrador"]){
                         //Editar
-                        echo ' <form class="editar" action="editar.php" method="post">
-                        <input type="button" class="btn btn-info btn_editar" name="editar" value="Editar">
+                        echo ' <form class="editar" action="actualizar_comentario.php" method="post">
+                        <input type="button" class="btn btn_editar material-icons" name="editar" value="create">
                         <input type="hidden" name="apartado" value="'.$numApartado.'"> 
                         <input type="hidden" name="tema" value="'.$numTema.'">
                         <input type="hidden" name="id" value="'.$comentario['idcomentario'].'">
-                        <input type="submit" class="btn btn-info btn_Guardar" id="guardar" name="guardar" value="Guardar" hidden>
+                        <input type="submit" class="btn btn_Guardar material-icons" id="guardar" name="guardar" value="save" hidden>
                         <input type="hidden" name="comentario" value="'.$comentario["comentario"].'">
                         </form>';
                         //Eliminar
-                        echo '<form class="borrar" name="borrar" action="eliminar.php" method="post" >
-                        <input type="submit" class="btn btn-danger btn_eliminar" name="eliminar" id="eliminar'.$i++.'" value="Borrar">
+                        echo '<form class="borrar" action="delete_comentario.php" method="post" >
+                        <input type="submit" class="btn btn_eliminar material-icons" name="eliminar"  value="delete">
                         <input type="hidden" name="apartado" value="'.$numApartado.'">
                         <input type="hidden" name="tema" value="'.$numTema.'">
                         <input type="hidden" name="id" value="'.$comentario['idcomentario'].'">
@@ -50,10 +50,12 @@
             echo  '</div>'; 
         }
         echo '</div>
-            <button class="btn btn_primary btn_verMas">Ver mas</button>
+            <button class="btn btn_info btn_verMas">Ver mas</button>
         </div>';
     }
-
- ?>
-<script> const email = "<?php echo (isset($_SERVER["email"]))?$_SESSION["email"]:"";?>";</script>
-<script src="javascript/comentarios.js"></script>
+?> 
+<script> 
+    const email = "<?php echo (isset($_SESSION["email"]))?$_SESSION["email"]:"";?>";
+    const administrador = <?php echo (isset($_SESSION["administrador"]))?(($_SESSION["administrador"]==1)?true:false):false;?>;
+</script>
+<script src="javascript/comentarios.js" type="module"></script>

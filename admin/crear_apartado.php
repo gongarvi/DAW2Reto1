@@ -15,7 +15,6 @@
                     foreach($datos as $dato){
                         echo '<option value="'.$dato['id'].'">'.$dato['nombre'].'</option>';
                     }
-                    echo '<option id="0" value="0">Crear nuevo tema...</option>';
                 ?>
             </select>
         </div>

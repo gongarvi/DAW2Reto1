@@ -60,7 +60,9 @@
         </form>
     </div>
     <div id="pie">
-      <h1>Lorem Ipsum</h1>
+        <?php
+            include "pie.php"
+        ?>
     </div>
     <script src="./javascript/login-register.js"></script>
 </body>

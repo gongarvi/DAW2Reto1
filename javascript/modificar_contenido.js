@@ -1,3 +1,4 @@
+import peticionAjax from './ajaxCall.js';
 $(document).ready(()=>{
     $("#inputTema").value=$("#selectTema").textNode;
     $("#selectTema").change(()=>{
@@ -14,8 +15,8 @@ $(document).ready(()=>{
     });
     document.getElementById("selectApartados").addEventListener("change",obtenerColocarContenido);
     document.getElementById("selectContenido").addEventListener("change",mostrarContenido);
-    radio1 = document.getElementById("inlineRadio1");
-    radio2 = document.getElementById("inlineRadio2");
+    var radio1 = document.getElementById("inlineRadio1");
+    var radio2 = document.getElementById("inlineRadio2");
     radio1.addEventListener("change",()=>{
         if (radio1.checked) {
             document.getElementsByClassName("radio1")[0].style.display="block";
@@ -45,7 +46,7 @@ function obtenerColocarApartados(tema) {
             $("#selectApartados").append(crearOpcionSeleccionadoBloqueado("Seleciona un apartado por favor."));
             $("#selectContenido").append(crearOpcionSeleccionadoBloqueado("Seleciona un apartado por favor."));
             for(var i = 0; i<apartados.length;i++){
-                option = document.createElement("option");
+                let option = document.createElement("option");
                 option.value=apartados[i]["id"];
                 option.textContent=apartados[i]["nombre"];
                 $("#selectApartados").append(option);
@@ -69,7 +70,7 @@ function obtenerColocarContenido(){
             $('#selectContenido').find('option').remove();
             $("#selectContenido").append(crearOpcionSeleccionadoBloqueado("Seleciona un contenido por favor."));
             for(var i = 0; i<contenido.length;i++){
-                option = document.createElement("option");
+                let option = document.createElement("option");
                 option.value=contenido[i]["id"];
                 option.textContent=contenido[i]["titulo"];
                 $("#selectContenido").append(option);
@@ -78,24 +79,6 @@ function obtenerColocarContenido(){
         .catch((error)=>{
             console.error(error);
         });
-}
-
-function peticionAjax(url, type, data){
-    if(url!="" && (type=="post" || type=="get" || type=="delete"|| type=="put") && data!=null){
-        return new Promise((resolve, reject)=>{
-            $.ajax({
-                data: data,
-                url:url,
-                type:type,
-                success:function(response){
-                    resolve(response);
-                },
-                error:function(error){
-                    reject(error);
-                }
-            });
-        });
-    }
 }
 function crearOpcionSeleccionadoBloqueado(texto){
     var option = document.createElement("option");

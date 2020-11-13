@@ -66,11 +66,11 @@ function appendToSubmenu(tema,array){
         let a = document.createElement("a");
         li.appendChild(a);
         a.text=element.nombre;
-        a.href="http://localhost/contenido.php?tema="+tema+"&apartado="+element.apartado;
+        a.href="http://"+window.location.hostname+"/contenido.php?tema="+tema+"&apartado="+element.apartado;
         ul.appendChild(li);
     }); 
     //Esto es para alinear al centro el submenu
-    ul.style.marginTop = (-1)*(ul.clientHeight/2)+"px";
+    //ul.style.marginTop = (-1)*(ul.clientHeight/2)+"px";
 }
 
 //Se elmina la clase sobrate y se elimina del DOM los apartados.
