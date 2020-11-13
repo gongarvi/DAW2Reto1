@@ -26,15 +26,9 @@ $(()=>{
     $("#inputApartado").keyup(()=>{
         var texto=$("#inputApartado").val();
         if(texto===""){
-            $("#inputApartado").css("background-color","red");
+            $("#inputApartado").css("background-color","#FF5F5F");
         }else{
             $("#inputApartado").css("background-color","white");
-        }
-    });
-    $("form").submit((event)=>{
-        var texto=$("#inputApartado").val();
-        if(texto===""){
-            event.preventDefault();
         }
     });
 });

@@ -18,7 +18,7 @@
             crearGalleta("error","Se han actualizado varios apartados, contacte con el administrador");
         }
     }else{
-        crearGalleta("error","Error en la inserción de datos");
+        crearGalleta("error","Faltan campos por completar.");
     }
     function crearGalleta($tipo, $mensaje){
         setcookie($tipo,$mensaje,time()+60,"/");
