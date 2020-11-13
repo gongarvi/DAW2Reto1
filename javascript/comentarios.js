@@ -4,7 +4,11 @@ const apartado_id = params.get("apartado");
 import peticionAjax from './ajaxCall.js';
 var rowCount=0;
 $(()=>{
-    rowCount=$("#comentarios_contenido")[0].childNodes.length;
+    if(rowCount=$("#comentarios_contenido")[0]!=null){
+        rowCount=$("#comentarios_contenido")[0].childNodes.length;
+    }else{
+        rowCount=0;
+    }
     if(rowCount<10){
         $(".btn_verMas").hide();
     }else{
