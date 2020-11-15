@@ -19,19 +19,19 @@
         <h1><a href="#">BloG DAW 2</a></h1>
     </div>
     <div id="contenido">
-    <?php
-        include "./menu/menu.php";
-        include "./generic-alert/alert.php";
-    
-        if(isset($_SESSION["administrador"]) && $_SESSION["administrador"]==true){
-            ?>
-            <div class="icon-bar">
-                <a href="admin/index.php" class="icon blue"><i class="material-icons">settings</i></a>
-            </div>
-            
-            <?php
-        }
-    ?>
+        <?php
+            include "./menu/menu.php";
+            include "./generic-alert/alert.php";
+        
+            if(isset($_SESSION["administrador"]) && $_SESSION["administrador"]==true){
+                ?>
+                <div class="icon-bar">
+                    <a href="admin/index.php" class="icon blue"><i class="material-icons">settings</i></a>
+                </div>
+                
+                <?php
+            }
+        ?>
         <div id="documentacion">
             <a class="github" href="https://github.com/gongarvi/DAW2Reto1"><img src="media/github.png" alt="Github"></a>
         </div>
