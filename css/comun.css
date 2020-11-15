@@ -130,11 +130,10 @@ html, body {
 #documentacion{
     width: 100%;
     height: 100%;
-    display: flex;
     align-items: center;
     vertical-align: middle;
 }
-.github{
+#documentacion>*{
     margin: auto;
     width: fit-content;
     height: fit-content;
