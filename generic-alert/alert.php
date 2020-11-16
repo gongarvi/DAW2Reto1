@@ -32,4 +32,4 @@
         </div>
     </div>
 </div>
-<script src="http://localhost/generic-alert/alert.js"></script>
+<script src="http://<?php echo $_SERVER["SERVER_NAME"];?>/generic-alert/alert.js"></script>

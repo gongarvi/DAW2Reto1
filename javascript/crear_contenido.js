@@ -63,6 +63,7 @@ $(document).ready(()=>{
 });
 
 function obtenerColocarApartados() {
+
     $('#selectApartado').find('option').remove();
     var opcionTema = $( "#selectTema option:selected" ).val();
 
@@ -80,7 +81,7 @@ function obtenerColocarApartados() {
     //Obtengo los apartados segun el tema
     peticionAjax("./../obtener_apartados.php","post",parametros).then((response)=>{
         var apartado = JSON.parse(response);
-        $('#selectApartado').find('option').remove()
+        $('#selectApartado').find('option').remove();
         if (apartado.length<1) {
             $("#inputApartado").show();
         }else{
@@ -89,7 +90,7 @@ function obtenerColocarApartados() {
             }
         }
         $("#selectApartado").append($("<option>").attr("value", '0').text('Crear un nuevo apartado...'));
-
+        comprobarOpcion();
     })
     .catch((error)=>{
         console.log(error);
@@ -97,9 +98,9 @@ function obtenerColocarApartados() {
 }
 
 function comprobarOpcion() {
+    console.log("entra");
     var opcionApartado = $( "#selectApartado option:selected" ).val();
     if (opcionApartado == 0) {
-        
         $("#inputApartado").parent().show();
     }else{
         $("#inputApartado").parent().hide();

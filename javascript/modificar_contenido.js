@@ -46,17 +46,12 @@ $(document).ready(()=>{
     });
     //Validación del Input texto
     document.getElementById("textArea").addEventListener("keyup", () => {
-        var text = document.getElementById("texto").value;
-        if (text == null || text.length == 0 || /^\s+$/.test(text)) {
-            document.getElementById("texto").className="form-control error";
+        var text = document.getElementById("textArea").value;
+        if (text == null || text.length == 0 || /^\s+$/.test(text) || text.length>512) {
+            document.getElementById("textArea").className="form-control error";
         }
         else{
-            if(text.length>512){
-                document.getElementById("texto").className="form-control error";
-            }
-            else{
-                document.getElementById("texto").className="form-control";
-            }
+            document.getElementById("textArea").className="form-control";
         }
     });
 });
