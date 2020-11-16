@@ -28,7 +28,7 @@ function deleteApartado($apartadoSeleccionado,$temaSeleccionado,$conn){
 
 function crearGalleta($tipo,$texto){
     setcookie($tipo,$texto,time()+60,"/");
-    // header("Location: " . $_SERVER["HTTP_REFERER"]);
+    header("Location: " . $_SERVER["HTTP_REFERER"]);
 }
 
 ?>
