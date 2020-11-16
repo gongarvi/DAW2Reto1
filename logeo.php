@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $password_regex="/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]{8,16}$/";
+    $password_regex="/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]{6,16}$/";
     $email=$_POST["email"];
     $password=$_POST["password"];
     

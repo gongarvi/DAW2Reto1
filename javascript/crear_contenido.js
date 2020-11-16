@@ -62,9 +62,6 @@ $(document).ready(()=>{
 
 });
 
-
-
-
 function obtenerColocarApartados() {
     $('#selectApartado').find('option').remove();
     var opcionTema = $( "#selectTema option:selected" ).val();
@@ -102,8 +99,9 @@ function obtenerColocarApartados() {
 function comprobarOpcion() {
     var opcionApartado = $( "#selectApartado option:selected" ).val();
     if (opcionApartado == 0) {
-        document.getElementById("inputApartado").style.display="block";
+        
+        $("#inputApartado").parent().show();
     }else{
-        document.getElementById("inputApartado").style.display="none";
+        $("#inputApartado").parent().hide();
     }
 }
