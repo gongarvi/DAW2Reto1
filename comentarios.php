@@ -27,7 +27,6 @@
                 '</p>
                 <p class="fecha">'.$comentario['fecha'].'</p>';
                 if(isset($_SESSION["email"])){
-
                     if($_SESSION["email"]===$comentario["email"] || $_SESSION["administrador"]){
                         //Editar
                         echo ' <form class="editar" action="actualizar_comentario.php" method="post">
@@ -56,6 +55,18 @@
 ?> 
 <script> 
     const email = "<?php echo (isset($_SESSION["email"]))?$_SESSION["email"]:"";?>";
-    const administrador = <?php echo (isset($_SESSION["administrador"]))?(($_SESSION["administrador"]==1)?true:false):false;?>;
+    const administrador = <?php  
+        if(isset($_SESSION["administrador"])){
+            if(($_SESSION["administrador"]==1)){
+                echo 'true';
+            }
+            else{
+                echo 'false';
+            }
+        }
+        else{
+            echo 'false';
+        } 
+        ?>;
 </script>
 <script src="javascript/comentarios.js" type="module"></script>

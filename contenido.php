@@ -71,7 +71,6 @@
             $query2->execute([$numApartado, $numTema]);
             $tituloApartado=$query2->fetch();
             echo '<h1 class="tituloTutorial">'.$tituloApartado['nombre'].'</h1>';
-
             $query="SELECT ruta_imagen, texto, titulo FROM contenido WHERE id_apartado=? AND id_tema=?";
             $query=$conn->prepare($query);
             $query->execute([$numApartado, $numTema]);
@@ -84,7 +83,7 @@
                 if($dato["ruta_imagen"]==null || $dato["ruta_imagen"]==""){
                     echo '<p class="textoTutorial">'.$dato['texto'].'</p>';    
                 }else{
-                echo '<p class="textoTutorial w-65" >'.$dato['texto'].'</p>';    
+                    echo '<p class="textoTutorial w-65" >'.$dato['texto'].'</p>';    
                 }
                 echo '</div>';
             }

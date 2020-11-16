@@ -21,15 +21,18 @@ $(()=>{
     $("#comentarios_contenido").find("form.editar").submit(cambiarComentario);
 
     //Validacion de crear comentario
-    document.getElementById("comenta").addEventListener("blur",()=>{
-        var comentario=document.getElementById("comenta").value;
-        if (comentario == null || comentario.length == 0 || /^\s+$/.test(comentario)) {
-            document.getElementById("comenta").className="form-control error";
-        }
-        else{
-            document.getElementById("comenta").className="form-control";
-        }
-    });
+    if(document.getElementById("comenta")!=null){
+        document.getElementById("comenta").addEventListener("blur",()=>{
+            var comentario=document.getElementById("comenta").value;
+            if (comentario == null || comentario.length == 0 || /^\s+$/.test(comentario)) {
+                document.getElementById("comenta").className="form-control error";
+            }
+            else{
+                document.getElementById("comenta").className="form-control";
+            }
+        });
+    }
+
 });
 
 function verMasComentarios(){
