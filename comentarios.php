@@ -22,7 +22,7 @@
          $i=0;      
         foreach($comentarios as $comentario){
             echo '<div>
-                <p class="comentario">'.$comentario['nombre_usuario'] ." ". $comentario['apellido_usuario']." ". 
+                <p class="comentario">'.$comentario['nombre_usuario'] ." ". $comentario['apellido_usuario'].": <br>". 
                     '<span contentEditable = "false">'.$comentario["comentario"].'</span>'.
                 '</p>
                 <p class="fecha">'.$comentario['fecha'].'</p>';
