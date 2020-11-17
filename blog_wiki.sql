@@ -48,8 +48,8 @@ CREATE TABLE comentario(
 );
 
 INSERT INTO `tema` (`id`, `nombre`, `color_asociado`, `color_texto`) VALUES
-(1, 'PHP', 'blue', 'white'),
-(2, 'JavaScript', 'orange', 'black');
+(1, 'PHP', '#0000FF', '#FFFFFF'),
+(2, 'JavaScript', '#FFA500', '#000000');
 
 
 INSERT INTO `apartado` (`id`, `id_tema`, `nombre`, `fecha`) VALUES
